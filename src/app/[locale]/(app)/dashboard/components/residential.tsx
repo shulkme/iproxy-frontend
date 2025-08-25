@@ -13,7 +13,7 @@ const Residential: React.FC = () => {
   return (
     <Card>
       <Row gutter={[32, 32]}>
-        <Col xs={18} sm={20} md={24} lg={18} xl={20} xxl={16}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={16}>
           <AntdTitle level={5}>Residential Proxies</AntdTitle>
           <AntdParagraph type="secondary" className="mb-8">
             Discover over 200M+ ethically sourced residential IPs for seamless
@@ -76,7 +76,7 @@ const Residential: React.FC = () => {
             </div>
           </div>
         </Col>
-        <Col xs={6} sm={4} md={24} lg={6} xl={4} xxl={8}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={8}>
           <Card
             className="h-full bg-linear-to-bl from-blue-700 to-blue-900 rounded-xl text-white"
             classNames={{
