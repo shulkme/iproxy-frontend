@@ -1,12 +1,123 @@
+'use client';
 import { AntdHeader } from '@/components/antd';
 import {
   RiArrowDownSLine,
+  RiBillLine,
+  RiLogoutBoxRLine,
   RiNotification3Line,
   RiTranslate2,
+  RiUser6Line,
   RiWalletLine,
 } from '@remixicon/react';
-import { Avatar, Button } from 'antd';
+import { Avatar, Badge, Button, Divider, Dropdown } from 'antd';
 import React from 'react';
+
+const LanguageSelector = () => {
+  return (
+    <Dropdown
+      menu={{
+        selectable: true,
+        items: [
+          {
+            label: 'English',
+            key: 'en',
+          },
+          {
+            label: '简体中文',
+            key: 'zh',
+          },
+          {
+            label: '繁體中文',
+            key: 'tw',
+          },
+        ],
+      }}
+    >
+      <Button
+        type="text"
+        className="leading-none rounded-none h-full px-4"
+        icon={<RiTranslate2 size={20} />}
+      >
+        <span>English</span>
+        <RiArrowDownSLine size={16} />
+      </Button>
+    </Dropdown>
+  );
+};
+
+const AccountDropdown = () => {
+  return (
+    <Dropdown
+      menu={{
+        items: [
+          {
+            label: '账户',
+            key: 'account',
+            icon: <RiUser6Line size={16} />,
+          },
+          {
+            label: '发票',
+            key: 'billing',
+            icon: <RiBillLine size={16} />,
+          },
+          {
+            label: '钱包',
+            key: 'wallet',
+            icon: <RiWalletLine size={16} />,
+          },
+          {
+            type: 'divider',
+          },
+          {
+            label: '登出',
+            key: 'logout',
+            icon: <RiLogoutBoxRLine size={16} />,
+            danger: true,
+          },
+        ],
+      }}
+      popupRender={(menu) => (
+        <div className="bg-white rounded-sm shadow-lg min-w-64">
+          <div className="p-4 font-bold">username@example.com</div>
+          <Divider type="horizontal" className="m-0" />
+          {React.cloneElement(
+            menu as React.ReactElement<{
+              className: string;
+            }>,
+            {
+              className: 'shadow-none bg-transparent',
+            },
+          )}
+        </div>
+      )}
+    >
+      <Button
+        type="text"
+        className="leading-none rounded-none h-full px-4"
+        icon={<RiArrowDownSLine size={16} />}
+        iconPosition="end"
+      >
+        <Avatar
+          gap={8}
+          className="bg-(--ant-color-primary) leading-none"
+          size={32}
+        >
+          Na
+        </Avatar>
+      </Button>
+    </Dropdown>
+  );
+};
+
+const NotificationDropdown = () => {
+  return (
+    <Button type="text" className="leading-none rounded-none h-full px-4">
+      <Badge dot>
+        <RiNotification3Line size={20} />
+      </Badge>
+    </Button>
+  );
+};
 
 const Header: React.FC = () => {
   return (
@@ -18,13 +129,8 @@ const Header: React.FC = () => {
             <span>Dashboard</span>
           </div>
           <div className="flex h-full items-center">
-            <Button
-              type="text"
-              className="leading-none rounded-none h-full px-4"
-            >
-              <RiNotification3Line size={20} />
-            </Button>
-            <div className="border-r w-0 h-full border-slate-100"></div>
+            <NotificationDropdown />
+            <div className="border-r w-0 h-full border-slate-100" />
             <Button
               type="text"
               className="leading-none font-bold rounded-none h-full px-4"
@@ -32,30 +138,10 @@ const Header: React.FC = () => {
             >
               $1,234
             </Button>
-            <div className="border-r w-0 h-full border-slate-100"></div>
-            <Button
-              type="text"
-              className="leading-none rounded-none h-full px-4"
-              icon={<RiTranslate2 size={20} />}
-            >
-              <span>English</span>
-              <RiArrowDownSLine size={16} />
-            </Button>
-            <div className="border-r border-slate-100 h-full"></div>
-            <Button
-              type="text"
-              className="leading-none rounded-none h-full px-4"
-              icon={<RiArrowDownSLine size={16} />}
-              iconPosition="end"
-            >
-              <Avatar
-                gap={8}
-                className="bg-(--ant-color-primary) leading-none"
-                size={32}
-              >
-                Na
-              </Avatar>
-            </Button>
+            <div className="border-r w-0 h-full border-slate-100" />
+            <LanguageSelector />
+            <div className="border-r border-slate-100 h-full" />
+            <AccountDropdown />
           </div>
         </div>
       </AntdHeader>

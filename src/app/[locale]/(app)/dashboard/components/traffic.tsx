@@ -40,6 +40,7 @@ const Traffic: React.FC = () => {
             margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
           >
             <Line
+              // type="monotone"
               dataKey="value"
               stroke="var(--ant-color-primary)"
               strokeWidth={2}
@@ -51,8 +52,10 @@ const Traffic: React.FC = () => {
                 strokeWidth: 1,
                 fontSize: 12,
               }}
+              axisLine={false}
             />
             <YAxis
+              axisLine={false}
               tick={{
                 strokeWidth: 1,
                 fontSize: 12,
@@ -62,6 +65,7 @@ const Traffic: React.FC = () => {
               horizontal={true}
               vertical={false}
               strokeDasharray="5 5"
+              strokeWidth={1}
             />
             <Tooltip />
           </LineChart>

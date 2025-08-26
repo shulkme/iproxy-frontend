@@ -13,7 +13,10 @@ const Affiliate: React.FC = () => {
       }}
     >
       <div className="flex items-center gap-4 mb-4">
-        <Avatar shape="square" className="bg-orange-50 text-orange-500">
+        <Avatar
+          shape="square"
+          className="bg-orange-50 text-orange-500 border border-orange-100"
+        >
           <RiGiftLine size={24} />
         </Avatar>
         <AntdTitle level={5} className="m-0">
@@ -22,8 +25,8 @@ const Affiliate: React.FC = () => {
       </div>
       <div>
         <div>
-          Invite friends and get <span className="text-orange-500">10%</span>{' '}
-          commission
+          Invite friends and get{' '}
+          <span className="text-orange-500 font-bold">10%</span> commission
         </div>
       </div>
       <Divider type="horizontal" />

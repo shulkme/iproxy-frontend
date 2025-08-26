@@ -23,7 +23,7 @@ const Tabs: React.FC = () => {
       >
         <AntdRadioButton
           value="1"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
+          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
         >
           <div className="w-full text-left space-y-2">
             <div>
@@ -48,7 +48,7 @@ const Tabs: React.FC = () => {
         </AntdRadioButton>
         <AntdRadioButton
           value="2"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
+          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
         >
           <div className="w-full text-left space-y-2">
             <div>
@@ -74,7 +74,7 @@ const Tabs: React.FC = () => {
         </AntdRadioButton>
         <AntdRadioButton
           value="3"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
+          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
         >
           <div className="w-full text-left space-y-2">
             <div>
@@ -100,7 +100,7 @@ const Tabs: React.FC = () => {
         </AntdRadioButton>
         <AntdRadioButton
           value="4"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
+          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
         >
           <div className="w-full text-left space-y-2">
             <div>
