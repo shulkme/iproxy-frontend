@@ -2,6 +2,7 @@ import NavMenu from '@/app/[locale]/components/nav-menu';
 import { AntdSider } from '@/components/antd';
 import {
   RiFileList3Line,
+  RiGiftLine,
   RiGroupLine,
   RiHomeLine,
   RiHomeOfficeLine,
@@ -65,22 +66,22 @@ const Sidebar: React.FC = () => {
                   children: [
                     {
                       label: 'Residential',
-                      key: '/proxies/residential',
+                      key: '/residential',
                       icon: <RiPinDistanceLine size={18} />,
                     },
                     {
                       label: 'Static ISP',
-                      key: '/proxies/static-isp',
+                      key: '/static-isp',
                       icon: <RiHomeOfficeLine size={18} />,
                     },
                     {
                       label: 'Datacenter',
-                      key: '/proxies/datacenter',
+                      key: '/datacenter',
                       icon: <RiServerLine size={18} />,
                     },
                     {
                       label: 'Mobile',
-                      key: '/proxies/mobile',
+                      key: '/mobile',
                       icon: <RiSmartphoneLine size={18} />,
                     },
                   ],
@@ -92,30 +93,35 @@ const Sidebar: React.FC = () => {
                   children: [
                     {
                       label: 'SERP API',
-                      key: '/scarping/serp-api',
+                      key: '/serp-api',
                       icon: <RiWindowLine size={18} />,
                     },
                   ],
                 },
                 {
-                  label: 'Settings',
-                  key: '/settings',
+                  label: 'Menu',
+                  key: '/menu',
                   type: 'group',
                   children: [
                     {
                       label: 'My Account',
-                      key: '/settings/my-account',
+                      key: '/my-account',
                       icon: <RiUser6Line size={18} />,
                     },
                     {
                       label: 'Sub Account',
-                      key: '/settings/subaccount',
+                      key: '/subaccount',
                       icon: <RiGroupLine size={18} />,
                     },
                     {
                       label: 'Wallet',
-                      key: '/settings/wallet',
+                      key: '/wallet',
                       icon: <RiWalletLine size={18} />,
+                    },
+                    {
+                      label: 'Referral',
+                      key: '/referral',
+                      icon: <RiGiftLine size={18} />,
                     },
                   ],
                 },
@@ -126,17 +132,17 @@ const Sidebar: React.FC = () => {
                   children: [
                     {
                       label: 'Partners',
-                      key: '/help/partners',
+                      key: '/partners',
                       icon: <RiServiceLine size={18} />,
                     },
                     {
                       label: 'Documentation',
-                      key: '/help/documentation',
+                      key: '/documentation',
                       icon: <RiFileList3Line size={18} />,
                     },
                     {
                       label: 'FAQ',
-                      key: '/help/faq',
+                      key: '/faq',
                       icon: <RiQuestionLine size={18} />,
                     },
                   ],
