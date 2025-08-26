@@ -16,7 +16,11 @@ import React from 'react';
 const Tabs: React.FC = () => {
   return (
     <Card>
-      <AntdRadioGroup defaultValue="1" block className="gap-4">
+      <AntdRadioGroup
+        defaultValue="1"
+        block
+        className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 2xl:grid-cols-4 gap-4"
+      >
         <AntdRadioButton
           value="1"
           className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"

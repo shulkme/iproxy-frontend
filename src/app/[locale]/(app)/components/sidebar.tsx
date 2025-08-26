@@ -47,6 +47,7 @@ const Sidebar: React.FC = () => {
           </div>
           <div className="flex-auto overflow-auto">
             <NavMenu
+              className="[&_.ant-menu-item-group-title]:pl-8"
               selectable={false}
               inlineIndent={16}
               theme="dark"
