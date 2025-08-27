@@ -106,7 +106,7 @@ const Sidebar: React.FC = () => {
                   children: [
                     {
                       label: 'My Account',
-                      key: '/my-account',
+                      key: '/settings',
                       icon: <RiUser6Line size={18} />,
                     },
                     {

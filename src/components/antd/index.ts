@@ -28,6 +28,7 @@ const {
 } = Typography;
 
 const { Item: AntdListItem } = AntdList;
+const { Meta: AntdListMeta } = AntdListItem;
 
 const { Group: AntdRadioGroup, Button: AntdRadioButton } = AntdRadio;
 
@@ -47,6 +48,7 @@ export {
   AntdLink,
   AntdList,
   AntdListItem,
+  AntdListMeta,
   AntdParagraph,
   AntdRadio,
   AntdRadioButton,
