@@ -1,5 +1,6 @@
 import Navbar from '@/app/[locale]/components/navbar';
 import { Title } from '@/providers/title';
+import { RiExternalLinkLine } from '@remixicon/react';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
@@ -9,16 +10,21 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       <Navbar
         items={[
           {
-            label: 'Checkout',
-            key: '/proxies/static-isp/checkout',
-          },
-          {
-            label: 'Extraction',
-            key: '/proxies/static-isp/extraction',
+            label: 'Pricing',
+            key: '/proxies/static-isp/pricing',
           },
           {
             label: 'IP List',
             key: '/proxies/static-isp/ip-list',
+          },
+          {
+            label: 'Statistics',
+            key: '/proxies/static-isp/statistics',
+          },
+          {
+            label: 'Guide',
+            key: 'https://www.baidu.com',
+            extra: <RiExternalLinkLine size={14} />,
           },
         ]}
       />

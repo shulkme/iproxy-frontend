@@ -18,7 +18,15 @@ const Navbar: React.FC<{
     >
       <div className="h-12 w-full invisible" />
       <nav className="fixed top-16 right-0 left-[240px] z-50 bg-white border-b border-slate-200 h-12 pl-4">
-        <NavMenu className="border-0" items={items} mode="horizontal" />
+        <NavMenu
+          selectable={false}
+          className="border-0"
+          items={items}
+          mode="horizontal"
+          classNames={{
+            item: '[&_.ant-menu-item-extra]:pl-1',
+          }}
+        />
       </nav>
     </ConfigProvider>
   );

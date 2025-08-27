@@ -12,7 +12,7 @@ const Payment: React.FC = () => {
       <AntdRadioGroup defaultValue={'1'} block className="flex flex-col gap-4">
         <AntdRadio
           value="1"
-          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4"
+          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
             <div className="font-bold">Credit Card</div>
@@ -57,7 +57,7 @@ const Payment: React.FC = () => {
         </AntdRadio>
         <AntdRadio
           value="2"
-          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4"
+          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
             <div className="font-bold">Crypto Currency</div>
@@ -95,7 +95,7 @@ const Payment: React.FC = () => {
         </AntdRadio>
         <AntdRadio
           value="3"
-          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4"
+          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
             <div className="font-bold">Local payments</div>

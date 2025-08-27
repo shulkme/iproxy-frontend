@@ -34,6 +34,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
         return (
           <Link
             href={props.eventKey}
+            target={props.eventKey.startsWith('http') ? '_blank' : '_self'}
             {...attribute}
             className={cn(
               className,

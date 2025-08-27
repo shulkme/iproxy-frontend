@@ -4,7 +4,6 @@ import {
   RiExternalLinkLine,
   RiFileList3Line,
   RiGiftLine,
-  RiGroupLine,
   RiHomeLine,
   RiHomeOfficeLine,
   RiPinDistanceLine,
@@ -109,11 +108,6 @@ const Sidebar: React.FC = () => {
                       label: 'My Account',
                       key: '/my-account',
                       icon: <RiUser6Line size={18} />,
-                    },
-                    {
-                      label: 'Sub Account',
-                      key: '/subaccount',
-                      icon: <RiGroupLine size={18} />,
                     },
                     {
                       label: 'Wallet',
