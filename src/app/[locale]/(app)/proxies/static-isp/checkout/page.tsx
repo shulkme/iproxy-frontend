@@ -1,0 +1,22 @@
+import Features from '@/app/[locale]/(app)/proxies/static-isp/checkout/components/features';
+import Order from '@/app/[locale]/(app)/proxies/static-isp/checkout/components/order';
+import Region from '@/app/[locale]/(app)/proxies/static-isp/checkout/components/region';
+import { Col, Row } from 'antd';
+
+export default function Page() {
+  return (
+    <div className="p-8">
+      <Row gutter={[24, 24]}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
+          <Region />
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={8} xxl={6}>
+          <Order />
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
+          <Features />
+        </Col>
+      </Row>
+    </div>
+  );
+}

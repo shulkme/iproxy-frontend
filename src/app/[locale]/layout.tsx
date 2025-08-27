@@ -1,6 +1,7 @@
 import NProgressBar from '@/app/[locale]/components/nprogress-bar';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from '@/providers/theme';
+import { TitleProvider } from '@/providers/title';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
@@ -39,7 +40,9 @@ export default async function LocaleLayout({
                 showSpinner: false,
               }}
             />
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+            <NextIntlClientProvider>
+              <TitleProvider>{children}</TitleProvider>
+            </NextIntlClientProvider>
           </ThemeProvider>
         </AntdRegistry>
       </body>

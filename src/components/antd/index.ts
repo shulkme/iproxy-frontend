@@ -1,10 +1,11 @@
 'use client';
 import {
+  DatePicker as AntdDatePicker,
   Form as AntdForm,
+  Input as AntdInput,
   Layout as AntdLayout,
   List as AntdList,
-  Input,
-  Radio,
+  Radio as AntdRadio,
   Typography,
 } from 'antd';
 
@@ -17,7 +18,7 @@ const {
 
 const { Item: AntdFormItem } = AntdForm;
 
-const { Password: AntdInputPassword } = Input;
+const { Password: AntdInputPassword } = AntdInput;
 
 const {
   Title: AntdTitle,
@@ -28,20 +29,26 @@ const {
 
 const { Item: AntdListItem } = AntdList;
 
-const { Group: AntdRadioGroup, Button: AntdRadioButton } = Radio;
+const { Group: AntdRadioGroup, Button: AntdRadioButton } = AntdRadio;
+
+const { RangePicker: AntdDateRangePicker } = AntdDatePicker;
 
 export {
   AntdContent,
+  AntdDatePicker,
+  AntdDateRangePicker,
   AntdFooter,
   AntdForm,
   AntdFormItem,
   AntdHeader,
+  AntdInput,
   AntdInputPassword,
   AntdLayout,
   AntdLink,
   AntdList,
   AntdListItem,
   AntdParagraph,
+  AntdRadio,
   AntdRadioButton,
   AntdRadioGroup,
   AntdSider,

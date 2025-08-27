@@ -5,6 +5,17 @@
 
 @theme {
   --color-background: oklch(255 0 0);
+
+  --color-primary-50: #e6f4ff;
+  --color-primary-100: #a3d3ff;
+  --color-primary-200: #7abaff;
+  --color-primary-300: #52a0ff;
+  --color-primary-400: #2982ff;
+  --color-primary-500: #0062ff;
+  --color-primary-600: #004cd9;
+  --color-primary-700: #0039b3;
+  --color-primary-800: #00288c;
+  --color-primary-900: #001a66;
 }
 
 @layer base {

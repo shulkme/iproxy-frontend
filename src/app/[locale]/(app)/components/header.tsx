@@ -1,5 +1,6 @@
 'use client';
 import { AntdHeader } from '@/components/antd';
+import { useTitle } from '@/providers/title';
 import {
   RiArrowDownSLine,
   RiBillLine,
@@ -120,13 +121,14 @@ const NotificationDropdown = () => {
 };
 
 const Header: React.FC = () => {
+  const { title } = useTitle();
   return (
     <>
       <AntdHeader className="h-16 invisible" />
       <AntdHeader className="fixed top-0 right-0 left-[240px] z-50 h-16 border-b border-slate-200 bg-white">
         <div className="h-full flex items-center justify-between pl-8">
           <div className="text-sm font-bold">
-            <span>Dashboard</span>
+            <span>{title}</span>
           </div>
           <div className="flex h-full items-center">
             <NotificationDropdown />

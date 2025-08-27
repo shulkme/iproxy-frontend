@@ -1,7 +1,7 @@
-import { AntdTitle } from '@/components/antd';
+import { AntdInput, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import { RiFileCopyLine, RiGiftLine } from '@remixicon/react';
-import { Avatar, Card, Divider, Input } from 'antd';
+import { Avatar, Card, Divider } from 'antd';
 import React from 'react';
 
 const Affiliate: React.FC = () => {
@@ -42,14 +42,14 @@ const Affiliate: React.FC = () => {
       <Divider type="horizontal" dashed />
       <div className="space-y-4">
         <div>
-          <Input
+          <AntdInput
             prefix={<span className="text-black/50">Invitation Code:</span>}
             value="xxxxxx"
             suffix={<RiFileCopyLine size={16} />}
           />
         </div>
         <div>
-          <Input
+          <AntdInput
             prefix={<span className="text-black/50">Invitation Link:</span>}
             value="https://www.example.com/inviteCode=xxxxxx"
             suffix={<RiFileCopyLine size={16} />}

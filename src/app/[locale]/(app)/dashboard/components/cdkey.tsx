@@ -1,5 +1,5 @@
-import { AntdTitle } from '@/components/antd';
-import { Button, Card, Input } from 'antd';
+import { AntdInput, AntdTitle } from '@/components/antd';
+import { Button, Card } from 'antd';
 import React from 'react';
 
 const CDKey: React.FC = () => {
@@ -9,7 +9,7 @@ const CDKey: React.FC = () => {
         Exchange CDKey
       </AntdTitle>
       <div>
-        <Input
+        <AntdInput
           placeholder="CDKey"
           size="small"
           suffix={

@@ -1,6 +1,7 @@
 import NavMenu from '@/app/[locale]/components/nav-menu';
 import { AntdSider } from '@/components/antd';
 import {
+  RiExternalLinkLine,
   RiFileList3Line,
   RiGiftLine,
   RiGroupLine,
@@ -29,6 +30,7 @@ const Sidebar: React.FC = () => {
             groupTitleFontSize: 12,
             iconMarginInlineEnd: 12,
             darkItemColor: '#fff',
+            darkItemHoverBg: 'rgba(255,255,255,0.1)',
           },
         },
       }}
@@ -41,7 +43,7 @@ const Sidebar: React.FC = () => {
         className="fixed top-0 left-0 bottom-0 z-50"
       >
         <div className="h-full flex flex-col">
-          <div className="flex-none w-full h-16 flex items-center px-6">
+          <div className="flex-none w-full h-16 flex items-center px-8">
             <h1 className="text-2xl font-bold text-white">
               {process.env.NEXT_PUBLIC_APP_NAME}
             </h1>
@@ -66,22 +68,22 @@ const Sidebar: React.FC = () => {
                   children: [
                     {
                       label: 'Residential',
-                      key: '/residential',
+                      key: '/proxies/residential',
                       icon: <RiPinDistanceLine size={18} />,
                     },
                     {
                       label: 'Static ISP',
-                      key: '/static-isp',
+                      key: '/proxies/static-isp',
                       icon: <RiHomeOfficeLine size={18} />,
                     },
                     {
                       label: 'Datacenter',
-                      key: '/datacenter',
+                      key: '/proxies/datacenter',
                       icon: <RiServerLine size={18} />,
                     },
                     {
                       label: 'Mobile',
-                      key: '/mobile',
+                      key: '/proxies/mobile',
                       icon: <RiSmartphoneLine size={18} />,
                     },
                   ],
@@ -93,7 +95,7 @@ const Sidebar: React.FC = () => {
                   children: [
                     {
                       label: 'SERP API',
-                      key: '/serp-api',
+                      key: '/scarping/serp-api',
                       icon: <RiWindowLine size={18} />,
                     },
                   ],
@@ -139,11 +141,13 @@ const Sidebar: React.FC = () => {
                       label: 'Documentation',
                       key: '/documentation',
                       icon: <RiFileList3Line size={18} />,
+                      extra: <RiExternalLinkLine size={14} />,
                     },
                     {
                       label: 'FAQ',
                       key: '/faq',
                       icon: <RiQuestionLine size={18} />,
+                      extra: <RiExternalLinkLine size={14} />,
                     },
                   ],
                 },
