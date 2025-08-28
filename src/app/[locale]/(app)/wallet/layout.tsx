@@ -10,11 +10,19 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         items={[
           {
             label: 'Balance Recharge',
-            key: '/wallet/recharge',
+            key: 'wallet:recharge',
+            meta: {
+              href: '/wallet/recharge',
+              group: '/wallet/recharge',
+            },
           },
           {
             label: 'Transactions',
-            key: '/wallet/transactions',
+            key: 'wallet:transactions',
+            meta: {
+              href: '/wallet/transactions',
+              group: '/wallet/transactions',
+            },
           },
         ]}
       />

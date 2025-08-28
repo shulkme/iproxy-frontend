@@ -26,6 +26,9 @@ export default function Page() {
         </div>
         <div>
           <Table
+            scroll={{
+              x: 1200,
+            }}
             columns={[
               {
                 title: 'Referral username',

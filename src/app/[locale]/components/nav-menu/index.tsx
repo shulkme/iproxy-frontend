@@ -4,7 +4,16 @@ import { cn } from '@/utils/classname';
 import { GetProp, Menu, MenuProps } from 'antd';
 import React from 'react';
 
-export type NavMenuItemType = GetProp<MenuProps, 'items'>[number];
+export interface NavMenuMeta {
+  group?: string;
+  href?: string;
+  target?: '_blank' | '_self';
+}
+
+export type NavMenuItemType = GetProp<MenuProps, 'items'>[number] & {
+  meta?: NavMenuMeta;
+  children?: NavMenuItemType[];
+};
 
 interface NavMenuProps extends Omit<MenuProps, 'items'> {
   items: NavMenuItemType[];
@@ -27,14 +36,12 @@ const NavMenu: React.FC<NavMenuProps> = ({
       _internalRenderMenuItem={(dom, props) => {
         const { title, attribute, className, elementRef, ...restProps } =
           dom.props;
-        const isSelected =
-          props.eventKey === '/'
-            ? pathname === props.eventKey
-            : pathname.startsWith(props.eventKey);
+        const { href, group, target } = props?.meta as NavMenuMeta;
+        const isSelected = pathname.startsWith(group || href || '/');
         return (
           <Link
-            href={props.eventKey}
-            target={props.eventKey.startsWith('http') ? '_blank' : '_self'}
+            href={href}
+            target={target}
             {...attribute}
             className={cn(
               className,

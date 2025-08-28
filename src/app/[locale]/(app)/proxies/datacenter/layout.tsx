@@ -11,20 +11,36 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         items={[
           {
             label: 'Pricing',
-            key: '/proxies/datacenter/pricing',
+            key: 'proxies:datacenter:pricing',
+            meta: {
+              href: '/proxies/datacenter/pricing',
+              group: '/proxies/datacenter/pricing',
+            },
           },
           {
             label: 'IP List',
-            key: '/proxies/datacenter/ip-list',
+            key: 'proxies:datacenter:ip-list',
+            meta: {
+              href: '/proxies/datacenter/ip-list',
+              group: '/proxies/datacenter/ip-list',
+            },
           },
           {
             label: 'Statistics',
-            key: '/proxies/datacenter/statistics',
+            key: 'proxies:datacenter:statistics',
+            meta: {
+              href: '/proxies/datacenter/statistics',
+              group: '/proxies/datacenter/statistics',
+            },
           },
           {
             label: 'Guide',
-            key: 'https://www.baidu.com',
+            key: 'proxies:datacenter:guide',
             extra: <RiExternalLinkLine size={14} />,
+            meta: {
+              href: 'https://www.baidu.com',
+              target: '_blank',
+            },
           },
         ]}
       />

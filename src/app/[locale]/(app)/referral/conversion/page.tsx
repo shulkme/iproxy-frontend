@@ -6,6 +6,9 @@ export default function Page() {
       <Card>
         <div>
           <Table
+            scroll={{
+              x: 1200,
+            }}
             columns={[
               {
                 title: 'Conversion traffic (GB)',

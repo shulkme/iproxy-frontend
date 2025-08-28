@@ -57,91 +57,139 @@ const Sidebar: React.FC = () => {
               items={[
                 {
                   label: 'Dashboard',
-                  key: '/dashboard',
+                  key: 'dashboard',
                   icon: <RiHomeLine size={18} />,
+                  meta: {
+                    href: '/dashboard',
+                    group: '/dashboard',
+                  },
                 },
                 {
                   label: 'Proxies',
-                  key: '/proxies',
+                  key: 'proxies',
                   type: 'group',
                   children: [
                     {
                       label: 'Residential',
-                      key: '/proxies/residential',
+                      key: 'proxies:residential',
                       icon: <RiPinDistanceLine size={18} />,
+                      meta: {
+                        href: '/proxies/residential/pricing',
+                        group: '/proxies/residential',
+                      },
                     },
                     {
                       label: 'Static ISP',
-                      key: '/proxies/static-isp',
+                      key: 'proxies:static-isp',
                       icon: <RiHomeOfficeLine size={18} />,
+                      meta: {
+                        href: '/proxies/static-isp/pricing',
+                        group: '/proxies/static-isp',
+                      },
                     },
                     {
                       label: 'Datacenter',
-                      key: '/proxies/datacenter',
+                      key: 'proxies:datacenter',
                       icon: <RiServerLine size={18} />,
+                      meta: {
+                        href: '/proxies/datacenter/pricing',
+                        group: '/proxies/datacenter',
+                      },
                     },
                     {
                       label: 'Mobile',
-                      key: '/proxies/mobile',
+                      key: 'proxies:mobile',
                       icon: <RiSmartphoneLine size={18} />,
+                      meta: {
+                        href: '/proxies/mobile/pricing',
+                        group: '/proxies/mobile',
+                      },
                     },
                   ],
                 },
                 {
                   label: 'Scarping',
-                  key: '/scarping',
+                  key: 'scarping',
                   type: 'group',
                   children: [
                     {
                       label: 'SERP API',
-                      key: '/scarping/serp-api',
+                      key: 'scarping:serp-api',
                       icon: <RiWindowLine size={18} />,
+                      meta: {
+                        href: '/scarping/serp-api',
+                        group: '/scarping/serp-api',
+                      },
                     },
                   ],
                 },
                 {
                   label: 'Menu',
-                  key: '/menu',
+                  key: 'menu',
                   type: 'group',
                   children: [
                     {
                       label: 'My Account',
-                      key: '/settings',
+                      key: 'menu:settings',
                       icon: <RiUser6Line size={18} />,
+                      meta: {
+                        href: '/settings/my-account',
+                        group: '/settings',
+                      },
                     },
                     {
                       label: 'Wallet',
-                      key: '/wallet',
+                      key: 'menu:wallet',
                       icon: <RiWalletLine size={18} />,
+                      meta: {
+                        href: '/wallet/recharge',
+                        group: '/wallet',
+                      },
                     },
                     {
                       label: 'Referral',
-                      key: '/referral',
+                      key: 'menu:referral',
                       icon: <RiGiftLine size={18} />,
+                      meta: {
+                        href: '/referral/program',
+                        group: '/referral',
+                      },
                     },
                   ],
                 },
                 {
                   label: 'Help',
-                  key: '/help',
+                  key: 'help',
                   type: 'group',
                   children: [
                     {
                       label: 'Partners',
-                      key: '/partners',
+                      key: 'help:partners',
                       icon: <RiServiceLine size={18} />,
+                      meta: {
+                        href: '/partners',
+                        group: '/partners',
+                      },
                     },
                     {
                       label: 'Documentation',
-                      key: '/documentation',
+                      key: 'help:documentation',
                       icon: <RiFileList3Line size={18} />,
                       extra: <RiExternalLinkLine size={14} />,
+                      meta: {
+                        href: 'https://documentation',
+                        target: '_blank',
+                      },
                     },
                     {
                       label: 'FAQ',
-                      key: '/faq',
+                      key: 'help:faq',
                       icon: <RiQuestionLine size={18} />,
                       extra: <RiExternalLinkLine size={14} />,
+                      meta: {
+                        href: 'https://xxxx',
+                        target: '_blank',
+                      },
                     },
                   ],
                 },
