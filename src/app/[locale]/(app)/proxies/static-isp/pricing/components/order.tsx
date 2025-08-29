@@ -81,9 +81,9 @@ const Order: React.FC = () => {
             <div>
               <ul className="space-y-1">
                 <li>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <label className="text-black/50">Total</label>
-                    <span className="font-medium">$500.00</span>
+                    <span className="font-bold text-2xl">$500.00</span>
                   </div>
                 </li>
               </ul>

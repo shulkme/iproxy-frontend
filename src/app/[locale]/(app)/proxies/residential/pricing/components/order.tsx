@@ -1,4 +1,5 @@
 import { AntdTitle } from '@/components/antd';
+import { RiCheckLine } from '@remixicon/react';
 import { Avatar, Button, Card, Divider, InputNumber } from 'antd';
 import React from 'react';
 
@@ -35,19 +36,45 @@ const Order: React.FC = () => {
               <AntdTitle level={5} className="m-0">
                 Order Summary
               </AntdTitle>
-              <Button size="small" type="text">
-                Clear
-              </Button>
             </div>
           </div>
           <div className="flex-auto px-6 overflow-auto">
-            <ul className="space-y-4">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <li key={i}>
-                  <SkuItem />
+            <div className="border border-(--ant-color-primary) p-4 relative">
+              <div className="absolute right-1 top-1 border-[6px] border-(--ant-color-primary) border-b-transparent border-l-transparent"></div>
+              <h2 className="text-2xl font-bold mb-4">10GB</h2>
+              <ul>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">
+                    <RiCheckLine size={14} />
+                  </span>
+                  <span>100M+ residential IP</span>
                 </li>
-              ))}
-            </ul>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">
+                    <RiCheckLine size={14} />
+                  </span>
+                  <span>99.7% success rate</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">
+                    <RiCheckLine size={14} />
+                  </span>
+                  <span>Rotating/Sticky sessions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">
+                    <RiCheckLine size={14} />
+                  </span>
+                  <span>Unlimited Threads</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">
+                    <RiCheckLine size={14} />
+                  </span>
+                  <span>Supports HTTP(S)& SOCKS5</span>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="flex-none p-6 space-y-4">
             <div>
@@ -57,8 +84,8 @@ const Order: React.FC = () => {
               <ul className="space-y-1">
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">IP amount</label>
-                    <span className="font-medium">x100</span>
+                    <label className="text-black/50">Price per GB</label>
+                    <span className="font-medium">$3.50/GB</span>
                   </div>
                 </li>
                 <li>
@@ -70,7 +97,7 @@ const Order: React.FC = () => {
                 <li>
                   <div className="flex justify-between">
                     <label className="text-black/50">Subtotal</label>
-                    <span className="font-medium">$500.00</span>
+                    <span className="font-medium">$35.00</span>
                   </div>
                 </li>
               </ul>
@@ -83,7 +110,7 @@ const Order: React.FC = () => {
                 <li>
                   <div className="flex justify-between items-center">
                     <label className="text-black/50">Total</label>
-                    <span className="font-bold text-2xl">$500.00</span>
+                    <span className="font-bold text-2xl">$35.00</span>
                   </div>
                 </li>
               </ul>

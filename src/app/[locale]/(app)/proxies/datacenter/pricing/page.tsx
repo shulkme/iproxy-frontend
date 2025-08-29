@@ -8,13 +8,13 @@ export default function Page() {
     <div className="p-8">
       <Row gutter={[24, 24]}>
         <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
-          <Region />
+          <div className="space-y-8">
+            <Region />
+            <Features />
+          </div>
         </Col>
         <Col xs={24} sm={24} md={24} lg={24} xl={8} xxl={6}>
           <Order />
-        </Col>
-        <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
-          <Features />
         </Col>
       </Row>
     </div>
