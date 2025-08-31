@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
-    <AntdLayout hasSider className="min-h-screen">
+    <AntdLayout hasSider className="min-h-screen bg-slate-100">
       <Sidebar />
       <AntdLayout>
         <Header />

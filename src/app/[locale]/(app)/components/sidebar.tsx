@@ -10,6 +10,7 @@ import {
   RiQuestionLine,
   RiServerLine,
   RiServiceLine,
+  RiSettingsLine,
   RiSmartphoneLine,
   RiUser6Line,
   RiWalletLine,
@@ -103,6 +104,15 @@ const Sidebar: React.FC = () => {
                       meta: {
                         href: '/proxies/mobile/pricing',
                         group: '/proxies/mobile',
+                      },
+                    },
+                    {
+                      label: 'Settings',
+                      key: 'proxies:settings',
+                      icon: <RiSettingsLine size={18} />,
+                      meta: {
+                        href: '/proxies/settings/sub-account',
+                        group: '/proxies/settings',
                       },
                     },
                   ],

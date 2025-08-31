@@ -1,5 +1,5 @@
-import Generator from '@/app/[locale]/(app)/proxies/residential/setup/components/generator';
-import Result from '@/app/[locale]/(app)/proxies/residential/setup/components/result';
+import Generator from '@/app/[locale]/(app)/proxies/mobile/setup/components/generator';
+import Result from '@/app/[locale]/(app)/proxies/mobile/setup/components/result';
 import { Col, Row } from 'antd';
 
 export default function Page() {

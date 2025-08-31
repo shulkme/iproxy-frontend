@@ -18,7 +18,7 @@ const {
 
 const { Item: AntdFormItem } = AntdForm;
 
-const { Password: AntdInputPassword } = AntdInput;
+const { Password: AntdInputPassword, TextArea: AntdTextArea } = AntdInput;
 
 const {
   Title: AntdTitle,
@@ -55,5 +55,6 @@ export {
   AntdRadioGroup,
   AntdSider,
   AntdText,
+  AntdTextArea,
   AntdTitle,
 };
