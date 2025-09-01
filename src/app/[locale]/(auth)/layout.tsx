@@ -1,4 +1,3 @@
-'use client';
 import Cover from '@/app/[locale]/(auth)/components/cover';
 import {
   AntdContent,
@@ -8,28 +7,23 @@ import {
   AntdSider,
 } from '@/components/antd';
 import { RiGlobalLine } from '@remixicon/react';
-import { useResponsive } from 'ahooks';
 import { Select } from 'antd';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
-  const responsive = useResponsive();
-
   return (
-    <AntdLayout className="min-h-screen" hasSider={responsive.lg}>
-      {responsive.lg && (
-        <AntdSider
-          collapsible
-          breakpoint="lg"
-          collapsedWidth={0}
-          theme="light"
-          width={'35%'}
-          className="bg-gray-50 relative"
-          trigger={null}
-        >
-          <Cover />
-        </AntdSider>
-      )}
+    <AntdLayout className="min-h-screen" hasSider>
+      <AntdSider
+        collapsible
+        breakpoint="lg"
+        collapsedWidth={0}
+        theme="light"
+        width={'35%'}
+        className="bg-gray-50 relative"
+        trigger={null}
+      >
+        <Cover />
+      </AntdSider>
       <AntdLayout>
         <AntdHeader>
           <div className="flex justify-end p-8 pb-0">
