@@ -1,6 +1,7 @@
 import NProgressBar from '@/app/[locale]/components/nprogress-bar';
 import { routing } from '@/i18n/routing';
 import { IdentityProvider } from '@/providers/identity';
+import { LanguageProvider } from '@/providers/language';
 import { ThemeProvider } from '@/providers/theme';
 import { TitleProvider } from '@/providers/title';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
@@ -42,9 +43,11 @@ export default async function LocaleLayout({
               }}
             />
             <NextIntlClientProvider>
-              <IdentityProvider>
-                <TitleProvider>{children}</TitleProvider>
-              </IdentityProvider>
+              <LanguageProvider>
+                <IdentityProvider>
+                  <TitleProvider>{children}</TitleProvider>
+                </IdentityProvider>
+              </LanguageProvider>
             </NextIntlClientProvider>
           </ThemeProvider>
         </AntdRegistry>

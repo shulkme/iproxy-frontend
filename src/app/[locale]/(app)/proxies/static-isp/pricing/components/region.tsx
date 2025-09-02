@@ -1,4 +1,5 @@
 'use client';
+import { getAllPackages } from '@/apis/packages';
 import {
   AntdForm,
   AntdFormItem,
@@ -8,8 +9,12 @@ import {
   AntdText,
   AntdTitle,
 } from '@/components/antd';
+import continents from '@/constants/continents';
+import { useRequest } from 'ahooks';
 import { Avatar, Card, Divider } from 'antd';
-import React from 'react';
+import { useTranslations } from 'next-intl';
+import { group } from 'radash';
+import React, { useState } from 'react';
 
 const RegionItem = () => {
   return (
@@ -32,9 +37,36 @@ const RegionItem = () => {
 
 const Region: React.FC = () => {
   const [form] = AntdForm.useForm();
-  // const {loading} = useRequest(getAllPackages, {
-  //   manual: true,
-  // });
+  const t = useTranslations();
+  const [continentOptions, setContinentOptions] = useState<
+    {
+      label: string;
+      value: string;
+    }[]
+  >([]);
+
+  const { loading } = useRequest(getAllPackages, {
+    onSuccess: (res) => {
+      const list = group(res.data, (f) => f.continent);
+      const continentKeys = Object.keys(list);
+      setContinentOptions(
+        continentKeys.map((key) => {
+          const locale = continents.find((f) => f.code === key)?.locale;
+          if (locale) {
+            return {
+              label: t(locale),
+              value: key,
+            };
+          }
+          return {
+            label: key,
+            value: key,
+          };
+        }),
+      );
+      console.log(list);
+    },
+  });
 
   return (
     <Card>
@@ -95,36 +127,15 @@ const Region: React.FC = () => {
               >
                 All
               </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="america"
-              >
-                America
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="europe"
-              >
-                Europe
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="aisa"
-              >
-                Aisa
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="africa"
-              >
-                Africa
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="oceania"
-              >
-                Oceania
-              </AntdRadioButton>
+              {continentOptions.map((option) => (
+                <AntdRadioButton
+                  key={option.value}
+                  className="border rounded-xs before:hidden px-6"
+                  value={option.value}
+                >
+                  {option.label}
+                </AntdRadioButton>
+              ))}
             </AntdRadioGroup>
           </AntdFormItem>
         </AntdForm>

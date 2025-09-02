@@ -1,7 +1,9 @@
 'use client';
 import { AntdHeader } from '@/components/antd';
+import { languages, Locale } from '@/i18n/config';
 import { useRouter } from '@/i18n/navigation';
 import { useIdentity } from '@/providers/identity';
+import { useLanguage } from '@/providers/language';
 import { useTitle } from '@/providers/title';
 import { getInitials } from '@/utils/string';
 import {
@@ -17,24 +19,22 @@ import { Avatar, Badge, Button, Divider, Dropdown, MenuProps } from 'antd';
 import React from 'react';
 
 const LanguageSelector = () => {
+  const { locale, setLocale, language } = useLanguage();
+
+  const handleLanguageChange: MenuProps['onClick'] = ({ key }) => {
+    setLocale(key as Locale);
+  };
   return (
     <Dropdown
       menu={{
+        onClick: handleLanguageChange,
+        selectedKeys: [locale],
         selectable: true,
-        items: [
-          {
-            label: 'English',
-            key: 'en',
-          },
-          {
-            label: '简体中文',
-            key: 'zh',
-          },
-          {
-            label: '繁體中文',
-            key: 'tw',
-          },
-        ],
+        items: languages.map((lang) => ({
+          key: lang.value,
+          label: lang.label,
+          disabled: lang.disabled,
+        })),
       }}
     >
       <Button
@@ -42,7 +42,7 @@ const LanguageSelector = () => {
         className="leading-none rounded-none h-full px-4"
         icon={<RiTranslate2 size={20} />}
       >
-        <span>English</span>
+        <span>{language}</span>
         <RiArrowDownSLine size={16} />
       </Button>
     </Dropdown>

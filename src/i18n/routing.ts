@@ -1,11 +1,11 @@
-import languages from '@/i18n/languages';
+import { defaultLocale, locales } from '@/i18n/config';
 import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: Object.keys(languages),
+  locales,
   // Used when no locale matches
-  defaultLocale: 'en',
+  defaultLocale,
 
   localePrefix: 'as-needed',
 });
