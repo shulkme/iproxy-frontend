@@ -36,5 +36,17 @@
       "oc": "Oceania",
       "an": "Antarctica"
     }
+  },
+  "app": {
+    "proxies": {
+      "ip": {
+        "status": {
+          "active": "Active",
+          "inactive": "Inactive",
+          "expired": "Expired",
+          "deleted": "Deleted"
+        }
+      }
+    }
   }
 }

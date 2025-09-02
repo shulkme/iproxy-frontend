@@ -46,11 +46,7 @@ export default function Page() {
 
   const { submit } = search;
 
-  const onFormValuesChange: FormProps['onValuesChange'] = (
-    changedValues,
-    values,
-  ) => {
-    console.log(values);
+  const onFormValuesChange: FormProps['onValuesChange'] = (changedValues) => {
     if (!Object.keys(changedValues).includes('order_id')) submit();
   };
 

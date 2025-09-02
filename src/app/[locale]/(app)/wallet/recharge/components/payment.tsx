@@ -16,7 +16,7 @@ const Payment: React.FC = () => {
         case 'credit':
           return await checkoutByStripe({
             mode: 'payment',
-            amount,
+            amount: amount * 100,
             product_data: {
               name: '余额',
               description: '余额充值',
