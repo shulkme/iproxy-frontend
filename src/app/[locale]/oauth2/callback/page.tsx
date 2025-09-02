@@ -14,7 +14,7 @@ export default function Page() {
     if (origin_uri) {
       redirect(origin_uri);
     } else {
-      redirect('/dashboard');
+      redirect('/login');
     }
   }, [origin_uri, access_token]);
   return;

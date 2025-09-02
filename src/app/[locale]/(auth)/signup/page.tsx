@@ -8,28 +8,21 @@ import {
   AntdInputPassword,
   AntdTitle,
 } from '@/components/antd';
-import { Link, useRouter } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import Google from '@/icons/google';
-import { useIdentity } from '@/providers/identity';
-import { setToken } from '@/utils/token';
 import { useRequest } from 'ahooks';
-import { Alert, Button, Checkbox, Divider, FormProps } from 'antd';
-import { useSearchParams } from 'next/navigation';
+import { Alert, Button, Checkbox, Divider, FormProps, Result } from 'antd';
 import { useState } from 'react';
 
 export default function Page() {
-  const { setUser } = useIdentity();
   const [form] = AntdForm.useForm();
   const [errMsg, setErrMsg] = useState<string>();
-  const router = useRouter();
-
-  const searchParams = useSearchParams();
-
-  const redirect = searchParams.get('redirect') || '/dashboard';
+  const [showResult, setShowResult] = useState(false);
+  const [email, setEmail] = useState<string>();
 
   const { run: getGoogleAuth, loading: googleLoading } = useRequest(
     async () => {
-      return await getGoogleAuthLink(window.location.hostname + redirect);
+      return await getGoogleAuthLink(window.location.href);
     },
     {
       manual: true,
@@ -44,13 +37,10 @@ export default function Page() {
 
   const { run: doSubmit, loading: submitting } = useRequest(registerUser, {
     manual: true,
-    onSuccess: (res) => {
-      const { access_token, user } = res.data;
-      setUser(user);
-      setToken(access_token);
+    onSuccess: () => {
       setErrMsg(undefined);
       form.resetFields();
-      router.replace('/dashboard');
+      setShowResult(true);
     },
     onError: (e) => {
       setErrMsg(e.message);
@@ -58,9 +48,33 @@ export default function Page() {
   });
 
   const onFinish: FormProps['onFinish'] = (values) => {
+    setEmail(values?.email);
     doSubmit(values);
   };
-  return (
+
+  return showResult ? (
+    <>
+      <Result
+        status="success"
+        title={'Verify Your Email'}
+        subTitle={
+          <div className="space-y-4">
+            <div>We&#39;ve sent a confirmation link to</div>
+            <div className="font-medium text-black text-base">{email}</div>
+            <div>
+              Please check your email to complete the final step of
+              registration. Your link will be active for 30 minutes.
+            </div>
+          </div>
+        }
+        extra={[
+          <Button href="/login" block type="primary" key="back" size="large">
+            Back to login
+          </Button>,
+        ]}
+      />
+    </>
+  ) : (
     <>
       <AntdTitle level={2} className="mb-8 mt-0 text-center">
         Create an account

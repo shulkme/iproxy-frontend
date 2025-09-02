@@ -10,7 +10,6 @@ export interface UserRecord {
 
 export interface UserData {
   email: string;
-  email_code: string;
   password: string;
 }
 
@@ -21,8 +20,10 @@ export interface ChangePasswordData {
 }
 
 export interface ResetPasswordData {
-  email: string;
   code: string;
   new_password: string;
-  confirm_password: string;
+}
+
+export interface SendPasswordEmailData {
+  email: string;
 }

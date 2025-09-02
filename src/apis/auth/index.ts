@@ -2,12 +2,19 @@ import { LoginData, LoginResult } from '@/apis/auth/types';
 import request from '@/apis/request';
 import { HttpResponse } from '@/apis/types';
 
+/**
+ * 登录
+ * @param data
+ */
 export async function login(
   data: LoginData,
 ): Promise<HttpResponse<LoginResult>> {
   return await request.post('/auth/login', data);
 }
 
+/**
+ * 登出
+ */
 export async function logout() {
   return await request.post('/auth/logout');
 }
