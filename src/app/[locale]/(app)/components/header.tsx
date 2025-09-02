@@ -2,6 +2,7 @@
 import { AntdHeader } from '@/components/antd';
 import { languages, Locale } from '@/i18n/config';
 import { useRouter } from '@/i18n/navigation';
+import { useCredit } from '@/providers/credit';
 import { useIdentity } from '@/providers/identity';
 import { useLanguage } from '@/providers/language';
 import { useTitle } from '@/providers/title';
@@ -142,6 +143,7 @@ const NotificationDropdown = () => {
 
 const Header: React.FC = () => {
   const { title } = useTitle();
+  const { available, loading } = useCredit();
   return (
     <>
       <AntdHeader className="h-16 invisible" />
@@ -154,11 +156,12 @@ const Header: React.FC = () => {
             <NotificationDropdown />
             <div className="border-r w-0 h-full border-slate-100" />
             <Button
+              loading={loading}
               type="text"
               className="leading-none font-bold rounded-none h-full px-4"
               icon={<RiWalletLine size={20} />}
             >
-              $1,234
+              $ {available.toLocaleString()}
             </Button>
             <div className="border-r w-0 h-full border-slate-100" />
             <LanguageSelector />

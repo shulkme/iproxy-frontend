@@ -1,11 +1,25 @@
-import { AntdParagraph, AntdText, AntdTitle } from '@/components/antd';
+'use client';
+import { useRecharge } from '@/app/[locale]/(app)/wallet/recharge/context';
+import {
+  AntdParagraph,
+  AntdSkeletonButton,
+  AntdText,
+  AntdTitle,
+} from '@/components/antd';
 import InputNumber from '@/components/antd/input-number';
 import { Link } from '@/i18n/navigation';
 import WalletIcon from '@/icons/wallet-icon';
+import { useCredit } from '@/providers/credit';
 import { Button, Card, ConfigProvider, Space } from 'antd';
 import React from 'react';
 
 const Exchange: React.FC = () => {
+  const { available, loading } = useCredit();
+  const { amount, setAmount } = useRecharge();
+
+  const handlePresetChange = (value: number) => {
+    setAmount((prev) => prev + value);
+  };
   return (
     <>
       <Card>
@@ -19,12 +33,16 @@ const Exchange: React.FC = () => {
               <AntdParagraph strong className="m-0">
                 Current Balance
               </AntdParagraph>
-              <AntdTitle level={3} className="m-0">
-                $1,234
-              </AntdTitle>
+              {loading ? (
+                <AntdSkeletonButton />
+              ) : (
+                <AntdTitle level={3} className="m-0">
+                  $ {available.toLocaleString()}
+                </AntdTitle>
+              )}
             </div>
             <div className="flex-none">
-              <Link href="/transactions">Transaction Details</Link>
+              <Link href="/wallet/transactions">Transaction Details</Link>
             </div>
           </div>
         </div>
@@ -44,23 +62,24 @@ const Exchange: React.FC = () => {
           >
             <div>
               <InputNumber
+                value={amount}
                 style={{ width: 200 }}
-                defaultValue={100}
                 size="large"
                 variant="underlined"
                 prefix={<span className="text-3xl">$</span>}
                 min={100}
                 max={10000}
                 step={1}
+                onChange={(v) => setAmount(v as number)}
               />
             </div>
             <div className="mt-8">
               <Space size="middle">
-                <Button>+$10</Button>
-                <Button>+$50</Button>
-                <Button>+$100</Button>
-                <Button>+$500</Button>
-                <Button>+$1000</Button>
+                <Button onClick={() => handlePresetChange(10)}>+$10</Button>
+                <Button onClick={() => handlePresetChange(50)}>+$50</Button>
+                <Button onClick={() => handlePresetChange(100)}>+$100</Button>
+                <Button onClick={() => handlePresetChange(500)}>+$500</Button>
+                <Button onClick={() => handlePresetChange(1000)}>+$1000</Button>
               </Space>
             </div>
             <div className="mt-4">

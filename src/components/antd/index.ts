@@ -6,6 +6,7 @@ import {
   Layout as AntdLayout,
   List as AntdList,
   Radio as AntdRadio,
+  Skeleton as AntdSkeleton,
   Typography,
 } from 'antd';
 
@@ -34,6 +35,8 @@ const { Group: AntdRadioGroup, Button: AntdRadioButton } = AntdRadio;
 
 const { RangePicker: AntdDateRangePicker } = AntdDatePicker;
 
+const { Button: AntdSkeletonButton, Input: AntdSkeletonInput } = AntdSkeleton;
+
 export {
   AntdContent,
   AntdDatePicker,
@@ -54,6 +57,9 @@ export {
   AntdRadioButton,
   AntdRadioGroup,
   AntdSider,
+  AntdSkeleton,
+  AntdSkeletonButton,
+  AntdSkeletonInput,
   AntdText,
   AntdTextArea,
   AntdTitle,

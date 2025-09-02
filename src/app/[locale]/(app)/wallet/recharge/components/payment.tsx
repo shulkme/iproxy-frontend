@@ -1,17 +1,51 @@
+'use client';
+import { checkoutByStripe } from '@/apis/checkout';
+import { useRecharge } from '@/app/[locale]/(app)/wallet/recharge/context';
 import { AntdRadio, AntdRadioGroup, AntdTitle } from '@/components/antd';
+import { useRequest } from 'ahooks';
 import { Button, Card } from 'antd';
 import Image from 'next/image';
 import React from 'react';
 
 const Payment: React.FC = () => {
+  const { amount, payment } = useRecharge();
+
+  const { run: doSubmit, loading: submitting } = useRequest(
+    async () => {
+      switch (payment) {
+        case 'credit':
+          return await checkoutByStripe({
+            mode: 'payment',
+            amount,
+            product_data: {
+              name: '余额',
+              description: '余额充值',
+            },
+          });
+        default:
+          return await Promise.reject();
+      }
+    },
+    {
+      manual: true,
+      onSuccess: (res) => {
+        window.open(res.data.url);
+      },
+    },
+  );
+
   return (
     <Card>
       <AntdTitle level={5} className="mb-6">
         Payment Method
       </AntdTitle>
-      <AntdRadioGroup defaultValue={'1'} block className="flex flex-col gap-4">
+      <AntdRadioGroup
+        defaultValue={'credit'}
+        block
+        className="flex flex-col gap-4"
+      >
         <AntdRadio
-          value="1"
+          value="credit"
           className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
@@ -56,7 +90,8 @@ const Payment: React.FC = () => {
           </div>
         </AntdRadio>
         <AntdRadio
-          value="2"
+          disabled
+          value="crypto"
           className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
@@ -94,7 +129,8 @@ const Payment: React.FC = () => {
           </div>
         </AntdRadio>
         <AntdRadio
-          value="3"
+          disabled
+          value="local"
           className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
@@ -122,10 +158,16 @@ const Payment: React.FC = () => {
       <div className="pt-8 space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-bold">Total:</h3>
-          <p className="text-xl font-bold">$1,000</p>
+          <p className="text-xl font-bold">$ {amount.toLocaleString()}</p>
         </div>
         <div>
-          <Button size="large" block type="primary">
+          <Button
+            loading={submitting}
+            onClick={doSubmit}
+            size="large"
+            block
+            type="primary"
+          >
             Continue to pay
           </Button>
         </div>

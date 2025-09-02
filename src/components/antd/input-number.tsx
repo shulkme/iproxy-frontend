@@ -6,7 +6,7 @@ import {
   ButtonProps,
   InputNumberProps,
 } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const InputNumber: React.FC<
   InputNumberProps & {
@@ -25,11 +25,7 @@ const InputNumber: React.FC<
   } = props;
 
   const [value, setValue] = useState<number>(
-    typeof propValue === 'number'
-      ? propValue
-      : typeof defaultValue === 'number'
-        ? defaultValue
-        : 0,
+    typeof defaultValue === 'number' ? defaultValue : 0,
   );
 
   // 更新输入框的值
@@ -61,6 +57,13 @@ const InputNumber: React.FC<
       handleChange(value - step);
     }
   };
+
+  useEffect(() => {
+    if (typeof propValue === 'number') {
+      setValue(propValue);
+    }
+  }, [propValue]);
+
   return (
     <div className="flex items-center gap-2">
       <Button
