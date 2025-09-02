@@ -1,3 +1,4 @@
+import { Link } from '@/i18n/navigation';
 import Logo from '@/icons/logo';
 import { RiCheckLine } from '@remixicon/react';
 import Image from 'next/image';
@@ -8,11 +9,16 @@ const Cover: React.FC = () => {
     <>
       <Image fill src="/images/sso.jpg" alt="" className="object-cover" />
       <div className="relative flex flex-col z-10 p-10 h-full">
-        <div className="flex flex-none items-center gap-2 text-xl font-bold">
-          <span className="text-(--ant-color-primary)">
-            <Logo width={24} height={24} />
-          </span>
-          <span>{process.env.NEXT_PUBLIC_APP_NAME}</span>
+        <div className="flex-none">
+          <Link
+            className="inline-flex items-center gap-2 text-xl font-bold text-black"
+            href="/"
+          >
+            <span className="text-(--ant-color-primary)">
+              <Logo width={24} height={24} />
+            </span>
+            <span>{process.env.NEXT_PUBLIC_APP_NAME}</span>
+          </Link>
         </div>
         <div className="pt-[30%] flex-auto">
           <h1 className="text-4xl font-medium mb-8">

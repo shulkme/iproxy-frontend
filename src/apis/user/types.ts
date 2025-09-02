@@ -27,3 +27,10 @@ export interface ResetPasswordData {
 export interface SendPasswordEmailData {
   email: string;
 }
+
+export interface ActivateResult {
+  access_token: string;
+  access_token_expire_time: string;
+  session_uuid: string;
+  user: UserRecord;
+}

@@ -1,6 +1,7 @@
 import request from '@/apis/request';
 import { HttpResponse } from '@/apis/types';
 import {
+  ActivateResult,
   ChangePasswordData,
   ResetPasswordData,
   SendPasswordEmailData,
@@ -29,7 +30,7 @@ export async function registerUser(data: UserData) {
  */
 export async function activateUser(
   code: string,
-): Promise<HttpResponse<UserRecord>> {
+): Promise<HttpResponse<ActivateResult>> {
   return await request.get('/sys/users/activate', {
     params: {
       code,
