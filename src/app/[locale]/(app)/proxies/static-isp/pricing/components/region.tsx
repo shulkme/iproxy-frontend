@@ -32,6 +32,10 @@ const RegionItem = () => {
 
 const Region: React.FC = () => {
   const [form] = AntdForm.useForm();
+  // const {loading} = useRequest(getAllPackages, {
+  //   manual: true,
+  // });
+
   return (
     <Card>
       <div className="flex items-center justify-between gap-2 mb-6">
@@ -59,37 +63,27 @@ const Region: React.FC = () => {
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
+                value={7}
+              >
+                7 Days
+              </AntdRadioButton>
+              <AntdRadioButton
+                className="border rounded-xs before:hidden px-6"
                 value={30}
               >
                 30 Days
               </AntdRadioButton>
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
-                value={7}
+                value={60}
               >
-                7 Days
-              </AntdRadioButton>
-            </AntdRadioGroup>
-          </AntdFormItem>
-          <AntdFormItem name="type" label="IP Type" initialValue={'all'}>
-            <AntdRadioGroup className="flex flex-wrap gap-4">
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="all"
-              >
-                All
+                60 Days
               </AntdRadioButton>
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
-                value="native"
+                value={90}
               >
-                Native IP
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value="isp"
-              >
-                Residential IP
+                90 Days
               </AntdRadioButton>
             </AntdRadioGroup>
           </AntdFormItem>
