@@ -1,5 +1,6 @@
 'use client';
 import { getAllPackages } from '@/apis/packages';
+import { PackageRecord } from '@/apis/packages/types';
 import {
   AntdForm,
   AntdFormItem,
@@ -9,26 +10,62 @@ import {
   AntdText,
   AntdTitle,
 } from '@/components/antd';
+import InputNumber from '@/components/antd/input-number';
 import continents from '@/constants/continents';
+import countries from '@/constants/countries';
 import { useRequest } from 'ahooks';
-import { Avatar, Card, Divider } from 'antd';
+import { Avatar, Card, ConfigProvider, Divider } from 'antd';
 import { useTranslations } from 'next-intl';
 import { group } from 'radash';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
-const RegionItem = () => {
+const RegionItem: React.FC<{
+  readonly record: PackageRecord & { title: string; flag?: string };
+}> = ({ record }) => {
   return (
     <div className="border border-slate-100 rounded-xs cursor-pointer p-4 hover:border-(--ant-color-primary)">
-      <div className="flex gap-4">
+      <div className="flex gap-4 items-center">
         <div className="flex-none">
-          <Avatar src="https://flagicons.lipis.dev/flags/1x1/us.svg" />
+          <Avatar
+            src={`https://flagicons.lipis.dev/flags/1x1/${record.flag || 'xx'}.svg`}
+          />
         </div>
         <div className="flex-auto">
-          <h3 className="font-bold">Miami, US</h3>
+          <h3 className="font-bold">{record.title}</h3>
           <p className="font-medium">
             <span className="text-(--ant-color-primary)">$5</span>
             <span>/IP</span>
           </p>
+        </div>
+        <div className="flex-none">
+          <ConfigProvider
+            theme={{
+              components: {
+                Button: {
+                  controlHeightXS: 24,
+                  controlHeightSM: 24,
+                  controlHeight: 32,
+                  controlHeightLG: 40,
+                  contentFontSizeSM: 12,
+                },
+                InputNumber: {
+                  controlHeightXS: 24,
+                  controlHeightSM: 24,
+                  controlHeight: 32,
+                  controlHeightLG: 40,
+                },
+              },
+            }}
+          >
+            <InputNumber
+              min={0}
+              max={10000}
+              size="small"
+              style={{
+                width: 48,
+              }}
+            />
+          </ConfigProvider>
         </div>
       </div>
     </div>
@@ -37,36 +74,44 @@ const RegionItem = () => {
 
 const Region: React.FC = () => {
   const [form] = AntdForm.useForm();
+  const [packages, setPackages] = useState<PackageRecord[]>([]);
   const t = useTranslations();
-  const [continentOptions, setContinentOptions] = useState<
-    {
-      label: string;
-      value: string;
-    }[]
-  >([]);
 
-  const { loading } = useRequest(getAllPackages, {
+  useRequest(getAllPackages, {
     onSuccess: (res) => {
-      const list = group(res.data, (f) => f.continent);
-      const continentKeys = Object.keys(list);
-      setContinentOptions(
-        continentKeys.map((key) => {
-          const locale = continents.find((f) => f.code === key)?.locale;
-          if (locale) {
-            return {
-              label: t(locale),
-              value: key,
-            };
-          }
-          return {
-            label: key,
-            value: key,
-          };
-        }),
-      );
-      console.log(list);
+      setPackages(res.data);
     },
   });
+
+  const data = useMemo(() => {
+    const groups = group(packages, (f) => f.continent);
+    return Object.entries(groups).map(([continentCode, packageItems]) => {
+      const continent = continents.find((f) => f.code === continentCode);
+      const title = continent ? t(continent.locale) : continentCode;
+      return {
+        title,
+        key: continentCode,
+        items: (packageItems || []).map((pg) => {
+          const country = countries.find((f) => f.iso === pg.country);
+          const title = country ? t(country.locale) : pg.country;
+          return {
+            title,
+            flag: country?.iso2.toLowerCase(),
+            ...pg,
+          };
+        }),
+      };
+    });
+  }, [packages, t]);
+
+  const continentOptions = useMemo(() => {
+    return data.map((d) => {
+      return {
+        label: d.title,
+        value: d.key,
+      };
+    });
+  }, [data]);
 
   return (
     <Card>
@@ -81,7 +126,6 @@ const Region: React.FC = () => {
           </a>
         </AntdText>
       </div>
-
       <div>
         <AntdForm
           form={form}
@@ -142,12 +186,12 @@ const Region: React.FC = () => {
       </div>
       <Divider type="horizontal" dashed />
       <div className="space-y-8">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i}>
-            <AntdParagraph strong>America</AntdParagraph>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,_1fr))] gap-4">
-              {Array.from({ length: 10 }).map((_, j) => (
-                <RegionItem key={j} />
+        {data.map((group) => (
+          <div key={group.key}>
+            <AntdParagraph strong>{group.title}</AntdParagraph>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,_1fr))] gap-4">
+              {group.items.map((record) => (
+                <RegionItem key={record.id} record={record} />
               ))}
             </div>
           </div>

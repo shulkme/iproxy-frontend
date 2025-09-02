@@ -1,8 +1,8 @@
 import { AntdParagraph, AntdText, AntdTitle } from '@/components/antd';
+import InputNumber from '@/components/antd/input-number';
 import { Link } from '@/i18n/navigation';
 import WalletIcon from '@/icons/wallet-icon';
-import { RiAddLine, RiSubtractLine } from '@remixicon/react';
-import { Button, Card, ConfigProvider, InputNumber, Space } from 'antd';
+import { Button, Card, ConfigProvider, Space } from 'antd';
 import React from 'react';
 
 const Exchange: React.FC = () => {
@@ -42,26 +42,17 @@ const Exchange: React.FC = () => {
               },
             }}
           >
-            <div className="flex items-center gap-2 leading-none">
-              <div>
-                <Button shape="circle" icon={<RiSubtractLine size={18} />} />
-              </div>
-              <div>
-                <InputNumber
-                  style={{ width: 200 }}
-                  defaultValue={100}
-                  size="large"
-                  variant="underlined"
-                  prefix={<span className="text-3xl">$</span>}
-                  controls={false}
-                  min={100}
-                  max={10000}
-                  step={1}
-                />
-              </div>
-              <div>
-                <Button shape="circle" icon={<RiAddLine size={18} />} />
-              </div>
+            <div>
+              <InputNumber
+                style={{ width: 200 }}
+                defaultValue={100}
+                size="large"
+                variant="underlined"
+                prefix={<span className="text-3xl">$</span>}
+                min={100}
+                max={10000}
+                step={1}
+              />
             </div>
             <div className="mt-8">
               <Space size="middle">
