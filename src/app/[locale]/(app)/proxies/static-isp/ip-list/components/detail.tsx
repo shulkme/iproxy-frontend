@@ -1,4 +1,5 @@
 'use client';
+import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
 import { getProxyList } from '@/apis/proxy';
 import { ProxyRecord } from '@/apis/proxy/types';
 import { statusDirt } from '@/app/[locale]/(app)/proxies/static-isp/mixins';
@@ -25,6 +26,7 @@ const Detail: React.FC = () => {
   const { tableProps, refresh, search } = useAntdTable(
     async ({ current, pageSize }, params) => {
       return await getProxyList({
+        package_type: PACKAGE_TYPE_ENUM.ISP,
         page: current,
         size: pageSize,
         ...params,

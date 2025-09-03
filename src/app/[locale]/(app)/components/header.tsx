@@ -16,7 +16,16 @@ import {
   RiUser6Line,
   RiWalletLine,
 } from '@remixicon/react';
-import { Avatar, Badge, Button, Divider, Dropdown, MenuProps } from 'antd';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Divider,
+  Dropdown,
+  List,
+  MenuProps,
+  Popover,
+} from 'antd';
 import React from 'react';
 
 const LanguageSelector = () => {
@@ -133,11 +142,22 @@ const AccountDropdown = () => {
 
 const NotificationDropdown = () => {
   return (
-    <Button type="text" className="leading-none rounded-none h-full px-4">
-      <Badge dot>
-        <RiNotification3Line size={20} />
-      </Badge>
-    </Button>
+    <Popover
+      arrow={false}
+      trigger={['click']}
+      title={'Notification'}
+      content={
+        <div className="w-96">
+          <List />
+        </div>
+      }
+    >
+      <Button type="text" className="leading-none rounded-none h-full px-4">
+        <Badge dot>
+          <RiNotification3Line size={20} />
+        </Badge>
+      </Button>
+    </Popover>
   );
 };
 
@@ -156,6 +176,7 @@ const Header: React.FC = () => {
             <NotificationDropdown />
             <div className="border-r w-0 h-full border-slate-100" />
             <Button
+              href={'/wallet/recharge'}
               loading={loading}
               type="text"
               className="leading-none font-bold rounded-none h-full px-4"

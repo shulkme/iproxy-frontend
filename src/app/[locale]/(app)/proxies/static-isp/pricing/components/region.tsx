@@ -159,8 +159,13 @@ const Region: React.FC = () => {
     return Number(formData?.duration) || 0;
   }, [formData]);
 
-  const data = useMemo(() => {
-    const groups = group(packages || [], (f) => f.continent);
+  const renderItems = useMemo(() => {
+    const type = formData?.continent || 'all';
+    const items =
+      type === 'all'
+        ? packages || []
+        : (packages || []).filter((f) => f.continent === type);
+    const groups = group(items, (f) => f.continent);
     return Object.entries(groups).map(([continentCode, packageItems]) => {
       const continent = continents.find((f) => f.code === continentCode);
       const title = continent ? t(continent.locale) : continentCode;
@@ -178,16 +183,19 @@ const Region: React.FC = () => {
         }),
       };
     });
-  }, [packages, t]);
+  }, [packages, t, formData]);
 
   const continentOptions = useMemo(() => {
-    return data.map((d) => {
+    const items = Object.keys(group(packages || [], (f) => f.continent));
+    return items.map((key) => {
+      const continent = continents.find((f) => f.code === key);
+      const title = continent ? t(continent.locale) : key;
       return {
-        label: d.title,
-        value: d.key,
+        label: title,
+        value: key,
       };
     });
-  }, [data]);
+  }, [packages, t]);
 
   const onFormValueChange: FormProps['onValuesChange'] = (_, values) => {
     setFormData(values);
@@ -281,7 +289,7 @@ const Region: React.FC = () => {
           </>
         ) : (
           <>
-            {data.map((group) => (
+            {renderItems.map((group) => (
               <div key={group.key}>
                 <AntdParagraph strong>{group.title}</AntdParagraph>
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,_1fr))] gap-4">

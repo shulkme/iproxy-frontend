@@ -1,22 +1,25 @@
 import Features from '@/app/[locale]/(app)/proxies/datacenter/pricing/components/features';
 import Order from '@/app/[locale]/(app)/proxies/datacenter/pricing/components/order';
 import Region from '@/app/[locale]/(app)/proxies/datacenter/pricing/components/region';
+import { CheckoutProvider } from '@/app/[locale]/(app)/proxies/datacenter/pricing/context';
 import { Col, Row } from 'antd';
 
 export default function Page() {
   return (
-    <div className="p-8">
-      <Row gutter={[24, 24]}>
-        <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
-          <div className="space-y-8">
-            <Region />
-            <Features />
-          </div>
-        </Col>
-        <Col xs={24} sm={24} md={24} lg={24} xl={8} xxl={6}>
-          <Order />
-        </Col>
-      </Row>
-    </div>
+    <CheckoutProvider>
+      <div className="p-8">
+        <Row gutter={[24, 24]}>
+          <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
+            <div className="space-y-8">
+              <Region />
+              <Features />
+            </div>
+          </Col>
+          <Col xs={24} sm={24} md={24} lg={24} xl={8} xxl={6}>
+            <Order />
+          </Col>
+        </Row>
+      </div>
+    </CheckoutProvider>
   );
 }

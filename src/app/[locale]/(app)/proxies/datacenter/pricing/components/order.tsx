@@ -1,26 +1,51 @@
+'use client';
+import { getDurationPrice } from '@/app/[locale]/(app)/proxies/datacenter/mixins';
+import {
+  SkuRecord,
+  useCheckout,
+} from '@/app/[locale]/(app)/proxies/datacenter/pricing/context';
 import { AntdTitle } from '@/components/antd';
-import { Avatar, Button, Card, Divider, InputNumber } from 'antd';
-import React from 'react';
+import { Avatar, Button, Card, Divider, Empty } from 'antd';
+import React, { useMemo } from 'react';
 
-const SkuItem = () => {
+const SkuItem: React.FC<{
+  record: SkuRecord;
+  duration: number;
+}> = ({ record, duration }) => {
+  const price = useMemo(() => {
+    return getDurationPrice(record.product, duration);
+  }, [duration, record]);
   return (
     <div className="flex items-center gap-2">
       <div className="flex-none">
         <Avatar
-          size="small"
-          src="https://flagicons.lipis.dev/flags/1x1/us.svg"
+          size={24}
+          src={`https://flagicons.lipis.dev/flags/1x1/${record.product?.flag || 'xx'}.svg`}
         />
       </div>
-      <div className="flex-auto font-bold">Miami, US</div>
-      <div className="flex-none">$5/IP</div>
-      <div className="flex-none">
-        <InputNumber size="small" min={1} max={10000} />
-      </div>
+      <div className="flex-auto font-bold">{record.product.title}</div>
+      <div className="flex-none">${price} / IP</div>
+      <div className="flex-none pl-4">x{record.count}</div>
     </div>
   );
 };
 
 const Order: React.FC = () => {
+  const { skus, totalCount, formData, resetSku } = useCheckout();
+
+  const items = useMemo(() => Array.from(skus), [skus]);
+
+  const duration = useMemo(() => {
+    return Number(formData?.duration) || 0;
+  }, [formData]);
+
+  const subtotal = useMemo(() => {
+    return items.reduce((sum, item) => {
+      const price = getDurationPrice(item[1].product, duration);
+      return sum + price * item[1].count;
+    }, 0);
+  }, [duration, items]);
+
   return (
     <div className="sticky bottom-0 xl:top-36 xl:bottom-auto">
       <Card
@@ -35,19 +60,26 @@ const Order: React.FC = () => {
               <AntdTitle level={5} className="m-0">
                 Order Summary
               </AntdTitle>
-              <Button size="small" type="text">
+              <Button size="small" type="text" onClick={resetSku}>
                 Clear
               </Button>
             </div>
           </div>
           <div className="flex-auto px-6 overflow-auto">
-            <ul className="space-y-4">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <li key={i}>
-                  <SkuItem />
-                </li>
-              ))}
-            </ul>
+            {items.length > 0 ? (
+              <ul className="space-y-4">
+                {items.map(([id, sku]) => (
+                  <li key={id}>
+                    <SkuItem record={sku} duration={duration} />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                description={'Please select a region first'}
+              />
+            )}
           </div>
           <div className="flex-none p-6 space-y-4">
             <div>
@@ -58,19 +90,25 @@ const Order: React.FC = () => {
                 <li>
                   <div className="flex justify-between">
                     <label className="text-black/50">IP amount</label>
-                    <span className="font-medium">x100</span>
+                    <span className="font-medium">x{totalCount || 0}</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
                     <label className="text-black/50">Duration</label>
-                    <span className="font-medium">30 Days</span>
+                    <span className="font-medium">{duration} Days</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
                     <label className="text-black/50">Subtotal</label>
-                    <span className="font-medium">$500.00</span>
+                    <span className="font-medium">
+                      $
+                      {subtotal.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </span>
                   </div>
                 </li>
               </ul>
@@ -83,7 +121,13 @@ const Order: React.FC = () => {
                 <li>
                   <div className="flex justify-between items-center">
                     <label className="text-black/50">Total</label>
-                    <span className="font-bold text-2xl">$500.00</span>
+                    <span className="font-bold text-2xl">
+                      $
+                      {subtotal.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </span>
                   </div>
                 </li>
               </ul>
