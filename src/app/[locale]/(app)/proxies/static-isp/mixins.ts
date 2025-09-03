@@ -17,4 +17,4 @@ export const statusDirt = [
     locale: 'app.proxies.ip.status.deleted',
     value: PROXY_STATUS_ENUM.DELETED,
   },
-];
+] as const;
