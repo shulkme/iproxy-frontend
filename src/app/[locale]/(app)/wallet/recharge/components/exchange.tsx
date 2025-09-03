@@ -11,9 +11,11 @@ import { Link } from '@/i18n/navigation';
 import WalletIcon from '@/icons/wallet-icon';
 import { useCredit } from '@/providers/credit';
 import { Button, Card, ConfigProvider, Space } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Exchange: React.FC = () => {
+  const t = useTranslations('app.pages.wallet.recharge');
   const { available, loading } = useCredit();
   const { amount, setAmount } = useRecharge();
 
@@ -31,7 +33,7 @@ const Exchange: React.FC = () => {
             </div>
             <div className="flex-auto">
               <AntdParagraph strong className="m-0">
-                Current Balance
+                {t('exchange.current.label')}
               </AntdParagraph>
               {loading ? (
                 <AntdSkeletonButton />
@@ -42,14 +44,16 @@ const Exchange: React.FC = () => {
               )}
             </div>
             <div className="flex-none">
-              <Link href="/wallet/transactions">Transaction Details</Link>
+              <Link href="/wallet/transactions">
+                {t('exchange.current.extra')}
+              </Link>
             </div>
           </div>
         </div>
 
         <div className="mt-8">
           <AntdTitle level={5} className="mb-8">
-            Amount
+            {t('exchange.amount.title')}
           </AntdTitle>
           <ConfigProvider
             theme={{
@@ -83,7 +87,11 @@ const Exchange: React.FC = () => {
               </Space>
             </div>
             <div className="mt-4">
-              <AntdText type="secondary">Minimum mount is 100 USD</AntdText>
+              <AntdText type="secondary">
+                {t('exchange.amount.tips', {
+                  number: 100,
+                })}
+              </AntdText>
             </div>
           </ConfigProvider>
         </div>

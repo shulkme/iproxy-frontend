@@ -4,10 +4,12 @@ import { useRecharge } from '@/app/[locale]/(app)/wallet/recharge/context';
 import { AntdRadio, AntdRadioGroup, AntdTitle } from '@/components/antd';
 import { useRequest } from 'ahooks';
 import { Button, Card } from 'antd';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
 const Payment: React.FC = () => {
+  const t = useTranslations('app.pages.wallet.recharge.payment');
   const { amount, payment } = useRecharge();
 
   const { run: doSubmit, loading: submitting } = useRequest(
@@ -37,7 +39,7 @@ const Payment: React.FC = () => {
   return (
     <Card>
       <AntdTitle level={5} className="mb-6">
-        Payment Method
+        {t('title')}
       </AntdTitle>
       <AntdRadioGroup
         defaultValue={'credit'}
@@ -49,7 +51,7 @@ const Payment: React.FC = () => {
           className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
-            <div className="font-bold">Credit Card</div>
+            <div className="font-bold">{t('methods.credit')}</div>
             <div className="flex items-center gap-1">
               <Image
                 src="/images/Visa.png"
@@ -95,7 +97,7 @@ const Payment: React.FC = () => {
           className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
-            <div className="font-bold">Crypto Currency</div>
+            <div className="font-bold">{t('methods.crypto')}</div>
             <div className="flex items-center gap-1">
               <Image
                 src="/images/BTC.png"
@@ -134,7 +136,7 @@ const Payment: React.FC = () => {
           className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
-            <div className="font-bold">Local payments</div>
+            <div className="font-bold">{t('methods.local')}</div>
             <div className="flex items-center gap-1">
               <Image
                 src="/images/WeChatPayHK.png"
@@ -157,7 +159,7 @@ const Payment: React.FC = () => {
 
       <div className="pt-8 space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-bold">Total:</h3>
+          <h3 className="text-lg font-bold">{t('total')}</h3>
           <p className="text-xl font-bold">$ {amount.toLocaleString()}</p>
         </div>
         <div>
@@ -168,7 +170,7 @@ const Payment: React.FC = () => {
             block
             type="primary"
           >
-            Continue to pay
+            {t('submit')}
           </Button>
         </div>
       </div>

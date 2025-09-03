@@ -74,15 +74,6 @@ const Sidebar: React.FC = () => {
                   type: 'group',
                   children: [
                     {
-                      label: t('menus.residential'),
-                      key: 'proxies:residential',
-                      icon: <RiPinDistanceLine size={18} />,
-                      meta: {
-                        href: '/proxies/residential/pricing',
-                        group: '/proxies/residential',
-                      },
-                    },
-                    {
                       label: t('menus.static-isp'),
                       key: 'proxies:static-isp',
                       icon: <RiHomeOfficeLine size={18} />,
@@ -101,6 +92,15 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
+                      label: t('menus.residential'),
+                      key: 'proxies:residential',
+                      icon: <RiPinDistanceLine size={18} />,
+                      meta: {
+                        href: '/proxies/residential/pricing',
+                        group: '/proxies/residential',
+                      },
+                    },
+                    {
                       label: t('menus.mobile'),
                       key: 'proxies:mobile',
                       icon: <RiSmartphoneLine size={18} />,
@@ -110,7 +110,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: t('menus.settings'),
+                      label: t('menus.proxy-settings'),
                       key: 'proxies:settings',
                       icon: <RiSettingsLine size={18} />,
                       meta: {

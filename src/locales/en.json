@@ -54,7 +54,7 @@
           "static-isp": "Static ISP Proxies",
           "datacenter": "Datacenter Proxies",
           "mobile": "Mobile Proxies",
-          "settings": "Settings",
+          "proxy-settings": "Proxy Settings",
           "scarping": "Scarping",
           "serp-api": "Serp Api",
           "menu": "Menu",
@@ -251,6 +251,46 @@
               "remark": "Remark",
               "operate": "Operate"
             }
+          }
+        }
+      },
+      "wallet": {
+        "title": "Wallet",
+        "menus": {
+          "recharge": "Balance Recharge",
+          "transactions": "Transactions",
+          "billing": "Billing"
+        },
+        "recharge": {
+          "exchange": {
+            "current": {
+              "label": "Current Balance",
+              "extra": "Transaction Details"
+            },
+            "amount": {
+              "title": "Amount",
+              "tips": "Minimum mount is {number} USD"
+            }
+          },
+          "payment": {
+            "title": "Payment Method",
+            "methods": {
+              "credit": "Credit Card",
+              "crypto": "Crypto Currency",
+              "local": "Local payments"
+            },
+            "total": "Total:",
+            "submit": "Continue to Pay"
+          }
+        },
+        "transactions": {
+          "table": {
+            "filters": {
+              "order-number": {
+                "placeholder": "Order Number"
+              }
+            },
+            "columns": {}
           }
         }
       }
