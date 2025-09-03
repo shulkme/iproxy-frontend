@@ -1,31 +1,31 @@
 const continents = [
   {
     code: 'NA',
-    locale: 'global.continent.na',
+    locale: 'na',
   },
   {
     code: 'SA',
-    locale: 'global.continent.sa',
+    locale: 'sa',
   },
   {
     code: 'EU',
-    locale: 'global.continent.eu',
+    locale: 'eu',
   },
   {
     code: 'AS',
-    locale: 'global.continent.as',
+    locale: 'as',
   },
   {
     code: 'AF',
-    locale: 'global.continent.af',
+    locale: 'af',
   },
   {
     code: 'OC',
-    locale: 'global.continent.oc',
+    locale: 'oc',
   },
   {
     code: 'AN',
-    locale: 'global.continent.an',
+    locale: 'an',
   },
 ] as const;
 

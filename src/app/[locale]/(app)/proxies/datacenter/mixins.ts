@@ -3,19 +3,19 @@ import { PROXY_STATUS_ENUM } from '@/apis/proxy/enums';
 
 export const statusDirt = [
   {
-    locale: 'app.proxies.ip.status.active',
+    locale: 'active',
     value: PROXY_STATUS_ENUM.ACTIVE,
   },
   {
-    locale: 'app.proxies.ip.status.inactive',
+    locale: 'inactive',
     value: PROXY_STATUS_ENUM.INACTIVE,
   },
   {
-    locale: 'app.proxies.ip.status.expired',
+    locale: 'expired',
     value: PROXY_STATUS_ENUM.EXPIRED,
   },
   {
-    locale: 'app.proxies.ip.status.deleted',
+    locale: 'deleted',
     value: PROXY_STATUS_ENUM.DELETED,
   },
 ] as const;

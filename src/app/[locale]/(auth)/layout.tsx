@@ -1,3 +1,4 @@
+'use client';
 import Cover from '@/app/[locale]/(auth)/components/cover';
 import {
   AntdContent,
@@ -6,11 +7,17 @@ import {
   AntdLayout,
   AntdSider,
 } from '@/components/antd';
+import { languages, Locale } from '@/i18n/config';
+import { useLanguage } from '@/providers/language';
 import { RiGlobalLine } from '@remixicon/react';
-import { Select } from 'antd';
+import { Select, SelectProps } from 'antd';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
+  const { locale, setLocale } = useLanguage();
+  const handleLanguageChange: SelectProps['onChange'] = (value) => {
+    setLocale(value as Locale);
+  };
   return (
     <AntdLayout className="min-h-screen" hasSider>
       <AntdSider
@@ -30,21 +37,13 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             <Select
               variant="borderless"
               prefix={<RiGlobalLine size={18} />}
-              defaultValue="en"
-              options={[
-                {
-                  label: 'English',
-                  value: 'en',
-                },
-                {
-                  label: '简体中文',
-                  value: 'zh',
-                },
-                {
-                  label: '繁體中文',
-                  value: 'tw',
-                },
-              ]}
+              defaultValue={locale}
+              options={languages.map((lang) => ({
+                value: lang.value,
+                label: lang.label,
+                disabled: lang.disabled,
+              }))}
+              onChange={handleLanguageChange}
             />
           </div>
         </AntdHeader>

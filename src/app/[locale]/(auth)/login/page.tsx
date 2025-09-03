@@ -13,10 +13,12 @@ import { useIdentity } from '@/providers/identity';
 import { getToken, setToken } from '@/utils/token';
 import { useRequest } from 'ahooks';
 import { Alert, Button, Divider, FormProps } from 'antd';
+import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
+  const t = useTranslations('auth.login');
   const [form] = AntdForm.useForm();
   const { setUser, logout } = useIdentity();
   const [errMsg, setErrMsg] = useState<string>();
@@ -67,7 +69,7 @@ export default function Page() {
   return (
     <>
       <AntdTitle level={2} className="mb-8 mt-0 text-center">
-        Log in to your account
+        {t('title')}
       </AntdTitle>
       <AntdForm
         form={form}
@@ -86,11 +88,11 @@ export default function Page() {
             icon={<Google width={20} height={20} />}
             onClick={getGoogleAuth}
           >
-            Continue with Google
+            {t('oauth2.google')}
           </Button>
         </AntdFormItem>
         <Divider type="horizontal" plain>
-          OR
+          {t('or')}
         </Divider>
         {errMsg && (
           <AntdFormItem>
@@ -99,10 +101,10 @@ export default function Page() {
         )}
         <AntdFormItem
           messageVariables={{
-            label: 'Email',
+            label: t('form.email.label'),
           }}
           name="username"
-          label="Email"
+          label={t('form.email.label')}
           rules={[
             {
               required: true,
@@ -112,14 +114,14 @@ export default function Page() {
             },
           ]}
         >
-          <AntdInput size="large" placeholder={'Email'} />
+          <AntdInput size="large" placeholder={t('form.email.placeholder')} />
         </AntdFormItem>
         <AntdFormItem
           messageVariables={{
-            label: 'Password',
+            label: t('form.password.label'),
           }}
           name="password"
-          label="Password"
+          label={t('form.password.label')}
           rules={[
             {
               required: true,
@@ -132,7 +134,10 @@ export default function Page() {
             },
           ]}
         >
-          <AntdInputPassword size="large" placeholder={'Password'} />
+          <AntdInputPassword
+            size="large"
+            placeholder={t('form.password.placeholder')}
+          />
         </AntdFormItem>
         <AntdFormItem>
           <div className="flex justify-end">
@@ -140,7 +145,7 @@ export default function Page() {
               className="text-black hover:text-(--ant-color-link)"
               href="/forgot-password"
             >
-              Forgot your password?{' '}
+              {t('forgot-password')}
             </Link>
           </div>
         </AntdFormItem>
@@ -152,13 +157,18 @@ export default function Page() {
             type="primary"
             htmlType="submit"
           >
-            Log in
+            {t('form.submit.label')}
           </Button>
         </AntdFormItem>
         <AntdFormItem>
           <div className="text-center">
-            <span>Don’t have an account yet? </span>
-            <Link href="/signup">Sign Up</Link>
+            {t.rich('signup', {
+              link: (chunks) => (
+                <>
+                  <Link href="/signup">{chunks}</Link>
+                </>
+              ),
+            })}
           </div>
         </AntdFormItem>
       </AntdForm>

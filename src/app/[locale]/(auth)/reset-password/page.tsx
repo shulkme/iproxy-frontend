@@ -10,11 +10,13 @@ import {
 } from '@/components/antd';
 import { useRequest } from 'ahooks';
 import { Alert, Button, FormProps, Result } from 'antd';
+import { useTranslations } from 'next-intl';
 import { notFound, useSearchParams } from 'next/navigation';
 import { omit } from 'radash';
 import { useState } from 'react';
 
 export default function Page() {
+  const t = useTranslations('auth.reset');
   const [form] = AntdForm.useForm();
   const [errMsg, setErrMsg] = useState<string>();
   const [showResult, setShowResult] = useState(false);
@@ -47,15 +49,11 @@ export default function Page() {
     <>
       <Result
         status="success"
-        title={'Reset successful'}
-        subTitle={
-          <div>
-            You can now log back into your account using your new password.
-          </div>
-        }
+        title={t('result.title')}
+        subTitle={<div>{t('result.subtitle')}</div>}
         extra={[
           <Button href="/login" block type="primary" key="back" size="large">
-            Back to login
+            {t('result.actions.0')}
           </Button>,
         ]}
       />
@@ -63,7 +61,7 @@ export default function Page() {
   ) : (
     <>
       <AntdTitle level={2} className="mb-8 mt-0 text-center">
-        Reset Password
+        {t('title')}
       </AntdTitle>
       <AntdForm
         form={form}
@@ -87,9 +85,9 @@ export default function Page() {
         <AntdFormItem
           name="new_password"
           messageVariables={{
-            label: 'New Password',
+            label: t('form.new-password.label'),
           }}
-          label="New Password"
+          label={t('form.new-password.label')}
           rules={[
             {
               required: true,
@@ -102,14 +100,17 @@ export default function Page() {
             },
           ]}
         >
-          <AntdInputPassword size="large" placeholder={'New Password'} />
+          <AntdInputPassword
+            size="large"
+            placeholder={t('form.new-password.placeholder')}
+          />
         </AntdFormItem>
         <AntdFormItem
           name="confirm_password"
           messageVariables={{
-            label: 'Confirm Password',
+            label: t('form.confirm-password.label'),
           }}
-          label="Confirm Password"
+          label={t('form.confirm-password.label')}
           rules={[
             {
               required: true,
@@ -119,12 +120,17 @@ export default function Page() {
                 if (!value || getFieldValue('new_password') === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject(new Error('确认密码与新密码不一致'));
+                return Promise.reject(
+                  new Error(t('form.confirm-password.errors.match')),
+                );
               },
             }),
           ]}
         >
-          <AntdInputPassword size="large" placeholder={'Confirm Password'} />
+          <AntdInputPassword
+            size="large"
+            placeholder={t('form.confirm-password.placeholder')}
+          />
         </AntdFormItem>
         <AntdFormItem>
           <Button
@@ -134,7 +140,7 @@ export default function Page() {
             type="primary"
             htmlType="submit"
           >
-            Reset
+            {t('form.submit.label')}
           </Button>
         </AntdFormItem>
       </AntdForm>

@@ -26,6 +26,7 @@ import {
   MenuProps,
   Popover,
 } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const LanguageSelector = () => {
@@ -61,6 +62,7 @@ const LanguageSelector = () => {
 
 const AccountDropdown = () => {
   const { user } = useIdentity();
+  const t = useTranslations('app.global.header.account');
   const router = useRouter();
 
   const handleClick: MenuProps['onClick'] = ({ key }) => {
@@ -82,17 +84,17 @@ const AccountDropdown = () => {
         onClick: handleClick,
         items: [
           {
-            label: '账户',
+            label: t('account'),
             key: 'account',
             icon: <RiUser6Line size={16} />,
           },
           {
-            label: '发票',
+            label: t('billing'),
             key: 'billing',
             icon: <RiBillLine size={16} />,
           },
           {
-            label: '钱包',
+            label: t('wallet'),
             key: 'wallet',
             icon: <RiWalletLine size={16} />,
           },
@@ -100,7 +102,7 @@ const AccountDropdown = () => {
             type: 'divider',
           },
           {
-            label: '登出',
+            label: t('logout'),
             key: 'logout',
             icon: <RiLogoutBoxRLine size={16} />,
             danger: true,
@@ -141,11 +143,12 @@ const AccountDropdown = () => {
 };
 
 const NotificationDropdown = () => {
+  const t = useTranslations('app.global.header');
   return (
     <Popover
       arrow={false}
       trigger={['click']}
-      title={'Notification'}
+      title={t('notification')}
       content={
         <div className="w-96">
           <List />

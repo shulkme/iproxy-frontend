@@ -1,4 +1,5 @@
 {
+  "hello": "你好",
   "global": {
     "country": {
       "usa": "美国",
@@ -89,7 +90,7 @@
           "region": {
             "title": "地区列表",
             "tips": "没有找到您需要的地区？<link>联系我们</link>",
-            "filters": {
+            "filter": {
               "duration": {
                 "label": "时长",
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
@@ -177,7 +178,7 @@
           "region": {
             "title": "地区列表",
             "tips": "没有找到您需要的地区？<link>联系我们</link>",
-            "filters": {
+            "filter": {
               "duration": {
                 "label": "时长",
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"

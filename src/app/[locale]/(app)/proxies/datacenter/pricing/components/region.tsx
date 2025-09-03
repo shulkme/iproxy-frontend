@@ -118,7 +118,8 @@ const RegionItem: React.FC<{
 };
 
 const Region: React.FC = () => {
-  const t = useTranslations();
+  const t = useTranslations('app.pages.datacenter.pricing.region');
+  const g = useTranslations('global');
   const [form] = AntdForm.useForm();
   const { formData, setFormData } = useCheckout();
   const { data: packages, loading } = useRequest(async () => {
@@ -168,13 +169,15 @@ const Region: React.FC = () => {
     const groups = group(items, (f) => f.continent);
     return Object.entries(groups).map(([continentCode, packageItems]) => {
       const continent = continents.find((f) => f.code === continentCode);
-      const title = continent ? t(continent.locale) : continentCode;
+      const title = continent
+        ? g(`continent.${continent.locale}`)
+        : continentCode;
       return {
         title,
         key: continentCode,
         items: (packageItems || []).map((pg) => {
           const country = countries.find((f) => f.iso === pg.country);
-          const title = country ? t(country.locale) : pg.country;
+          const title = country ? g(`country.${country.locale}`) : pg.country;
           return {
             title,
             flag: country?.iso2.toLowerCase(),
@@ -183,19 +186,19 @@ const Region: React.FC = () => {
         }),
       };
     });
-  }, [packages, t, formData]);
+  }, [packages, g, formData]);
 
   const continentOptions = useMemo(() => {
     const items = Object.keys(group(packages || [], (f) => f.continent));
     return items.map((key) => {
       const continent = continents.find((f) => f.code === key);
-      const title = continent ? t(continent.locale) : key;
+      const title = continent ? g(`continent.${continent.locale}`) : key;
       return {
         label: title,
         value: key,
       };
     });
-  }, [packages, t]);
+  }, [packages, g]);
 
   const onFormValueChange: FormProps['onValuesChange'] = (_, values) => {
     setFormData(values);
@@ -205,13 +208,12 @@ const Region: React.FC = () => {
     <Card>
       <div className="flex items-center justify-between gap-2 mb-6">
         <AntdTitle level={5} className="m-0">
-          Region List
+          {t('title')}
         </AntdTitle>
         <AntdText>
-          Haven&#39;t found the locations you need?{' '}
-          <a className="underline" href="">
-            Contact us
-          </a>
+          {t.rich('tips', {
+            link: (chunks) => <a>{chunks}</a>,
+          })}
         </AntdText>
       </div>
       <div>
@@ -227,35 +229,41 @@ const Region: React.FC = () => {
           }}
           onValuesChange={onFormValueChange}
         >
-          <AntdFormItem name="duration" label="Duration">
+          <AntdFormItem name="duration" label={t('filters.duration.label')}>
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
                 value={7}
               >
-                7 Days
+                {t('filters.duration.unit', {
+                  number: 7,
+                })}
               </AntdRadioButton>
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
                 value={30}
               >
-                30 Days
+                {t('filters.duration.unit', {
+                  number: 30,
+                })}
               </AntdRadioButton>
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
                 value={90}
               >
-                90 Days
+                {t('filters.duration.unit', {
+                  number: 90,
+                })}
               </AntdRadioButton>
             </AntdRadioGroup>
           </AntdFormItem>
-          <AntdFormItem name="continent" label="Continent">
+          <AntdFormItem name="continent" label={t('filters.continent.label')}>
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
                 value="all"
               >
-                All
+                {t('filters.continent.default')}
               </AntdRadioButton>
               {continentOptions.map((option) => (
                 <AntdRadioButton

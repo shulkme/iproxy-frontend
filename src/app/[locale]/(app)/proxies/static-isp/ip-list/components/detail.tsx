@@ -12,15 +12,16 @@ import React, { useMemo } from 'react';
 
 const Detail: React.FC = () => {
   const [form] = AntdForm.useForm();
-  const t = useTranslations();
+  const t = useTranslations('app.pages.static-isp.ip-list.table');
+  const g = useTranslations('global.ip');
 
   const statusOptions = useMemo(
     () =>
       statusDirt.map((f) => ({
-        label: t(f.locale),
+        label: g(`status.${f.locale}`),
         value: f.value,
       })),
-    [t],
+    [g],
   );
 
   const { tableProps, refresh, search } = useAntdTable(
@@ -59,7 +60,7 @@ const Detail: React.FC = () => {
           >
             <AntdFormItem name="ip">
               <AntdInput
-                placeholder="IP Address"
+                placeholder={t('filters.ip.placeholder')}
                 suffix={<RiSearchLine size={16} />}
                 allowClear
                 onClear={submit}
@@ -69,7 +70,7 @@ const Detail: React.FC = () => {
             <AntdFormItem name="status">
               <Select
                 options={statusOptions}
-                placeholder="Status"
+                placeholder={t('filters.status.placeholder')}
                 style={{ width: 220 }}
               />
             </AntdFormItem>
@@ -77,8 +78,8 @@ const Detail: React.FC = () => {
         </div>
         <div>
           <Space>
-            <Button onClick={refresh}>Refresh</Button>
-            <Button type="primary">Renewal</Button>
+            <Button onClick={refresh}>{t('actions.refresh')}</Button>
+            <Button type="primary">{t('actions.renewal')}</Button>
           </Space>
         </div>
       </div>
@@ -88,44 +89,44 @@ const Detail: React.FC = () => {
           rowSelection={{}}
           columns={[
             {
-              title: 'IP Address',
+              title: t('columns.ip'),
               fixed: 'left',
               width: 200,
             },
             {
-              title: 'Port',
+              title: t('columns.port'),
               width: 200,
             },
             {
-              title: 'Username',
+              title: t('columns.username'),
               width: 200,
             },
             {
-              title: 'Password',
+              title: t('columns.password'),
               width: 200,
             },
             {
-              title: 'Region',
+              title: t('columns.region'),
               width: 200,
             },
             {
-              title: 'Time Left',
+              title: t('columns.time-left'),
               width: 200,
             },
             {
-              title: 'Expire Time',
+              title: t('columns.expire-time'),
               width: 200,
             },
             {
-              title: 'Status',
+              title: t('columns.status'),
               width: 200,
             },
             {
-              title: 'Remark',
+              title: t('columns.remark'),
               width: 200,
             },
             {
-              title: 'Operate',
+              title: t('columns.operate'),
               width: 200,
             },
           ]}

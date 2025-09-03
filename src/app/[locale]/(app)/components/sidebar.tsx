@@ -1,3 +1,4 @@
+'use client';
 import NavMenu from '@/app/[locale]/components/nav-menu';
 import { AntdSider } from '@/components/antd';
 import {
@@ -17,9 +18,11 @@ import {
   RiWindowLine,
 } from '@remixicon/react';
 import { ConfigProvider } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Sidebar: React.FC = () => {
+  const t = useTranslations('app.global.sidebar');
   return (
     <ConfigProvider
       theme={{
@@ -57,7 +60,7 @@ const Sidebar: React.FC = () => {
               mode="inline"
               items={[
                 {
-                  label: 'Dashboard',
+                  label: t('menus.dashboard'),
                   key: 'dashboard',
                   icon: <RiHomeLine size={18} />,
                   meta: {
@@ -66,12 +69,12 @@ const Sidebar: React.FC = () => {
                   },
                 },
                 {
-                  label: 'Proxies',
+                  label: t('menus.proxies'),
                   key: 'proxies',
                   type: 'group',
                   children: [
                     {
-                      label: 'Residential',
+                      label: t('menus.residential'),
                       key: 'proxies:residential',
                       icon: <RiPinDistanceLine size={18} />,
                       meta: {
@@ -80,7 +83,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Static ISP',
+                      label: t('menus.static-isp'),
                       key: 'proxies:static-isp',
                       icon: <RiHomeOfficeLine size={18} />,
                       meta: {
@@ -89,7 +92,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Datacenter',
+                      label: t('menus.datacenter'),
                       key: 'proxies:datacenter',
                       icon: <RiServerLine size={18} />,
                       meta: {
@@ -98,7 +101,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Mobile',
+                      label: t('menus.mobile'),
                       key: 'proxies:mobile',
                       icon: <RiSmartphoneLine size={18} />,
                       meta: {
@@ -107,7 +110,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Settings',
+                      label: t('menus.settings'),
                       key: 'proxies:settings',
                       icon: <RiSettingsLine size={18} />,
                       meta: {
@@ -118,12 +121,12 @@ const Sidebar: React.FC = () => {
                   ],
                 },
                 {
-                  label: 'Scarping',
+                  label: t('menus.scarping'),
                   key: 'scarping',
                   type: 'group',
                   children: [
                     {
-                      label: 'SERP API',
+                      label: t('menus.serp-api'),
                       key: 'scarping:serp-api',
                       icon: <RiWindowLine size={18} />,
                       meta: {
@@ -134,12 +137,12 @@ const Sidebar: React.FC = () => {
                   ],
                 },
                 {
-                  label: 'Menu',
+                  label: t('menus.menu'),
                   key: 'menu',
                   type: 'group',
                   children: [
                     {
-                      label: 'My Account',
+                      label: t('menus.my-account'),
                       key: 'menu:settings',
                       icon: <RiUser6Line size={18} />,
                       meta: {
@@ -148,7 +151,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Wallet',
+                      label: t('menus.wallet'),
                       key: 'menu:wallet',
                       icon: <RiWalletLine size={18} />,
                       meta: {
@@ -157,7 +160,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Referral',
+                      label: t('menus.referral'),
                       key: 'menu:referral',
                       icon: <RiGiftLine size={18} />,
                       meta: {
@@ -168,12 +171,12 @@ const Sidebar: React.FC = () => {
                   ],
                 },
                 {
-                  label: 'Help',
+                  label: t('menus.help'),
                   key: 'help',
                   type: 'group',
                   children: [
                     {
-                      label: 'Partners',
+                      label: t('menus.partners'),
                       key: 'help:partners',
                       icon: <RiServiceLine size={18} />,
                       meta: {
@@ -182,7 +185,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'Documentation',
+                      label: t('menus.documentation'),
                       key: 'help:documentation',
                       icon: <RiFileList3Line size={18} />,
                       extra: <RiExternalLinkLine size={14} />,
@@ -192,7 +195,7 @@ const Sidebar: React.FC = () => {
                       },
                     },
                     {
-                      label: 'FAQ',
+                      label: t('menus.faq'),
                       key: 'help:faq',
                       icon: <RiQuestionLine size={18} />,
                       extra: <RiExternalLinkLine size={14} />,

@@ -1,16 +1,19 @@
+'use client';
 import Navbar from '@/app/[locale]/components/navbar';
 import { Title } from '@/providers/title';
 import { RiExternalLinkLine } from '@remixicon/react';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
+  const t = useTranslations('app.pages.static-isp');
   return (
     <>
-      <Title title={'Static ISP Proxies'} />
+      <Title title={t('title')} />
       <Navbar
         items={[
           {
-            label: 'Pricing',
+            label: t('menus.pricing'),
             key: 'proxies:static-isp:pricing',
             meta: {
               href: '/proxies/static-isp/pricing',
@@ -18,7 +21,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'IP List',
+            label: t('menus.ip-list'),
             key: 'proxies:static-isp:ip-list',
             meta: {
               href: '/proxies/static-isp/ip-list',
@@ -26,7 +29,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           // {
-          //   label: 'Statistics',
+          //   label: t('menus.statistics'),
           //   key: 'proxies:static-isp:statistics',
           //   meta: {
           //     href: '/proxies/static-isp/statistics',
@@ -34,7 +37,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           //   },
           // },
           {
-            label: 'Guide',
+            label: t('menus.guide'),
             key: 'proxies:static-isp:guide',
             extra: <RiExternalLinkLine size={14} />,
             meta: {

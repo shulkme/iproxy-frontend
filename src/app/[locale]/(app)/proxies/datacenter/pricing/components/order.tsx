@@ -6,6 +6,7 @@ import {
 } from '@/app/[locale]/(app)/proxies/datacenter/pricing/context';
 import { AntdTitle } from '@/components/antd';
 import { Avatar, Button, Card, Divider, Empty } from 'antd';
+import { useTranslations } from 'next-intl';
 import React, { useMemo } from 'react';
 
 const SkuItem: React.FC<{
@@ -31,6 +32,7 @@ const SkuItem: React.FC<{
 };
 
 const Order: React.FC = () => {
+  const t = useTranslations('app.pages.datacenter.pricing.order');
   const { skus, totalCount, formData, resetSku } = useCheckout();
 
   const items = useMemo(() => Array.from(skus), [skus]);
@@ -58,10 +60,10 @@ const Order: React.FC = () => {
           <div className="flex-none p-6">
             <div className="flex items-center justify-between gap-2">
               <AntdTitle level={5} className="m-0">
-                Order Summary
+                {t('title')}
               </AntdTitle>
               <Button size="small" type="text" onClick={resetSku}>
-                Clear
+                {t('actions.reset')}
               </Button>
             </div>
           </div>
@@ -77,7 +79,7 @@ const Order: React.FC = () => {
             ) : (
               <Empty
                 image={Empty.PRESENTED_IMAGE_SIMPLE}
-                description={'Please select a region first'}
+                description={t('list.empty')}
               />
             )}
           </div>
@@ -89,19 +91,29 @@ const Order: React.FC = () => {
               <ul className="space-y-1">
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">IP amount</label>
+                    <label className="text-black/50">
+                      {t('summary.amount')}
+                    </label>
                     <span className="font-medium">x{totalCount || 0}</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">Duration</label>
-                    <span className="font-medium">{duration} Days</span>
+                    <label className="text-black/50">
+                      {t('summary.duration.label')}
+                    </label>
+                    <span className="font-medium">
+                      {t('summary.duration.unit', {
+                        number: duration,
+                      })}
+                    </span>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">Subtotal</label>
+                    <label className="text-black/50">
+                      {t('summary.subtotal')}
+                    </label>
                     <span className="font-medium">
                       $
                       {subtotal.toLocaleString('en-US', {
@@ -120,7 +132,9 @@ const Order: React.FC = () => {
               <ul className="space-y-1">
                 <li>
                   <div className="flex justify-between items-center">
-                    <label className="text-black/50">Total</label>
+                    <label className="text-black/50">
+                      {t('summary.total')}
+                    </label>
                     <span className="font-bold text-2xl">
                       $
                       {subtotal.toLocaleString('en-US', {
@@ -134,7 +148,7 @@ const Order: React.FC = () => {
             </div>
             <div>
               <Button block type="primary">
-                Order Now
+                {t('actions.submit')}
               </Button>
             </div>
           </div>

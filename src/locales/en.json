@@ -1,5 +1,4 @@
 {
-  "hello": "Hello",
   "global": {
     "country": {
       "usa": "United States",
@@ -35,17 +34,340 @@
       "af": "Africa",
       "oc": "Oceania",
       "an": "Antarctica"
+    },
+    "ip": {
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "expired": "Expired",
+        "deleted": "Deleted"
+      }
     }
   },
   "app": {
-    "proxies": {
-      "ip": {
-        "status": {
-          "active": "Active",
-          "inactive": "Inactive",
-          "expired": "Expired",
-          "deleted": "Deleted"
+    "global": {
+      "sidebar": {
+        "menus": {
+          "dashboard": "Dashboard",
+          "proxies": "Proxies",
+          "residential": "Residential Proxies",
+          "static-isp": "Static ISP Proxies",
+          "datacenter": "Datacenter Proxies",
+          "mobile": "Mobile Proxies",
+          "settings": "Settings",
+          "scarping": "Scarping",
+          "serp-api": "Serp Api",
+          "menu": "Menu",
+          "my-account": "My Account",
+          "wallet": "Wallet",
+          "referral": "Referral",
+          "help": "Help",
+          "partners": "Partners",
+          "documentation": "Documentation",
+          "faq": "FAQ"
         }
+      },
+      "header": {
+        "notification": "Notification",
+        "account": {
+          "account": "Account",
+          "billing": "Billing",
+          "wallet": "Wallet",
+          "logout": "Logout"
+        }
+      }
+    },
+    "pages": {
+      "static-isp": {
+        "title": "Static ISP Proxies",
+        "menus": {
+          "pricing": "Pricing",
+          "ip-list": "IP List",
+          "guide": "Guide"
+        },
+        "pricing": {
+          "region": {
+            "title": "Region List",
+            "tips": "Haven't found the locations you need? <link>Contact us</link>",
+            "filters": {
+              "duration": {
+                "label": "Duration",
+                "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
+              },
+              "continent": {
+                "label": "Continent",
+                "default": "All"
+              }
+            }
+          },
+          "features": {
+            "title": "Features",
+            "items": [
+              "Real residential IP",
+              "Unlimited session duration",
+              "Http/https/socks5 protocol",
+              "Extremely fast response time",
+              "Pay by ip, no traffic limit",
+              "Applicable to ebay, paypal, amazon accounts, etc."
+            ]
+          },
+          "order": {
+            "title": "Order Summary",
+            "list": {
+              "empty": "Please select a region first"
+            },
+            "summary": {
+              "amount": "IP amount",
+              "duration": {
+                "label": "Duration",
+                "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
+              },
+              "subtotal": "Subtotal",
+              "total": "Total"
+            },
+            "actions": {
+              "reset": "Clear",
+              "submit": "Order Now"
+            }
+          }
+        },
+        "ip-list": {
+          "banner": "In order not to affect your use, please renew before the IP expires, cannot renew after expiration. You can also top up your wallet for auto-renewal. <link>Learn more</link>",
+          "statistics": {
+            "remaining": "Remaining IPs",
+            "extractable": "Extractable IPs",
+            "expiring": "Expiring Soon"
+          },
+          "table": {
+            "filters": {
+              "ip": {
+                "placeholder": "IP Address"
+              },
+              "status": {
+                "placeholder": "Status"
+              }
+            },
+            "actions": {
+              "refresh": "Refresh",
+              "renewal": "Renewal"
+            },
+            "columns": {
+              "ip": "IP Address",
+              "port": "Port",
+              "username": "Username",
+              "password": "Password",
+              "region": "Region",
+              "time-left": "Time Left",
+              "expire-time": "Expire Time",
+              "status": "Status",
+              "remark": "Remark",
+              "operate": "Operate"
+            }
+          }
+        }
+      },
+      "datacenter": {
+        "title": "Datacenter Proxies",
+        "menus": {
+          "pricing": "Pricing",
+          "ip-list": "IP List",
+          "guide": "Guide"
+        },
+        "pricing": {
+          "region": {
+            "title": "Region List",
+            "tips": "Haven't found the locations you need? <link>Contact us</link>",
+            "filters": {
+              "duration": {
+                "label": "Duration",
+                "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
+              },
+              "continent": {
+                "label": "Continent",
+                "default": "All"
+              }
+            }
+          },
+          "features": {
+            "title": "Features",
+            "items": [
+              "Real residential IP",
+              "Unlimited session duration",
+              "Http/https/socks5 protocol",
+              "Extremely fast response time",
+              "Pay by ip, no traffic limit",
+              "Applicable to ebay, paypal, amazon accounts, etc."
+            ]
+          },
+          "order": {
+            "title": "Order Summary",
+            "list": {
+              "empty": "Please select a region first"
+            },
+            "summary": {
+              "amount": "IP amount",
+              "duration": {
+                "label": "Duration",
+                "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
+              },
+              "subtotal": "Subtotal",
+              "total": "Total"
+            },
+            "actions": {
+              "reset": "Clear",
+              "submit": "Order Now"
+            }
+          }
+        },
+        "ip-list": {
+          "banner": "In order not to affect your use, please renew before the IP expires, cannot renew after expiration. You can also top up your wallet for auto-renewal. <link>Learn more</link>",
+          "statistics": {
+            "remaining": "Remaining IPs",
+            "extractable": "Extractable IPs",
+            "expiring": "Expiring Soon"
+          },
+          "table": {
+            "filters": {
+              "ip": {
+                "placeholder": "IP Address"
+              },
+              "status": {
+                "placeholder": "Status"
+              }
+            },
+            "actions": {
+              "refresh": "Refresh",
+              "renewal": "Renewal"
+            },
+            "columns": {
+              "ip": "IP Address",
+              "port": "Port",
+              "username": "Username",
+              "password": "Password",
+              "region": "Region",
+              "time-left": "Time Left",
+              "expire-time": "Expire Time",
+              "status": "Status",
+              "remark": "Remark",
+              "operate": "Operate"
+            }
+          }
+        }
+      }
+    }
+  },
+  "auth": {
+    "global": {
+      "slogan": "Global \n Residential Proxy \n Network",
+      "features": [
+        "Continuously expanding IP pool",
+        "Country and city-level targeting",
+        "Average uptime of 99.9%",
+        "24/7 customer support"
+      ],
+      "footer": "Trusted by 1000+ business customers worldwide"
+    },
+    "login": {
+      "title": "Log in to your account",
+      "oauth2": {
+        "google": "Continue with Google"
+      },
+      "or": "OR",
+      "form": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email Address"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Password"
+        },
+        "submit": {
+          "label": "Log in"
+        }
+      },
+      "forgot-password": "Forgot your password?",
+      "signup": "Don't have an account yet? <link>Sign Up</link>"
+    },
+    "signup": {
+      "title": "Create an account",
+      "oauth2": {
+        "google": "Continue with Google"
+      },
+      "or": "OR",
+      "form": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email Address"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Password"
+        },
+        "referral": {
+          "label": "Referral Code",
+          "placeholder": "Optional"
+        },
+        "agree": {
+          "label": "I agree to the <term>Terms of Service</term> and <policy>Privacy Policy</policy>",
+          "errors": {
+            "required": "Please agree to the Terms of Service and Privacy Policy"
+          }
+        },
+        "submit": {
+          "label": "Create account"
+        }
+      },
+      "login": "Already have an account? <link>Log in</link>",
+      "result": {
+        "title": "Verify Your Email",
+        "subtitle": "We've sent a confirmation link to",
+        "desc": "Please check your email to complete the final step of registration. Your link will be active for 30 minutes.",
+        "actions": ["Back to login"]
+      }
+    },
+    "forgot": {
+      "title": "Forgot Password",
+      "subtitle": "Please enter your registered email address and we will send you a link to reset your password.",
+      "form": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Email Address"
+        },
+        "submit": {
+          "label": "Send email"
+        }
+      },
+      "login": "Remember your password? <link>Return to Log in</link>",
+      "result": {
+        "title": "Verify Your Email",
+        "subtitle": "We've sent a confirmation link to",
+        "desc": "Please check your email to complete the final step to reset your password. Your link will be valid for 30 minutes.",
+        "actions": ["Back to login"]
+      }
+    },
+    "reset": {
+      "title": "Reset Password",
+      "form": {
+        "new-password": {
+          "label": "New Password",
+          "placeholder": "New Password"
+        },
+        "confirm-password": {
+          "label": "Confirm Password",
+          "placeholder": "Confirm Password",
+          "errors": {
+            "match": "The confirmed password does not match the new password"
+          }
+        },
+        "submit": {
+          "label": "Reset"
+        }
+      },
+      "result": {
+        "title": "Reset successful",
+        "subtitle": "You can now log back into your account using your new password.",
+        "actions": ["Back to login"]
       }
     }
   }

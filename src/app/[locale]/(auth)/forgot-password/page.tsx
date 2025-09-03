@@ -10,9 +10,11 @@ import {
 import { Link } from '@/i18n/navigation';
 import { useRequest } from 'ahooks';
 import { Alert, Button, FormProps, Result } from 'antd';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 export default function Page() {
+  const t = useTranslations('auth.forgot');
   const [form] = AntdForm.useForm();
   const [errMsg, setErrMsg] = useState<string>();
   const [showResult, setShowResult] = useState(false);
@@ -42,20 +44,17 @@ export default function Page() {
     <>
       <Result
         status="success"
-        title={'Verify Your Email'}
+        title={t('result.title')}
         subTitle={
           <div className="space-y-4">
-            <div>We&#39;ve sent a confirmation link to</div>
+            <div>{t('result.subtitle')}</div>
             <div className="font-medium text-black text-base">{email}</div>
-            <div>
-              Please check your email to complete the final step to reset your
-              password. Your link will be valid for 30 minutes.
-            </div>
+            <div>{t('result.desc')}</div>
           </div>
         }
         extra={[
           <Button href="/login" block type="primary" key="back" size="large">
-            Back to login
+            {t('result.actions.0')}
           </Button>,
         ]}
       />
@@ -63,12 +62,9 @@ export default function Page() {
   ) : (
     <>
       <AntdTitle level={2} className="mb-8 mt-0 text-center">
-        Forget Password
+        {t('title')}
       </AntdTitle>
-      <AntdParagraph>
-        Please enter your registered email address and we will send you a link
-        to reset your password
-      </AntdParagraph>
+      <AntdParagraph type="secondary">{t('subtitle')}</AntdParagraph>
       <AntdForm
         form={form}
         disabled={submitting}
@@ -85,9 +81,9 @@ export default function Page() {
         <AntdFormItem
           name="email"
           messageVariables={{
-            label: 'Email',
+            label: t('form.email.label'),
           }}
-          label="Email"
+          label={t('form.email.label')}
           rules={[
             {
               required: true,
@@ -97,7 +93,7 @@ export default function Page() {
             },
           ]}
         >
-          <AntdInput size="large" placeholder={'Email'} />
+          <AntdInput size="large" placeholder={t('form.email.placeholder')} />
         </AntdFormItem>
         <AntdFormItem>
           <Button
@@ -107,13 +103,18 @@ export default function Page() {
             type="primary"
             htmlType="submit"
           >
-            Send email
+            {t('form.submit.label')}
           </Button>
         </AntdFormItem>
         <AntdFormItem>
           <div className="text-center">
-            <span>Remember your password? </span>
-            <Link href="/login">Return to Log in</Link>
+            {t.rich('login', {
+              link: (chunks) => (
+                <>
+                  <Link href="/login">{chunks}</Link>
+                </>
+              ),
+            })}
           </div>
         </AntdFormItem>
       </AntdForm>

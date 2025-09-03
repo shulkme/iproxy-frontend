@@ -1,10 +1,13 @@
+'use client';
 import { Link } from '@/i18n/navigation';
 import Logo from '@/icons/logo';
 import { RiCheckLine } from '@remixicon/react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
 const Cover: React.FC = () => {
+  const t = useTranslations('auth.global');
   return (
     <>
       <Image fill src="/images/sso.jpg" alt="" className="object-cover" />
@@ -21,34 +24,22 @@ const Cover: React.FC = () => {
           </Link>
         </div>
         <div className="pt-[30%] flex-auto">
-          <h1 className="text-4xl font-medium mb-8">
-            Global <br />
-            Residential Proxy <br />
-            Network
+          <h1 className="text-4xl font-medium mb-8 whitespace-pre-line">
+            {t('slogan')}
           </h1>
-          <ul className="space-y-2 text-lg">
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">
-                <RiCheckLine size={16} />
-              </span>
-              <span>More than 200 million IP pools in 195 countries</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">
-                <RiCheckLine size={16} />
-              </span>
-              <span>National and city-level positioning</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">
-                <RiCheckLine size={16} />
-              </span>
-              <span>Average uptime is 99.9%</span>
-            </li>
+          <ul className="space-y-3 text-lg">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <li key={i} className="flex items-center gap-2">
+                <span className="text-green-500">
+                  <RiCheckLine size={16} />
+                </span>
+                <span>{t(`features.${i}`)}</span>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="flex-none">
-          <p className="">Trusted by 5000+ business customers worldwide</p>
+          <p className="">{t('footer')}</p>
         </div>
       </div>
     </>

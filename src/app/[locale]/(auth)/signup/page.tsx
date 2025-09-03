@@ -12,9 +12,11 @@ import { Link } from '@/i18n/navigation';
 import Google from '@/icons/google';
 import { useRequest } from 'ahooks';
 import { Alert, Button, Checkbox, Divider, FormProps, Result } from 'antd';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 export default function Page() {
+  const t = useTranslations('auth.signup');
   const [form] = AntdForm.useForm();
   const [errMsg, setErrMsg] = useState<string>();
   const [showResult, setShowResult] = useState(false);
@@ -56,20 +58,17 @@ export default function Page() {
     <>
       <Result
         status="success"
-        title={'Verify Your Email'}
+        title={t('result.title')}
         subTitle={
           <div className="space-y-4">
-            <div>We&#39;ve sent a confirmation link to</div>
+            <div>{t('result.subtitle')}</div>
             <div className="font-medium text-black text-base">{email}</div>
-            <div>
-              Please check your email to complete the final step of
-              registration. Your link will be active for 30 minutes.
-            </div>
+            <div>{t('result.desc')}</div>
           </div>
         }
         extra={[
           <Button href="/login" block type="primary" key="back" size="large">
-            Back to login
+            {t('result.actions.0')}
           </Button>,
         ]}
       />
@@ -77,7 +76,7 @@ export default function Page() {
   ) : (
     <>
       <AntdTitle level={2} className="mb-8 mt-0 text-center">
-        Create an account
+        {t('title')}
       </AntdTitle>
       <AntdForm
         form={form}
@@ -96,11 +95,11 @@ export default function Page() {
             icon={<Google width={20} height={20} />}
             onClick={getGoogleAuth}
           >
-            Continue with Google
+            {t('oauth2.google')}
           </Button>
         </AntdFormItem>
         <Divider type="horizontal" plain>
-          OR
+          {t('or')}
         </Divider>
         {errMsg && (
           <AntdFormItem>
@@ -110,9 +109,9 @@ export default function Page() {
         <AntdFormItem
           name="email"
           messageVariables={{
-            label: 'Email',
+            label: t('form.email.label'),
           }}
-          label="Email"
+          label={t('form.email.label')}
           rules={[
             {
               required: true,
@@ -122,14 +121,14 @@ export default function Page() {
             },
           ]}
         >
-          <AntdInput size="large" placeholder={'Email'} />
+          <AntdInput size="large" placeholder={t('form.email.placeholder')} />
         </AntdFormItem>
         <AntdFormItem
           messageVariables={{
-            label: 'Password',
+            label: t('form.password.label'),
           }}
           name="password"
-          label="Password"
+          label={t('form.password.label')}
           rules={[
             {
               required: true,
@@ -142,10 +141,22 @@ export default function Page() {
             },
           ]}
         >
-          <AntdInputPassword size="large" placeholder={'Password'} />
+          <AntdInputPassword
+            size="large"
+            placeholder={t('form.password.placeholder')}
+          />
         </AntdFormItem>
-        <AntdFormItem name="code" label={'Referral code'}>
-          <AntdInput size="large" placeholder={'Optional'} />
+        <AntdFormItem
+          name="code"
+          messageVariables={{
+            label: t('form.referral.label'),
+          }}
+          label={t('form.referral.label')}
+        >
+          <AntdInput
+            size="large"
+            placeholder={t('form.referral.placeholder')}
+          />
         </AntdFormItem>
         <AntdFormItem
           name="agree"
@@ -153,18 +164,21 @@ export default function Page() {
           rules={[
             {
               required: true,
-              message:
-                'Please agree to the Service Agreement Privacy Policy and Refund Policy',
+              message: t('form.agree.errors.required'),
             },
           ]}
           validateTrigger={['onChange', 'onBlur']}
         >
           <Checkbox>
             <div className="space-x-2">
-              <span>I agree to the</span>
-              <Link href={'/'}>Terms of Service</Link>
-              <span>and</span>
-              <Link href={'/'}>Privacy Policy</Link>
+              {t.rich('form.agree.label', {
+                term: (chunks) => {
+                  return <Link href={'#'}>{chunks}</Link>;
+                },
+                policy: (chunks) => {
+                  return <Link href={'#'}>{chunks}</Link>;
+                },
+              })}
             </div>
           </Checkbox>
         </AntdFormItem>
@@ -176,13 +190,18 @@ export default function Page() {
             type="primary"
             htmlType="submit"
           >
-            Create account
+            {t('form.submit.label')}
           </Button>
         </AntdFormItem>
         <AntdFormItem>
           <div className="text-center">
-            <span>Already have an account? </span>
-            <Link href="/login">Log in</Link>
+            {t.rich('login', {
+              link: (chunks) => (
+                <>
+                  <Link href="/login">{chunks}</Link>
+                </>
+              ),
+            })}
           </div>
         </AntdFormItem>
       </AntdForm>

@@ -11,7 +11,7 @@ import 'dayjs/locale/zh';
 import 'dayjs/locale/zh-tw';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useLocale } from 'next-intl';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import React, { createContext, useContext, useMemo } from 'react';
 
 dayjs.extend(localizedFormat);
@@ -29,6 +29,7 @@ const LanguageProvider: React.FC<{
   const router = useRouter();
   const params = useParams();
   const pathname = usePathname();
+  const query = Object.fromEntries(useSearchParams().entries());
   const setLocale = (locale: string) => {
     switch (locale) {
       case 'en':
@@ -43,7 +44,7 @@ const LanguageProvider: React.FC<{
     }
     router.replace(
       // @ts-expect-error -- TypeScript will validate that only known `params`
-      { pathname, params },
+      { pathname, params, query },
       {
         locale,
       },
