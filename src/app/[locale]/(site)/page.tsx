@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server';
 export default async function Home() {
   const t = await getTranslations();
   return (
-    <div className="w-full h-[200vh] flex flex-col items-center justify-center gap-8">
+    <div className="w-full h-full flex flex-col items-center justify-center gap-8">
       <h2>{t('hello')}</h2>
       <div>
         <Link href="/dashboard">

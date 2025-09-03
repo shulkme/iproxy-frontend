@@ -5,6 +5,7 @@ import { LanguageProvider } from '@/providers/language';
 import { ThemeProvider } from '@/providers/theme';
 import { TitleProvider } from '@/providers/title';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { App } from 'antd';
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -45,7 +46,9 @@ export default async function LocaleLayout({
             <NextIntlClientProvider>
               <LanguageProvider>
                 <IdentityProvider>
-                  <TitleProvider>{children}</TitleProvider>
+                  <TitleProvider>
+                    <App>{children}</App>
+                  </TitleProvider>
                 </IdentityProvider>
               </LanguageProvider>
             </NextIntlClientProvider>
