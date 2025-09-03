@@ -40,6 +40,12 @@ const config: ThemeConfig = {
       primaryShadow: 'none',
       contentFontSizeSM: 12,
     },
+    Pagination: {
+      controlHeightXS: 20,
+      controlHeightSM: 24,
+      controlHeight: 32,
+      controlHeightLG: 40,
+    },
   },
 };
 

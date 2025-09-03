@@ -7,7 +7,7 @@ import { HttpResponse } from '@/apis/types';
  * @param params
  */
 export async function getAllPackages(
-  params: PackageParams,
+  params?: PackageParams,
 ): Promise<HttpResponse<PackageRecord[]>> {
   return await request.get('/sys/packages/all', {
     params,

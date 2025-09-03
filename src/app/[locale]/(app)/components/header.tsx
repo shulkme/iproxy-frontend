@@ -63,7 +63,7 @@ const AccountDropdown = () => {
         router.push('/login');
         break;
       case 'wallet':
-        router.push('/wallet');
+        router.push('/wallet/recharge');
         break;
     }
   };

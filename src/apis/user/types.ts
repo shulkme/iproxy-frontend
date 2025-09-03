@@ -6,6 +6,7 @@ export interface UserRecord {
   id: number;
   uuid: string;
   status: number;
+  created_time: string;
 }
 
 export interface UserData {

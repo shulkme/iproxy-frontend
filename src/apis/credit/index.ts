@@ -7,7 +7,7 @@ import { HttpResponse, PageResult } from '@/apis/types';
  * @param params
  */
 export async function getCreditRecordList(
-  params: CreditParams,
+  params?: CreditParams,
 ): Promise<HttpResponse<PageResult<CreditRecord>>> {
   return await request.get('/credit/record', {
     params,

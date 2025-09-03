@@ -7,7 +7,7 @@ import { HttpResponse, PageResult } from '@/apis/types';
  * @param params
  */
 export async function getProxyList(
-  params: ProxyParams,
+  params?: ProxyParams,
 ): Promise<HttpResponse<PageResult<ProxyRecord>>> {
   return await request.get('/sys/proxy', {
     params,
