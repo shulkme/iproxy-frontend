@@ -58,7 +58,7 @@
           "scarping": "抓取",
           "serp-api": "Serp Api",
           "menu": "菜单",
-          "my-account": "我的账户",
+          "account": "我的账户",
           "wallet": "钱包",
           "referral": "推荐",
           "help": "帮助",
@@ -320,6 +320,105 @@
               "status": "状态",
               "date": "日期",
               "balance": "余额"
+            }
+          }
+        }
+      },
+      "account": {
+        "title": "账户",
+        "menus": {
+          "profile": "个人资料",
+          "subscription": "订阅",
+          "notifications": "通知"
+        },
+        "profile": {
+          "detail": {
+            "title": "账户详情",
+            "items": {
+              "username": {
+                "label": "用户名"
+              },
+              "email": {
+                "label": "电子邮件"
+              },
+              "registration-time": {
+                "label": "注册时间"
+              },
+              "password": {
+                "label": "密码",
+                "change-password": "修改密码"
+              }
+            },
+            "modal": {
+              "title": "修改密码",
+              "actions": {
+                "yes": "更新",
+                "no": "取消"
+              },
+              "form": {
+                "old-password": {
+                  "label": "旧密码",
+                  "placeholder": "旧密码"
+                },
+                "new-password": {
+                  "label": "新密码",
+                  "placeholder": "新密码"
+                },
+                "confirm-password": {
+                  "label": "确认密码",
+                  "placeholder": "确认密码",
+                  "errors": {
+                    "match": "确认密码与新密码不匹配"
+                  }
+                }
+              },
+              "result": {
+                "success": "修改成功",
+                "error": "修改失败"
+              }
+            }
+          },
+          "login-record": {
+            "title": "登录活动记录",
+            "columns": {
+              "device": "设备",
+              "location": "位置",
+              "ip": "登录IP",
+              "time": "登录时间"
+            }
+          }
+        },
+        "subscription": {
+          "plans": {
+            "residential": "住宅代理",
+            "serp-api": "SERP API"
+          },
+          "actions": {
+            "subscription": "订阅计划"
+          },
+          "detail": {
+            "plan-name": "套餐名称",
+            "unit-price": "订阅单价",
+            "amount": "订阅数量",
+            "start-date": "订阅开始日期",
+            "last-time": "上次订阅时间",
+            "next-time": "下次订阅时间"
+          }
+        },
+        "notifications": {
+          "tips": "当您开启通知时，在特定条件下，您会收到来自系统的邮件通知。",
+          "items": {
+            "wallet": {
+              "title": "钱包",
+              "desc": "钱包余额不足时的提醒。"
+            },
+            "subscription": {
+              "title": "订阅计划",
+              "desc": "订阅计划即将到期，例如：IP、流量、积分等。"
+            },
+            "discounts": {
+              "title": "折扣",
+              "desc": "当折扣活动即将结束或优惠券即将到期时。"
             }
           }
         }

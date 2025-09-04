@@ -407,6 +407,23 @@
             "last-time": "Last subscription time",
             "next-time": "Next subscription time"
           }
+        },
+        "notifications": {
+          "tips": "When you turn on notifications, you will receive email notifications from the system under certain conditions.",
+          "items": {
+            "wallet": {
+              "title": "Wallet",
+              "desc": "Reminder when wallet balance is insufficient."
+            },
+            "subscription":  {
+              "title": "Subscription Plan",
+              "desc": "Subscription plans are about to expire, such as: IP, traffic, points, etc."
+            },
+            "discounts": {
+              "title": "Discounts",
+              "desc": "When a discount event is about to end or a coupon is about to expire."
+            }
+          }
         }
       }
     }

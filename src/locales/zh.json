@@ -404,6 +404,23 @@
             "last-time": "上次订阅时间",
             "next-time": "下次订阅时间"
           }
+        },
+        "notifications": {
+          "tips": "当您开启通知时，在特定条件下，您会收到来自系统的邮件通知。",
+          "items": {
+            "wallet": {
+              "title": "钱包",
+              "desc": "钱包余额不足时的提醒。"
+            },
+            "subscription": {
+              "title": "订阅计划",
+              "desc": "订阅计划即将到期，例如：IP、流量、积分等。"
+            },
+            "discounts": {
+              "title": "折扣",
+              "desc": "当折扣活动即将结束或优惠券即将到期时。"
+            }
+          }
         }
       }
     }
