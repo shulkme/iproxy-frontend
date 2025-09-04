@@ -9,7 +9,7 @@ import { Card, Table } from 'antd';
 
 export default function Page() {
   return (
-    <>
+    <div className="p-8">
       <Card>
         <div className="mb-6">
           <AntdForm layout="inline">
@@ -58,6 +58,6 @@ export default function Page() {
           />
         </div>
       </Card>
-    </>
+    </div>
   );
 }

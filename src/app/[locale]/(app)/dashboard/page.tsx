@@ -1,9 +1,9 @@
 import Affiliate from '@/app/[locale]/(app)/dashboard/components/affiliate';
-import CDKey from '@/app/[locale]/(app)/dashboard/components/cdkey';
 import Contact from '@/app/[locale]/(app)/dashboard/components/contact';
 import Residential from '@/app/[locale]/(app)/dashboard/components/residential';
 import Tabs from '@/app/[locale]/(app)/dashboard/components/tabs';
 import Traffic from '@/app/[locale]/(app)/dashboard/components/traffic';
+import Wallet from '@/app/[locale]/(app)/dashboard/components/wallet';
 import { Title } from '@/providers/title';
 import { Col, Row } from 'antd';
 
@@ -29,7 +29,7 @@ export default function Page() {
           <Col xs={24} sm={24} md={24} lg={24} xl={8} xxl={6}>
             <Row gutter={[24, 24]}>
               <Col span={24}>
-                <CDKey />
+                <Wallet />
               </Col>
               <Col span={24}>
                 <Affiliate />

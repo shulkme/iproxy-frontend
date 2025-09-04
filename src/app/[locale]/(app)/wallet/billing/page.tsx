@@ -53,7 +53,7 @@ export default function Page() {
   };
 
   return (
-    <>
+    <div className="p-8">
       <Card>
         <div className="mb-6">
           <AntdForm
@@ -117,6 +117,6 @@ export default function Page() {
           {...tableProps}
         />
       </Card>
-    </>
+    </div>
   );
 }

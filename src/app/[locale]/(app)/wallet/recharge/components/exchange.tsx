@@ -71,7 +71,7 @@ const Exchange: React.FC = () => {
                 size="large"
                 variant="underlined"
                 prefix={<span className="text-3xl">$</span>}
-                min={100}
+                min={10}
                 max={10000}
                 step={1}
                 onChange={(v) => setAmount(v as number)}
@@ -89,7 +89,7 @@ const Exchange: React.FC = () => {
             <div className="mt-4">
               <AntdText type="secondary">
                 {t('exchange.amount.tips', {
-                  number: 100,
+                  number: 10,
                 })}
               </AntdText>
             </div>

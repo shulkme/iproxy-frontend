@@ -311,7 +311,7 @@
           "exchange": {
             "current": {
               "label": "当前余额",
-              "extra": "交易明细"
+              "extra": "充值记录"
             },
             "amount": {
               "title": "金额",
@@ -485,6 +485,66 @@
         "actions": {
           "view": "查看网站",
           "guide": "使用指南"
+        }
+      },
+      "referral": {
+        "title": "推荐计划",
+        "menus": {
+          "program": "推荐计划",
+          "details": "推荐详情",
+          "record": "转化记录"
+        },
+        "program": {
+          "hero": {
+            "title": "获得最高 <strong>10%</strong> 推荐佣金",
+            "subtitle": "邀请好友购买住宅代理-个人版套餐",
+            "actions": {
+              "recommend": "立即推荐",
+              "description": "推荐计划说明"
+            },
+            "link": "您的推荐链接："
+          },
+          "reward": {
+            "title": "推荐奖励",
+            "items": {
+              "accrued": "累计佣金",
+              "total": "总佣金",
+              "invites": "总邀请人数",
+              "settlement": "结算佣金",
+              "withdrawn": "已提现金额",
+              "ratio": "返佣比例"
+            }
+          },
+          "material": {
+            "title": "推荐素材",
+            "form": {
+              "size": {
+                "label": "横幅尺寸（像素）"
+              },
+              "variant": {
+                "label": "横幅类型",
+                "options": {
+                  "brand": "品牌",
+                  "residential": "住宅代理",
+                  "ips": "IPs"
+                }
+              },
+              "language": {
+                "label": "横幅代码语言",
+                "options": {
+                  "html": "HTML",
+                  "bbcode": "BBCode"
+                }
+              },
+              "code": {
+                "label": "横幅代码"
+              },
+              "copy": {
+                "label": "复制代码",
+                "success": "成功"
+              }
+            }
+          }
         }
       }
     }

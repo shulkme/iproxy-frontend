@@ -13,7 +13,7 @@ const RechargeContext = createContext<{
 const RechargeProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [amount, setAmount] = useState(100);
+  const [amount, setAmount] = useState(10);
   const [payment, setPayment] = useState('credit');
   const { message } = App.useApp();
   const { refresh } = useCredit();
@@ -21,7 +21,6 @@ const RechargeProvider: React.FC<{
   useEffect(() => {
     const handler = (event: MessageEvent) => {
       if (event.data?.type === 'PAYMENT_SUCCESS') {
-        console.log('s');
         refresh();
         message.success('Payment successful!');
       }

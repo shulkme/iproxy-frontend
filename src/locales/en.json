@@ -489,6 +489,66 @@
           "view": "View site",
           "guide": "Use guide"
         }
+      },
+      "referral": {
+        "title": "Referral Program",
+        "menus": {
+          "program": "Referral program",
+          "details": "Referral details",
+          "record": "Conversion record"
+        },
+        "program": {
+          "hero": {
+            "title": "Receive up to <strong>10%</strong> referral commission",
+            "subtitle": "Invite friends to purchase Residential Proxy-Personal Plans",
+            "actions": {
+              "recommend": "Recommend now",
+              "description": "Referral program description"
+            },
+            "link": "Your referral link:"
+          },
+          "reward": {
+            "title": "Referral rewards",
+            "items": {
+              "accrued": "Accrued commission",
+              "total": "Total commission",
+              "invites": "Total number of invites",
+              "settlement": "Settlement commission",
+              "withdrawn": "Amount withdrawn",
+              "ratio": "Rebate ratio"
+            }
+          },
+          "material": {
+            "title": "Referral materials",
+            "form": {
+              "size": {
+                "label": "Banner size(px)"
+              },
+              "variant": {
+                "label": "Banner variant",
+                "options": {
+                  "brand": "Brand",
+                  "residential": "Residential proxies",
+                  "ips": "IPs"
+                }
+              },
+              "language": {
+                "label": "Banner code language",
+                "options": {
+                  "html": "HTML",
+                  "bbcode": "BBCode"
+                }
+              },
+              "code": {
+                "label": "Banner code"
+              },
+              "copy": {
+                "label": "Copy Code",
+                "success": "Success"
+              }
+            }
+          }
+        }
       }
     }
   },

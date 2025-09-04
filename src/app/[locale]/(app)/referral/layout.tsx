@@ -1,15 +1,18 @@
+'use client';
 import Navbar from '@/app/[locale]/components/navbar';
 import { Title } from '@/providers/title';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
+  const t = useTranslations('app.pages.referral');
   return (
     <>
-      <Title title={'Referral program'} />
+      <Title title={t('title')} />
       <Navbar
         items={[
           {
-            label: 'Referral program',
+            label: t('menus.program'),
             key: 'referral:program',
             meta: {
               href: '/referral/program',
@@ -17,7 +20,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Referral details',
+            label: t('menus.details'),
             key: 'referral:details',
             meta: {
               href: '/referral/details',
@@ -25,7 +28,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Conversion Record',
+            label: t('menus.record'),
             key: 'referral:conversion',
             meta: {
               href: '/referral/conversion',
@@ -34,7 +37,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           },
         ]}
       />
-      <div className="p-8">{children}</div>
+      <div>{children}</div>
     </>
   );
 }

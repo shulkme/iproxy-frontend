@@ -7,7 +7,7 @@ export default function Page() {
   const t = useTranslations('app.pages.account.subscription');
   return (
     <>
-      <div className="space-y-6">
+      <div className="space-y-6 p-8">
         <Card>
           <Descriptions
             title={
