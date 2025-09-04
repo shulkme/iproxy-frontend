@@ -1,7 +1,10 @@
+'use client';
 import { RiPinDistanceLine, RiWindowLine } from '@remixicon/react';
 import { Button, Card, Descriptions } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.pages.account.subscription');
   return (
     <>
       <div className="space-y-6">
@@ -10,37 +13,37 @@ export default function Page() {
             title={
               <div className="flex items-center gap-4">
                 <RiPinDistanceLine size={24} />
-                <span>{'Residential Proxies'}</span>
+                <span>{t('plans.residential')}</span>
               </div>
             }
             extra={
               <>
-                <Button type="primary">Subscription plan</Button>
+                <Button type="primary">{t('actions.subscription')}</Button>
               </>
             }
             items={[
               {
-                label: 'Plan name',
+                label: t('detail.plan-name'),
                 children: '--',
               },
               {
-                label: 'Subscription unit price',
+                label: t('detail.unit-price'),
                 children: '--',
               },
               {
-                label: 'Subscription amount',
+                label: t('detail.amount'),
                 children: '--',
               },
               {
-                label: 'Subscription start date',
+                label: t('detail.start-date'),
                 children: '--',
               },
               {
-                label: 'Last subscription time',
+                label: t('detail.last-time'),
                 children: '--',
               },
               {
-                label: 'Next subscription time',
+                label: t('detail.next-time'),
                 children: '--',
               },
             ]}
@@ -51,37 +54,37 @@ export default function Page() {
             title={
               <div className="flex items-center gap-4">
                 <RiWindowLine size={24} />
-                <span>{'SERP API'}</span>
+                <span>{t('plans.serp-api')}</span>
               </div>
             }
             extra={
               <>
-                <Button type="primary">Subscription plan</Button>
+                <Button type="primary">{t('actions.subscription')}</Button>
               </>
             }
             items={[
               {
-                label: 'Plan name',
+                label: t('detail.plan-name'),
                 children: '--',
               },
               {
-                label: 'Subscription unit price',
+                label: t('detail.unit-price'),
                 children: '--',
               },
               {
-                label: 'Subscription amount',
+                label: t('detail.amount'),
                 children: '--',
               },
               {
-                label: 'Subscription start date',
+                label: t('detail.start-date'),
                 children: '--',
               },
               {
-                label: 'Last subscription time',
+                label: t('detail.last-time'),
                 children: '--',
               },
               {
-                label: 'Next subscription time',
+                label: t('detail.next-time'),
                 children: '--',
               },
             ]}

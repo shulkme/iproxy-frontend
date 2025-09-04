@@ -387,6 +387,23 @@
               "time": "登录时间"
             }
           }
+        },
+        "subscription": {
+          "plans": {
+            "residential": "住宅代理",
+            "serp-api": "SERP API"
+          },
+          "actions": {
+            "subscription": "订阅计划"
+          },
+          "detail": {
+            "plan-name": "套餐名称",
+            "unit-price": "订阅单价",
+            "amount": "订阅数量",
+            "start-date": "订阅开始日期",
+            "last-time": "上次订阅时间",
+            "next-time": "下次订阅时间"
+          }
         }
       }
     }

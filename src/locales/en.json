@@ -390,6 +390,23 @@
               "time": "Login Time"
             }
           }
+        },
+        "subscription": {
+          "plans": {
+            "residential": "Residential Proxies",
+            "serp-api": "SERP API"
+          },
+          "actions": {
+            "subscription": "Subscription plan"
+          },
+          "detail": {
+            "plan-name": "Plan name",
+            "unit-price": "Subscription unit price",
+            "amount": "Subscription amount",
+            "start-date": "Subscription start date",
+            "last-time": "Last subscription time",
+            "next-time": "Next subscription time"
+          }
         }
       }
     }
