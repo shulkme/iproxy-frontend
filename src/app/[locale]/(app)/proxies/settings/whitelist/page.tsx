@@ -1,8 +1,11 @@
+'use client';
 import { AntdForm, AntdFormItem, AntdInput } from '@/components/antd';
 import { RiSearchLine } from '@remixicon/react';
 import { Button, Card, Space, Table } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.pages.proxy-setting.whitelist');
   return (
     <div className="p-8">
       <Card>
@@ -11,7 +14,7 @@ export default function Page() {
             <AntdForm layout="inline">
               <AntdFormItem>
                 <AntdInput
-                  placeholder="Search IP"
+                  placeholder={t('table.filters.ip.placeholder')}
                   suffix={<RiSearchLine size={16} />}
                 />
               </AntdFormItem>
@@ -19,7 +22,7 @@ export default function Page() {
           </div>
           <div>
             <Space size="middle">
-              <Button type="primary">Add whitelist</Button>
+              <Button type="primary">{t('table.actions.create')}</Button>
             </Space>
           </div>
         </div>
@@ -28,19 +31,19 @@ export default function Page() {
             scroll={{ x: 1200 }}
             columns={[
               {
-                title: 'IP',
+                title: t('table.columns.ip'),
               },
               {
-                title: 'Status',
+                title: t('table.columns.status'),
               },
               {
-                title: 'Add time',
+                title: t('table.columns.add-time'),
               },
               {
-                title: 'Remark',
+                title: t('table.columns.remark'),
               },
               {
-                title: 'Operate',
+                title: t('table.columns.operate'),
               },
             ]}
           />

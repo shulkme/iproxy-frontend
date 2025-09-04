@@ -257,6 +257,52 @@
           }
         }
       },
+      "proxy-setting": {
+        "title": "Proxy Settings",
+        "menus": {
+          "sub-account": "Sub Account",
+          "whitelist": "Whitelist"
+        },
+        "sub-account": {
+          "table": {
+            "filters": {
+              "username": {
+                "placeholder": "Search sub account"
+              }
+            },
+            "actions": {
+              "create": "Add sub-account"
+            },
+            "columns": {
+              "username": "Username",
+              "residential-used": "Residential Used",
+              "status": "Status",
+              "add-time": "Add Time",
+              "remark": "Remark",
+              "operate": "Operate"
+            }
+          }
+        },
+        "whitelist": {
+          "table": {
+            "filters": {
+              "ip": {
+                "placeholder": "Search IP"
+              }
+            },
+            "actions": {
+              "create": "Add whitelist"
+            },
+            "columns": {
+              "ip": "IP Address",
+              "status": "Status",
+              "add-time": "Add Time",
+              "remark": "Remark",
+              "operate": "Operate"
+            }
+          }
+        }
+      },
       "wallet": {
         "title": "Wallet",
         "menus": {

@@ -60,7 +60,7 @@
           "menu": "菜单",
           "account": "我的账户",
           "wallet": "钱包",
-          "referral": "推荐",
+          "referral": "推荐计划",
           "help": "帮助",
           "partners": "合作伙伴",
           "documentation": "文档",
@@ -248,6 +248,52 @@
               "time-left": "剩余时长",
               "expire-time": "到期时间",
               "status": "状态",
+              "remark": "备注",
+              "operate": "操作"
+            }
+          }
+        }
+      },
+      "proxy-setting": {
+        "title": "代理设置",
+        "menus": {
+          "sub-account": "子账户",
+          "whitelist": "白名单"
+        },
+        "sub-account": {
+          "table": {
+            "filters": {
+              "username": {
+                "placeholder": "搜索子账户"
+              }
+            },
+            "actions": {
+              "create": "添加子账户"
+            },
+            "columns": {
+              "username": "用户名",
+              "residential-used": "住宅代理使用量",
+              "status": "状态",
+              "add-time": "添加时间",
+              "remark": "备注",
+              "operate": "操作"
+            }
+          }
+        },
+        "whitelist": {
+          "table": {
+            "filters": {
+              "ip": {
+                "placeholder": "搜索IP"
+              }
+            },
+            "actions": {
+              "create": "添加白名单"
+            },
+            "columns": {
+              "ip": "IP地址",
+              "status": "状态",
+              "add-time": "添加时间",
               "remark": "备注",
               "operate": "操作"
             }
