@@ -1,7 +1,13 @@
 'use client';
-import { AntdParagraph, AntdTitle } from '@/components/antd';
+import {
+  AntdForm,
+  AntdFormItem,
+  AntdRadioGroup,
+  AntdTitle,
+} from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import { Card } from 'antd';
+import { useTranslations } from 'next-intl';
 import { random } from 'radash';
 import React from 'react';
 import {
@@ -15,6 +21,7 @@ import {
 } from 'recharts';
 
 const Traffic: React.FC = () => {
+  const t = useTranslations('app.pages.dashboard.traffic');
   const data = Array.from({ length: 30 }).map((_, i) => ({
     label: `2025-08-${i}`,
     value: random(0, 500),
@@ -23,14 +30,34 @@ const Traffic: React.FC = () => {
     <Card>
       <div className="flex items-center justify-between gap-4 mb-4">
         <AntdTitle level={5} className="m-0">
-          Total traffic
+          {t('title')}
         </AntdTitle>
         <div>
-          <Link href="/">Detailed statistics</Link>
+          <Link href="/">{t('detail')}</Link>
         </div>
       </div>
-      <div className="">
-        <AntdParagraph type="secondary">Last 30 days:</AntdParagraph>
+      <div className="mb-8">
+        <AntdForm layout="inline">
+          <AntdFormItem name="duration" initialValue={7}>
+            <AntdRadioGroup
+              optionType="button"
+              options={[
+                {
+                  label: t('filters.duration.options.7'),
+                  value: 7,
+                },
+                {
+                  label: t('filters.duration.options.30'),
+                  value: 30,
+                },
+                {
+                  label: t('filters.duration.options.90'),
+                  value: 90,
+                },
+              ]}
+            />
+          </AntdFormItem>
+        </AntdForm>
       </div>
       <div className="w-full h-80">
         <ResponsiveContainer>

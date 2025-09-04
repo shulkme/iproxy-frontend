@@ -17,9 +17,7 @@ const Hero: React.FC = () => {
           </AntdTitle>
           <AntdTitle level={2} className="m-0 mb-6">
             {t.rich('title', {
-              strong: (chunks) => (
-                <span className="text-orange-500">{chunks}</span>
-              ),
+              percent: () => <span className="text-orange-500">10%</span>,
             })}
           </AntdTitle>
           <div className="mb-6">

@@ -28,16 +28,14 @@ const Referral: React.FC = () => {
       </div>
       <div>
         {t.rich('subtitle', {
-          strong: (chunks) => (
-            <span className="text-orange-500 font-bold">{chunks}</span>
-          ),
+          percent: () => <span className="text-orange-500 font-bold">10%</span>,
         })}
       </div>
       <Divider type="horizontal" />
       <div>
         <div className="font-medium mb-2">{t('withdrawable')}</div>
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold">$0.00</div>
+          <div className="text-xl font-bold">$0</div>
           <div>
             <Link href="/">{t('extract')}</Link>
           </div>

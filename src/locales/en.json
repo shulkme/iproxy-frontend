@@ -87,15 +87,15 @@
           },
           "datacenter": {
             "title": "Datacenter Proxies",
-            "desc": "Form <strong>$0.15</strong> / IP / Day"
+            "desc": "Form <strong></strong> / IP / Day"
           },
           "residential": {
             "title": "Residential Proxies",
-            "desc": "Form <strong>$0.15</strong> / IP / Day"
+            "desc": "Form <strong></strong> / IP / Day"
           },
           "mobile": {
             "title": "Mobile Proxies",
-            "desc": "Form <strong>$0.15</strong> / IP / Day"
+            "desc": "Form <strong></strong> / IP / Day"
           }
         },
         "wallet": {
@@ -105,7 +105,7 @@
         },
         "referral": {
           "title": "Referral program",
-          "subtitle": "Invite friends and get <strong>10%</strong> commission",
+          "subtitle": "Invite friends and get <percent></percent> commission",
           "withdrawable": "Withdrawable",
           "extract": "Extract",
           "code": "Invitation Code:",
@@ -119,6 +119,129 @@
             "partners": "Partners",
             "documentation": "Documentation",
             "faq": "FAQ"
+          }
+        },
+        "traffic": {
+          "title": "Total traffic",
+          "detail": "Detailed statistics",
+          "filters": {
+            "duration": {
+              "options": {
+                "7": "7 Days",
+                "30": "30 Days",
+                "90": "90 Days"
+              }
+            }
+          }
+        },
+        "statistic": {
+          "isp": {
+            "title": "ISP Proxies",
+            "desc": "Trusted premium ISP proxy. Get uninterrupted connectivity and unlimited residential IP sessions for your business on a pay-per-IP basis.",
+            "statistics": {
+              "available": "Available",
+              "expiring": "Expiring soon",
+              "renewal": "Automatic renewal",
+              "expired": "Expired"
+            },
+            "links": {
+              "renewal": "Automatic renewal",
+              "documentation": "Documentation"
+            },
+            "actions": {
+              "using": "Start using"
+            },
+            "cover": {
+              "title": "Starts from",
+              "price": "<price></price> / IP / Day",
+              "features": [
+                "Dedicated IP",
+                "Unlimited duration sessions",
+                "Lifetime IP retention",
+                "Unlimited traffic"
+              ],
+              "buy": "Buy Now"
+            }
+          },
+          "datacenter": {
+            "title": "Datacenter Proxies",
+            "desc": "Purchase premium data center proxies with unlimited traffic and stable IP addresses. Experience enhanced privacy and speed at an exceptional value.",
+            "statistics": {
+              "available": "Available",
+              "expiring": "Expiring soon",
+              "renewal": "Automatic renewal",
+              "expired": "Expired"
+            },
+            "links": {
+              "renewal": "Automatic renewal",
+              "documentation": "Documentation"
+            },
+            "actions": {
+              "using": "Start using"
+            },
+            "cover": {
+              "title": "Starts from",
+              "price": "<price></price> / IP / Day",
+              "features": [
+                "Exclusive DC Proxies",
+                "Best price",
+                "Market-leading speed",
+                "Pay per IP, no GB limit"
+              ],
+              "buy": "Buy Now"
+            }
+          },
+          "residential": {
+            "title": "Residential Proxies",
+            "desc": "Discover over 200M+ ethically sourced residential IPs for seamless human-like crawling. Access local public data effortlessly and without barriers.",
+            "statistics": {
+              "remaining-traffic": "Available",
+              "expiration-time": "Expiration time"
+            },
+            "links": {
+              "renewal": "Automatic renewal",
+              "documentation": "Documentation"
+            },
+            "actions": {
+              "using": "Start using"
+            },
+            "cover": {
+              "title": "Starts from",
+              "price": "<price></price> / GB",
+              "features": [
+                "HTTP/HTTPS/SOCKS5 protocols",
+                "200 million ethical IPs",
+                "99.9% fast response time",
+                "Country and city-level targeting"
+              ],
+              "buy": "Buy Now"
+            }
+          },
+          "mobile": {
+            "title": "Mobile Proxies",
+            "desc": "Access millions of real mobile device IPs, provide native 4G/5G networks, and ultra-low latency connections, perfectly supporting ad verification and mobile acquisition services.",
+            "statistics": {
+              "remaining-traffic": "Available",
+              "expiration-time": "Expiration time"
+            },
+            "links": {
+              "renewal": "Automatic renewal",
+              "documentation": "Documentation"
+            },
+            "actions": {
+              "using": "Start using"
+            },
+            "cover": {
+              "title": "Starts from",
+              "price": "<price></price> / GB",
+              "features": [
+                "Real 4G/5G mobile IPs",
+                "Mobile network native exit",
+                "99.9% fast response time",
+                "Country and city-level targeting"
+              ],
+              "buy": "Buy Now"
+            }
           }
         }
       },
@@ -540,7 +663,7 @@
         },
         "program": {
           "hero": {
-            "title": "Receive up to <strong>10%</strong> referral commission",
+            "title": "Receive up to <percent></percent> referral commission",
             "subtitle": "Invite friends to purchase Residential Proxy-Personal Plans",
             "actions": {
               "recommend": "Recommend now",

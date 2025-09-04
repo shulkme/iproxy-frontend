@@ -1,10 +1,11 @@
 'use client';
 import Contact from '@/app/[locale]/(app)/dashboard/components/contact';
 import Referral from '@/app/[locale]/(app)/dashboard/components/referral';
-import Residential from '@/app/[locale]/(app)/dashboard/components/residential';
+import Statistic from '@/app/[locale]/(app)/dashboard/components/statistic';
 import Tabs from '@/app/[locale]/(app)/dashboard/components/tabs';
 import Traffic from '@/app/[locale]/(app)/dashboard/components/traffic';
 import Wallet from '@/app/[locale]/(app)/dashboard/components/wallet';
+import { DashboardProvider } from '@/app/[locale]/(app)/dashboard/context';
 import { Title } from '@/providers/title';
 import { Col, Row } from 'antd';
 import { useTranslations } from 'next-intl';
@@ -12,7 +13,7 @@ import { useTranslations } from 'next-intl';
 export default function Page() {
   const t = useTranslations('app.pages.dashboard');
   return (
-    <>
+    <DashboardProvider>
       <Title title={t('title')} />
       <div className="max-w-[1600px] mx-auto p-8">
         <Row gutter={[24, 24]}>
@@ -22,7 +23,7 @@ export default function Page() {
                 <Tabs />
               </Col>
               <Col span={24}>
-                <Residential />
+                <Statistic />
               </Col>
               <Col span={24}>
                 <Traffic />
@@ -44,6 +45,6 @@ export default function Page() {
           </Col>
         </Row>
       </div>
-    </>
+    </DashboardProvider>
   );
 }

@@ -2,11 +2,11 @@
 import NavMenu from '@/app/[locale]/components/nav-menu';
 import { AntdSider } from '@/components/antd';
 import {
+  RiBarChart2Line,
   RiExternalLinkLine,
   RiFileList3Line,
   RiGiftLine,
   RiHomeGearLine,
-  RiHomeLine,
   RiHomeOfficeLine,
   RiPinDistanceLine,
   RiQuestionLine,
@@ -62,7 +62,7 @@ const Sidebar: React.FC = () => {
                 {
                   label: t('menus.dashboard'),
                   key: 'dashboard',
-                  icon: <RiHomeLine size={18} />,
+                  icon: <RiBarChart2Line size={18} />,
                   meta: {
                     href: '/dashboard',
                     group: '/dashboard',

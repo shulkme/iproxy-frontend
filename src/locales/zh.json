@@ -83,19 +83,19 @@
         "tabs": {
           "isp": {
             "title": "静态住宅代理",
-            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+            "desc": "起价 <strong></strong> / IP / 天"
           },
           "datacenter": {
             "title": "数据中心代理",
-            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+            "desc": "起价 <strong></strong> / IP / 天"
           },
           "residential": {
             "title": "动态住宅代理",
-            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+            "desc": "起价 <strong></strong> / IP / 天"
           },
           "mobile": {
             "title": "移动代理",
-            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+            "desc": "起价 <strong></strong> / IP / 天"
           }
         },
         "wallet": {
@@ -105,7 +105,7 @@
         },
         "referral": {
           "title": "推荐计划",
-          "subtitle": "邀请好友并获得 <strong>10%</strong> 佣金",
+          "subtitle": "邀请好友并获得 <percent></percent> 佣金",
           "withdrawable": "可提现",
           "extract": "提现",
           "code": "邀请码：",
@@ -119,6 +119,129 @@
             "partners": "合作伙伴",
             "documentation": "文档",
             "faq": "常见问题"
+          }
+        },
+        "traffic": {
+          "title": "总流量",
+          "detail": "详细统计",
+          "filters": {
+            "duration": {
+              "options": {
+                "7": "7天",
+                "30": "30天",
+                "90": "90天"
+              }
+            }
+          }
+        },
+        "statistic": {
+          "isp": {
+            "title": "静态住宅代理",
+            "desc": "值得信赖的优质ISP代理，按IP付费，不间断连接和无限住宅IP会话，助力您的业务。",
+            "statistics": {
+              "available": "可用",
+              "expiring": "即将到期",
+              "renewal": "自动续费",
+              "expired": "已过期"
+            },
+            "links": {
+              "renewal": "自动续费",
+              "documentation": "文档"
+            },
+            "actions": {
+              "using": "开始使用"
+            },
+            "cover": {
+              "title": "起价",
+              "price": "<price></price> / IP / 天",
+              "features": [
+                "独享IP",
+                "无限时长会话",
+                "IP终身保留",
+                "无限流量"
+              ],
+              "buy": "立即购买"
+            }
+          },
+          "datacenter": {
+            "title": "数据中心代理",
+            "desc": "购买优质数据中心代理，无限流量和稳定IP地址，以超高性价比体验增强的隐私和速度。",
+            "statistics": {
+              "available": "可用",
+              "expiring": "即将到期",
+              "renewal": "自动续费",
+              "expired": "已过期"
+            },
+            "links": {
+              "renewal": "自动续费",
+              "documentation": "文档"
+            },
+            "actions": {
+              "using": "开始使用"
+            },
+            "cover": {
+              "title": "起价",
+              "price": "<price></price> / IP / 天",
+              "features": [
+                "独享数据中心代理",
+                "最优价格",
+                "市场领先的速度",
+                "按IP付费，不限流量"
+              ],
+              "buy": "立即购买"
+            }
+          },
+          "residential": {
+            "title": "动态住宅代理",
+            "desc": "探索超过2亿个合法的住宅IP，实现无缝的模拟人类爬取。轻松无障碍地访问本地公共数据。",
+            "statistics": {
+              "remaining-traffic": "可用",
+              "expiration-time": "到期时间"
+            },
+            "links": {
+              "renewal": "自动续费",
+              "documentation": "文档"
+            },
+            "actions": {
+              "using": "开始使用"
+            },
+            "cover": {
+              "title": "起价",
+              "price": "<price></price> / GB",
+              "features": [
+                "HTTP/HTTPS/SOCKS5协议",
+                "2亿个合法IP",
+                "99.9%快速响应时间",
+                "国家和城市级定位"
+              ],
+              "buy": "立即购买"
+            }
+          },
+          "mobile": {
+            "title": "移动代理",
+            "desc": "访问数百万个真实移动设备IP，提供原生4G/5G网络和超低延迟连接，完美支持广告验证和移动数据采集服务。",
+            "statistics": {
+              "remaining-traffic": "可用",
+              "expiration-time": "到期时间"
+            },
+            "links": {
+              "renewal": "自动续费",
+              "documentation": "文档"
+            },
+            "actions": {
+              "using": "开始使用"
+            },
+            "cover": {
+              "title": "起价",
+              "price": "<price></price> / GB",
+              "features": [
+                "真实4G/5G移动IP",
+                "移动网络原生出口",
+                "99.9%快速响应时间",
+                "国家和城市级定位"
+              ],
+              "buy": "立即购买"
+            }
           }
         }
       },
@@ -540,7 +663,7 @@
         },
         "program": {
           "hero": {
-            "title": "获得最高 <strong>10%</strong> 推荐佣金",
+            "title": "获得最高 <percent></percent> 推荐佣金",
             "subtitle": "邀请好友购买住宅代理-个人版套餐",
             "actions": {
               "recommend": "立即推荐",

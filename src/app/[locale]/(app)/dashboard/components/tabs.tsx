@@ -1,3 +1,4 @@
+import { useDashboard } from '@/app/[locale]/(app)/dashboard/context';
 import {
   AntdRadioButton,
   AntdRadioGroup,
@@ -52,21 +53,21 @@ const RadioTab: React.FC<{
 
 const Tabs: React.FC = () => {
   const t = useTranslations('app.pages.dashboard.tabs');
+  const { currentTab, setCurrentTab } = useDashboard();
   return (
     <Card>
       <AntdRadioGroup
-        defaultValue="isp"
+        defaultValue={currentTab}
         block
         className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 2xl:grid-cols-4 gap-4"
+        onChange={(e) => setCurrentTab(e.target.value)}
       >
         <RadioTab
           icon={RiHomeOfficeLine}
           title={t('isp.title')}
           value="isp"
           desc={t.rich('isp.desc', {
-            strong: (chunks) => (
-              <span className="text-black font-medium">{chunks}</span>
-            ),
+            strong: () => <span className="text-black font-medium">$0.15</span>,
           })}
         />
         <RadioTab
@@ -74,9 +75,7 @@ const Tabs: React.FC = () => {
           title={t('datacenter.title')}
           value="datacenter"
           desc={t.rich('datacenter.desc', {
-            strong: (chunks) => (
-              <span className="text-black font-medium">{chunks}</span>
-            ),
+            strong: () => <span className="text-black font-medium">$0.15</span>,
           })}
         />
         <RadioTab
@@ -84,9 +83,7 @@ const Tabs: React.FC = () => {
           title={t('residential.title')}
           value="residential"
           desc={t.rich('residential.desc', {
-            strong: (chunks) => (
-              <span className="text-black font-medium">{chunks}</span>
-            ),
+            strong: () => <span className="text-black font-medium">$0.15</span>,
           })}
         />
         <RadioTab
@@ -94,9 +91,7 @@ const Tabs: React.FC = () => {
           title={t('mobile.title')}
           value="mobile"
           desc={t.rich('mobile.desc', {
-            strong: (chunks) => (
-              <span className="text-black font-medium">{chunks}</span>
-            ),
+            strong: () => <span className="text-black font-medium">$0.15</span>,
           })}
         />
       </AntdRadioGroup>
