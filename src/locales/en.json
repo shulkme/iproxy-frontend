@@ -548,6 +548,34 @@
               }
             }
           }
+        },
+        "details": {
+          "table": {
+            "filters": {
+              "email": {
+                "placeholder": "Search email"
+              }
+            },
+            "columns": {
+              "username": "Referral username",
+              "email": "Referral email",
+              "order-volume": "Total order volume",
+              "order-amount": "Order amount",
+              "commission": "Total commission",
+              "credit": "Waiting for credit",
+              "credited": "Already credited"
+            }
+          }
+        },
+        "record": {
+          "table": {
+            "columns": {
+              "traffic": "Conversion traffic (GB)",
+              "pay": "Pay commission",
+              "remaining": "Remaining commission",
+              "time": "payment time"
+            }
+          }
         }
       }
     }

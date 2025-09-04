@@ -545,6 +545,34 @@
               }
             }
           }
+        },
+        "details": {
+          "table": {
+            "filters": {
+              "email": {
+                "placeholder": "搜索邮箱"
+              }
+            },
+            "columns": {
+              "username": "推荐用户名",
+              "email": "推荐邮箱",
+              "order-volume": "总订单量",
+              "order-amount": "订单金额",
+              "commission": "总佣金",
+              "credit": "等待入账",
+              "credited": "已入账"
+            }
+          }
+        },
+        "record": {
+          "table": {
+            "columns": {
+              "traffic": "转化流量（GB）",
+              "pay": "支付佣金",
+              "remaining": "剩余佣金",
+              "time": "支付时间"
+            }
+          }
         }
       }
     }

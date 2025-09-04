@@ -1,6 +1,9 @@
+'use client';
 import { Card, Table } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.pages.referral.record');
   return (
     <div className="p-8">
       <Card>
@@ -11,16 +14,16 @@ export default function Page() {
             }}
             columns={[
               {
-                title: 'Conversion traffic (GB)',
+                title: t('table.columns.traffic'),
               },
               {
-                title: 'Pay commission',
+                title: t('table.columns.pay'),
               },
               {
-                title: 'Remaining commission',
+                title: t('table.columns.remaining'),
               },
               {
-                title: 'Payment time',
+                title: t('table.columns.time'),
               },
             ]}
           />

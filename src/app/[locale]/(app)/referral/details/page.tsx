@@ -1,3 +1,4 @@
+'use client';
 import {
   AntdDateRangePicker,
   AntdForm,
@@ -6,8 +7,10 @@ import {
 } from '@/components/antd';
 import { RiSearchLine } from '@remixicon/react';
 import { Card, Table } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.pages.referral.details');
   return (
     <div className="p-8">
       <Card>
@@ -15,7 +18,7 @@ export default function Page() {
           <AntdForm layout="inline">
             <AntdFormItem>
               <AntdInput
-                placeholder="Search email"
+                placeholder={t('table.filters.email.placeholder')}
                 suffix={<RiSearchLine size={16} />}
               />
             </AntdFormItem>
@@ -31,28 +34,25 @@ export default function Page() {
             }}
             columns={[
               {
-                title: 'Referral username',
+                title: t('table.columns.username'),
               },
               {
-                title: 'Referral email',
+                title: t('table.columns.email'),
               },
               {
-                title: 'Referral code',
+                title: t('table.columns.order-volume'),
               },
               {
-                title: 'Total order volume',
+                title: t('table.columns.order-amount'),
               },
               {
-                title: 'Order amount',
+                title: t('table.columns.commission'),
               },
               {
-                title: 'Total commission',
+                title: t('table.columns.credit'),
               },
               {
-                title: 'Waiting for credit',
-              },
-              {
-                title: 'Already credited',
+                title: t('table.columns.credited'),
               },
             ]}
           />
