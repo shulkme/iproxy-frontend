@@ -68,7 +68,7 @@ const AccountDropdown = () => {
   const handleClick: MenuProps['onClick'] = ({ key }) => {
     switch (key) {
       case 'account':
-        router.push('/settings/my-account');
+        router.push('/account/profile');
         break;
       case 'logout':
         router.push('/login');
