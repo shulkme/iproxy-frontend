@@ -421,6 +421,70 @@
           }
         }
       },
+      "residential": {
+        "title": "动态住宅代理",
+        "menus": {
+          "pricing": "定价",
+          "setup": "设置",
+          "statistics": "统计",
+          "guide": "指南"
+        },
+        "pricing": {
+          "subscription": {
+            "title": "订阅",
+            "tips": "500GB以上套餐节省60%？<link>联系我们</link>",
+            "filters": {
+              "duration": {
+                "label": "时长",
+                "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
+              }
+            },
+            "plan": {
+              "title": "套餐",
+              "item": {
+                "total": "总计："
+              }
+            }
+          },
+          "features": {
+            "title": "功能",
+            "items": [
+              "真实住宅IP",
+              "无限会话时长",
+              "Http/https/socks5协议",
+              "极快响应时间",
+              "按IP付费，不限流量",
+              "适用于eBay、PayPal、亚马逊账户等"
+            ]
+          },
+          "order": {
+            "title": "订单摘要",
+            "list": {
+              "empty": "请先选择一个套餐",
+              "features": [
+                "真实住宅IP",
+                "无限会话时长",
+                "Http/https/socks5协议",
+                "极快响应时间",
+                "按IP付费，不限流量",
+                "适用于eBay、PayPal、亚马逊账户等"
+              ]
+            },
+            "summary": {
+              "per": "每GB价格",
+              "duration": {
+                "label": "时长",
+                "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
+              },
+              "subtotal": "小计",
+              "total": "总计"
+            },
+            "actions": {
+              "submit": "立即下单"
+            }
+          }
+        }
+      },
       "proxy-setting": {
         "title": "代理设置",
         "menus": {

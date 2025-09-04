@@ -1,16 +1,19 @@
+'use client';
 import Navbar from '@/app/[locale]/components/navbar';
 import { Title } from '@/providers/title';
 import { RiExternalLinkLine } from '@remixicon/react';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
+  const t = useTranslations('app.pages.residential');
   return (
     <>
-      <Title title={'Residential Proxies'} />
+      <Title title={t('title')} />
       <Navbar
         items={[
           {
-            label: 'Pricing',
+            label: t('menus.pricing'),
             key: 'proxies:residential:pricing',
             meta: {
               href: '/proxies/residential/pricing',
@@ -18,7 +21,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Setup',
+            label: t('menus.setup'),
             key: 'proxies:residential:setup',
             meta: {
               href: '/proxies/residential/setup',
@@ -26,7 +29,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Statistics',
+            label: t('menus.statistics'),
             key: 'proxies:residential:statistics',
             meta: {
               href: '/proxies/residential/statistics',
@@ -34,7 +37,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Guide',
+            label: t('menus.guide'),
             key: 'proxies:residential:guide',
             extra: <RiExternalLinkLine size={14} />,
             meta: {

@@ -421,6 +421,70 @@
           }
         }
       },
+      "residential": {
+        "title": "Residential Proxies",
+        "menus": {
+          "pricing": "Pricing",
+          "setup": "Setup",
+          "statistics": "Statistics",
+          "guide": "Guide"
+        },
+        "pricing": {
+          "subscription": {
+            "title": "Subscription",
+            "tips": "Save 60% on 500GB+ Plans? <link>Contact us</link>",
+            "filters": {
+              "duration": {
+                "label": "Duration",
+                "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
+              }
+            },
+            "plan": {
+              "title": "Plans",
+              "item": {
+                "total": "Total:"
+              }
+            }
+          },
+          "features": {
+            "title": "Features",
+            "items": [
+              "Real residential IP",
+              "Unlimited session duration",
+              "Http/https/socks5 protocol",
+              "Extremely fast response time",
+              "Pay by ip, no traffic limit",
+              "Applicable to ebay, paypal, amazon accounts, etc."
+            ]
+          },
+          "order": {
+            "title": "Order Summary",
+            "list": {
+              "empty": "Please select a plan first",
+              "features": [
+                "Real residential IP",
+                "Unlimited session duration",
+                "Http/https/socks5 protocol",
+                "Extremely fast response time",
+                "Pay by ip, no traffic limit",
+                "Applicable to ebay, paypal, amazon accounts, etc."
+              ]
+            },
+            "summary": {
+              "per": "Price per GB",
+              "duration": {
+                "label": "Duration",
+                "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
+              },
+              "subtotal": "Subtotal",
+              "total": "Total"
+            },
+            "actions": {
+              "submit": "Order Now"
+            }
+          }
+        }
+      },
       "proxy-setting": {
         "title": "Proxy Settings",
         "menus": {

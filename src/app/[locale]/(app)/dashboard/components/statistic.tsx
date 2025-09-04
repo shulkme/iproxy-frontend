@@ -3,6 +3,7 @@ import { useDashboard } from '@/app/[locale]/(app)/dashboard/context';
 import { AntdParagraph, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import {
+  RiArrowRightUpLine,
   RiCheckLine,
   RiDeleteBin6Line,
   RiHourglassLine,
@@ -86,10 +87,13 @@ const IspPane = () => {
               </Link>
               <span className="text-black/50">/</span>
               <Link
-                className="text-black hover:text-(--ant-color-link)"
+                className="text-black inline-flex gap-2 items-center hover:text-(--ant-color-link)"
                 href="/"
               >
-                {t('links.documentation')}
+                <span>{t('links.documentation')}</span>
+                <span className="text-black/50">
+                  <RiArrowRightUpLine size={14} />
+                </span>
               </Link>
             </div>
             <div>
@@ -217,10 +221,13 @@ const DatacenterPane = () => {
               </Link>
               <span className="text-black/50">/</span>
               <Link
-                className="text-black hover:text-(--ant-color-link)"
+                className="text-black inline-flex gap-2 items-center hover:text-(--ant-color-link)"
                 href="/"
               >
-                {t('links.documentation')}
+                <span>{t('links.documentation')}</span>
+                <span className="text-black/50">
+                  <RiArrowRightUpLine size={14} />
+                </span>
               </Link>
             </div>
             <div>
@@ -326,10 +333,13 @@ const ResidentialPane = () => {
               </Link>
               <span className="text-black/50">/</span>
               <Link
-                className="text-black hover:text-(--ant-color-link)"
+                className="text-black inline-flex gap-2 items-center hover:text-(--ant-color-link)"
                 href="/"
               >
-                {t('links.documentation')}
+                <span>{t('links.documentation')}</span>
+                <span className="text-black/50">
+                  <RiArrowRightUpLine size={14} />
+                </span>
               </Link>
             </div>
             <div>
@@ -435,10 +445,13 @@ const MobilePane = () => {
               </Link>
               <span className="text-black/50">/</span>
               <Link
-                className="text-black hover:text-(--ant-color-link)"
+                className="text-black inline-flex gap-2 items-center hover:text-(--ant-color-link)"
                 href="/"
               >
-                {t('links.documentation')}
+                <span>{t('links.documentation')}</span>
+                <span className="text-black/50">
+                  <RiArrowRightUpLine size={14} />
+                </span>
               </Link>
             </div>
             <div>
