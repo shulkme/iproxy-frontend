@@ -79,7 +79,48 @@
     },
     "pages": {
       "dashboard": {
-        "title": "Dashboard"
+        "title": "Dashboard",
+        "tabs": {
+          "isp": {
+            "title": "ISP Proxies",
+            "desc": "Form <strong>$0.15</strong> / IP / Day"
+          },
+          "datacenter": {
+            "title": "Datacenter Proxies",
+            "desc": "Form <strong>$0.15</strong> / IP / Day"
+          },
+          "residential": {
+            "title": "Residential Proxies",
+            "desc": "Form <strong>$0.15</strong> / IP / Day"
+          },
+          "mobile": {
+            "title": "Mobile Proxies",
+            "desc": "Form <strong>$0.15</strong> / IP / Day"
+          }
+        },
+        "wallet": {
+          "title": "My Wallet",
+          "balance": "Current balance",
+          "recharge": "Recharge"
+        },
+        "referral": {
+          "title": "Referral program",
+          "subtitle": "Invite friends and get <strong>10%</strong> commission",
+          "withdrawable": "Withdrawable",
+          "extract": "Extract",
+          "code": "Invitation Code:",
+          "link": "Invitation Link:"
+        },
+        "help": {
+          "title": "Get Help",
+          "desc": "Have any questions about our products or need a customized package?",
+          "contact": "Let's talk",
+          "links": {
+            "partners": "Partners",
+            "documentation": "Documentation",
+            "faq": "FAQ"
+          }
+        }
       },
       "static-isp": {
         "title": "Static ISP Proxies",

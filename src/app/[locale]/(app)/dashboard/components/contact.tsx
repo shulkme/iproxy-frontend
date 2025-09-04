@@ -1,3 +1,4 @@
+'use client';
 import { AntdParagraph, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import {
@@ -8,9 +9,11 @@ import {
   RiServiceLine,
 } from '@remixicon/react';
 import { Avatar, Button, Card, Divider } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Contact: React.FC = () => {
+  const t = useTranslations('app.pages.dashboard.help');
   return (
     <Card
       className="bg-linear-210 from-blue-50 to-transparent to-35%"
@@ -22,13 +25,11 @@ const Contact: React.FC = () => {
         <RiChatSmile2Line size={32} />
       </div>
       <AntdTitle level={5} className="mt-0 mb-4">
-        Get Help
+        {t('title')}
       </AntdTitle>
-      <AntdParagraph>
-        Have any questions about our products or need a customized package?
-      </AntdParagraph>
+      <AntdParagraph>{t('desc')}</AntdParagraph>
       <Button block color="primary" variant="outlined">
-        Let&#39;s talk
+        {t('contact')}
       </Button>
 
       <Divider type="horizontal" dashed />
@@ -43,7 +44,9 @@ const Contact: React.FC = () => {
               >
                 <RiServiceLine size={18} />
               </Avatar>
-              <span className="text-black font-bold">Partners</span>
+              <span className="text-black font-bold">
+                {t('links.partners')}
+              </span>
             </div>
             <div className="flex-none text-black/50">
               <RiExternalLinkLine size={16} />
@@ -59,7 +62,9 @@ const Contact: React.FC = () => {
               >
                 <RiFileList3Line size={18} />
               </Avatar>
-              <span className="text-black font-bold">Documentation</span>
+              <span className="text-black font-bold">
+                {t('links.documentation')}
+              </span>
             </div>
             <div className="flex-none text-black/50">
               <RiExternalLinkLine size={16} />
@@ -75,7 +80,7 @@ const Contact: React.FC = () => {
               >
                 <RiQuestionLine size={18} />
               </Avatar>
-              <span className="text-black font-bold">FAQs</span>
+              <span className="text-black font-bold">{t('links.faq')}</span>
             </div>
             <div className="flex-none text-black/50">
               <RiExternalLinkLine size={16} />

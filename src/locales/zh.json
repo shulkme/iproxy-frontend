@@ -78,6 +78,50 @@
       }
     },
     "pages": {
+      "dashboard": {
+        "title": "仪表盘",
+        "tabs": {
+          "isp": {
+            "title": "静态住宅代理",
+            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+          },
+          "datacenter": {
+            "title": "数据中心代理",
+            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+          },
+          "residential": {
+            "title": "动态住宅代理",
+            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+          },
+          "mobile": {
+            "title": "移动代理",
+            "desc": "起价 <strong>$0.15</strong> / IP / 天"
+          }
+        },
+        "wallet": {
+          "title": "我的钱包",
+          "balance": "当前余额",
+          "recharge": "充值"
+        },
+        "referral": {
+          "title": "推荐计划",
+          "subtitle": "邀请好友并获得 <strong>10%</strong> 佣金",
+          "withdrawable": "可提现",
+          "extract": "提现",
+          "code": "邀请码：",
+          "link": "邀请链接："
+        },
+        "help": {
+          "title": "获取帮助",
+          "desc": "对我们的产品有任何疑问或需要定制套餐？",
+          "contact": "联系我们",
+          "links": {
+            "partners": "合作伙伴",
+            "documentation": "文档",
+            "faq": "常见问题"
+          }
+        }
+      },
       "static-isp": {
         "title": "静态住宅代理",
         "menus": {

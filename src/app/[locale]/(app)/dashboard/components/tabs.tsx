@@ -5,124 +5,100 @@ import {
   AntdTitle,
 } from '@/components/antd';
 import {
+  RemixiconComponentType,
   RiHomeOfficeLine,
   RiPinDistanceLine,
   RiServerLine,
   RiSmartphoneLine,
 } from '@remixicon/react';
 import { Avatar, Card } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
+const RadioTab: React.FC<{
+  icon: RemixiconComponentType;
+  value: string;
+  title: string;
+  desc: React.ReactNode;
+}> = ({ icon, title, desc, value }) => {
+  return (
+    <AntdRadioButton
+      value={value}
+      className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
+    >
+      <div className="w-full text-left space-y-2">
+        <div>
+          <Avatar
+            shape="square"
+            className="bg-white border border-slate-200 text-(--ant-color-primary)"
+          >
+            {React.createElement(icon, {
+              size: 24,
+            })}
+          </Avatar>
+        </div>
+        <div>
+          <AntdTitle level={5} className="m-0">
+            {title}
+          </AntdTitle>
+        </div>
+        <div>
+          <AntdText type="secondary">{desc}</AntdText>
+        </div>
+      </div>
+    </AntdRadioButton>
+  );
+};
+
 const Tabs: React.FC = () => {
+  const t = useTranslations('app.pages.dashboard.tabs');
   return (
     <Card>
       <AntdRadioGroup
-        defaultValue="1"
+        defaultValue="isp"
         block
         className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 2xl:grid-cols-4 gap-4"
       >
-        <AntdRadioButton
-          value="1"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
-        >
-          <div className="w-full text-left space-y-2">
-            <div>
-              <Avatar
-                shape="square"
-                className="bg-white border border-slate-200 text-(--ant-color-primary)"
-              >
-                <RiPinDistanceLine size={24} />
-              </Avatar>
-            </div>
-            <div>
-              <AntdTitle level={5} className="m-0">
-                Residential Proxies
-              </AntdTitle>
-            </div>
-            <div>
-              <AntdText type="secondary">
-                From <span className="text-black font-medium">$0.5</span> / GB
-              </AntdText>
-            </div>
-          </div>
-        </AntdRadioButton>
-        <AntdRadioButton
-          value="2"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
-        >
-          <div className="w-full text-left space-y-2">
-            <div>
-              <Avatar
-                shape="square"
-                className="bg-white border border-slate-200 text-(--ant-color-primary)"
-              >
-                <RiHomeOfficeLine size={24} />
-              </Avatar>
-            </div>
-            <div>
-              <AntdTitle level={5} className="m-0">
-                ISP Proxies
-              </AntdTitle>
-            </div>
-            <div>
-              <AntdText type="secondary">
-                From <span className="text-black font-medium">$0.15</span> / IP
-                / Day
-              </AntdText>
-            </div>
-          </div>
-        </AntdRadioButton>
-        <AntdRadioButton
-          value="3"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
-        >
-          <div className="w-full text-left space-y-2">
-            <div>
-              <Avatar
-                shape="square"
-                className="bg-white border border-slate-200 text-(--ant-color-primary)"
-              >
-                <RiServerLine size={24} />
-              </Avatar>
-            </div>
-            <div>
-              <AntdTitle level={5} className="m-0">
-                Datacenter Proxies
-              </AntdTitle>
-            </div>
-            <div>
-              <AntdText type="secondary">
-                From <span className="text-black font-medium">$0.11</span> / IP
-                / Day
-              </AntdText>
-            </div>
-          </div>
-        </AntdRadioButton>
-        <AntdRadioButton
-          value="4"
-          className="h-auto border border-transparent rounded-sm leading-none p-4 before:hidden hover:bg-slate-50 [&.ant-radio-button-wrapper-checked]:border-slate-200 [&.ant-radio-button-wrapper-checked]:bg-slate-50"
-        >
-          <div className="w-full text-left space-y-2">
-            <div>
-              <Avatar
-                shape="square"
-                className="bg-white border border-slate-200 text-(--ant-color-primary)"
-              >
-                <RiSmartphoneLine size={24} />
-              </Avatar>
-            </div>
-            <div>
-              <AntdTitle level={5} className="m-0">
-                Mobile Proxies
-              </AntdTitle>
-            </div>
-            <div>
-              <AntdText type="secondary">
-                From <span className="text-black font-medium">$5</span> / GB
-              </AntdText>
-            </div>
-          </div>
-        </AntdRadioButton>
+        <RadioTab
+          icon={RiHomeOfficeLine}
+          title={t('isp.title')}
+          value="isp"
+          desc={t.rich('isp.desc', {
+            strong: (chunks) => (
+              <span className="text-black font-medium">{chunks}</span>
+            ),
+          })}
+        />
+        <RadioTab
+          icon={RiServerLine}
+          title={t('datacenter.title')}
+          value="datacenter"
+          desc={t.rich('datacenter.desc', {
+            strong: (chunks) => (
+              <span className="text-black font-medium">{chunks}</span>
+            ),
+          })}
+        />
+        <RadioTab
+          icon={RiPinDistanceLine}
+          title={t('residential.title')}
+          value="residential"
+          desc={t.rich('residential.desc', {
+            strong: (chunks) => (
+              <span className="text-black font-medium">{chunks}</span>
+            ),
+          })}
+        />
+        <RadioTab
+          icon={RiSmartphoneLine}
+          title={t('mobile.title')}
+          value="mobile"
+          desc={t.rich('mobile.desc', {
+            strong: (chunks) => (
+              <span className="text-black font-medium">{chunks}</span>
+            ),
+          })}
+        />
       </AntdRadioGroup>
     </Card>
   );

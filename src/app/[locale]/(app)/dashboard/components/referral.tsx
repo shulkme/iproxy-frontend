@@ -1,10 +1,13 @@
+'use client';
 import { AntdInput, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import { RiFileCopyLine, RiGiftLine } from '@remixicon/react';
 import { Avatar, Card, Divider } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
-const Affiliate: React.FC = () => {
+const Referral: React.FC = () => {
+  const t = useTranslations('app.pages.dashboard.referral');
   return (
     <Card
       className="bg-linear-to-b from-orange-50 to-transparent to-30%"
@@ -20,22 +23,23 @@ const Affiliate: React.FC = () => {
           <RiGiftLine size={24} />
         </Avatar>
         <AntdTitle level={5} className="m-0">
-          Affiliate program
+          {t('title')}
         </AntdTitle>
       </div>
       <div>
-        <div>
-          Invite friends and get{' '}
-          <span className="text-orange-500 font-bold">10%</span> commission
-        </div>
+        {t.rich('subtitle', {
+          strong: (chunks) => (
+            <span className="text-orange-500 font-bold">{chunks}</span>
+          ),
+        })}
       </div>
       <Divider type="horizontal" />
-      <div className="">
-        <div className="font-medium mb-2">Withdrawable</div>
+      <div>
+        <div className="font-medium mb-2">{t('withdrawable')}</div>
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold">$1,234</div>
+          <div className="text-xl font-bold">$0.00</div>
           <div>
-            <Link href="/">Extract</Link>
+            <Link href="/">{t('extract')}</Link>
           </div>
         </div>
       </div>
@@ -43,14 +47,14 @@ const Affiliate: React.FC = () => {
       <div className="space-y-4">
         <div>
           <AntdInput
-            prefix={<span className="text-black/50">Invitation Code:</span>}
+            prefix={<span className="text-black/50">{t('code')}</span>}
             value="xxxxxx"
             suffix={<RiFileCopyLine size={16} />}
           />
         </div>
         <div>
           <AntdInput
-            prefix={<span className="text-black/50">Invitation Link:</span>}
+            prefix={<span className="text-black/50">{t('link')}</span>}
             value="https://www.example.com/inviteCode=xxxxxx"
             suffix={<RiFileCopyLine size={16} />}
           />
@@ -60,4 +64,4 @@ const Affiliate: React.FC = () => {
   );
 };
 
-export default Affiliate;
+export default Referral;

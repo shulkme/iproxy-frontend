@@ -1,9 +1,12 @@
+'use client';
 import { AntdParagraph, AntdTitle } from '@/components/antd';
 import { RiWalletLine } from '@remixicon/react';
 import { Avatar, Button, Card } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Wallet: React.FC = () => {
+  const t = useTranslations('app.pages.dashboard.wallet');
   return (
     <Card>
       <div className="flex items-center gap-4 mb-4">
@@ -14,21 +17,26 @@ const Wallet: React.FC = () => {
           <RiWalletLine size={24} />
         </Avatar>
         <AntdTitle level={5} className="m-0">
-          My Wallet
+          {t('title')}
         </AntdTitle>
       </div>
       <div className="w-full overflow-hidden bg-blue-500/5 rounded-xs p-6 relative">
         <div className="absolute bottom-0 right-0 h-full w-1/3 bg-linear-[190deg] from-blue-200/50 to-transparent to-90% -skew-x-45 translate-x-1/2"></div>
         <div className="relative z-10">
           <AntdParagraph className="mb-2" type="secondary">
-            Current balance
+            {t('balance')}
           </AntdParagraph>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center flex-wrap">
             <AntdTitle level={3} className="m-0">
               $1,234
             </AntdTitle>
-            <Button shape="round" size="small" type="primary">
-              Recharge
+            <Button
+              href="/wallet/recharge"
+              shape="round"
+              size="small"
+              type="primary"
+            >
+              {t('recharge')}
             </Button>
           </div>
         </div>

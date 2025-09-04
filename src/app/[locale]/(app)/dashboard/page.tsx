@@ -1,16 +1,19 @@
-import Affiliate from '@/app/[locale]/(app)/dashboard/components/affiliate';
+'use client';
 import Contact from '@/app/[locale]/(app)/dashboard/components/contact';
+import Referral from '@/app/[locale]/(app)/dashboard/components/referral';
 import Residential from '@/app/[locale]/(app)/dashboard/components/residential';
 import Tabs from '@/app/[locale]/(app)/dashboard/components/tabs';
 import Traffic from '@/app/[locale]/(app)/dashboard/components/traffic';
 import Wallet from '@/app/[locale]/(app)/dashboard/components/wallet';
 import { Title } from '@/providers/title';
 import { Col, Row } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.pages.dashboard');
   return (
     <>
-      <Title title={'Dashboard'} />
+      <Title title={t('title')} />
       <div className="max-w-[1600px] mx-auto p-8">
         <Row gutter={[24, 24]}>
           <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>
@@ -32,7 +35,7 @@ export default function Page() {
                 <Wallet />
               </Col>
               <Col span={24}>
-                <Affiliate />
+                <Referral />
               </Col>
               <Col span={24}>
                 <Contact />
