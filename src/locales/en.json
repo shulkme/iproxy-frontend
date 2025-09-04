@@ -425,6 +425,24 @@
             }
           }
         }
+      },
+      "partners": {
+        "title": "partners",
+        "hero": {
+          "title": "Ecological Product Center",
+          "desc": "Gathering various tools and cooperation resources to build an expandable data ecosystem",
+          "contact": "Want to become a partner? Contact us"
+        },
+        "groups": {
+          "browser": "Anti-Detection Browsers",
+          "phone": "Anti-Detection Phones",
+          "automation": "Automation Platforms",
+          "other": "Other Tools"
+        },
+        "actions": {
+          "view": "View site",
+          "guide": "Use guide"
+        }
       }
     }
   },

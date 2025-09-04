@@ -1,6 +1,7 @@
 'use client';
 import { RiBookOpenLine, RiGlobalLine } from '@remixicon/react';
 import { Button, Card, ConfigProvider } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const ListCard: React.FC<{
@@ -9,6 +10,7 @@ const ListCard: React.FC<{
   guide: string;
   link: string;
 }> = ({ cover }) => {
+  const t = useTranslations('app.pages.partners.actions');
   return (
     <ConfigProvider
       theme={{
@@ -35,10 +37,10 @@ const ListCard: React.FC<{
             block
             key="docs"
           >
-            Use Guide
+            {t('guide')}
           </Button>,
           <Button icon={<RiGlobalLine size={14} />} type="text" block key="web">
-            View Site
+            {t('view')}
           </Button>,
         ]}
       ></Card>
