@@ -4,109 +4,143 @@ import {
   AntdFormItem,
   AntdInput,
   AntdParagraph,
+  AntdRadioButton,
+  AntdRadioGroup,
 } from '@/components/antd';
 import { RiAddLine } from '@remixicon/react';
-import { Button, Card, Col, Divider, Row, Select } from 'antd';
+import { Button, Card, Col, Divider, InputNumber, Row, Select } from 'antd';
+import { useTranslations } from 'next-intl';
 import React, { useState } from 'react';
 
 const AccountPane = () => {
+  const t = useTranslations('app.pages.residential.setup.generator.form');
   return (
     <>
-      <AntdForm layout="vertical">
-        <Row gutter={[24, 0]}>
-          <Col span={24}>
-            <AntdFormItem label="Select Account">
-              <Row gutter={[24, 0]}>
-                <Col xs={24} lg={12}>
-                  <AntdFormItem noStyle>
-                    <Select placeholder={'select'} />
-                  </AntdFormItem>
-                </Col>
-                <Col xs={24} lg={12}>
-                  <Button icon={<RiAddLine size={14} />}>
-                    Add sub-account
-                  </Button>
-                </Col>
-              </Row>
-            </AntdFormItem>
-          </Col>
-          <Col span={24}>
-            <Divider type="horizontal" dashed />
-          </Col>
-          <Col span={24}>
-            <AntdParagraph strong>Proxy generator</AntdParagraph>
-          </Col>
-          <Col span={24}>
-            <AntdFormItem label="Country/Region">
-              <Row gutter={[24, 0]}>
-                <Col xs={24} lg={12}>
-                  <AntdFormItem noStyle>
-                    <Select placeholder={'Random'} />
-                  </AntdFormItem>
-                </Col>
-                <Col xs={24} lg={12}>
-                  <Button type="link">View country code</Button>
-                </Col>
-              </Row>
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'Host'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'Continent'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'Country/Region'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'State'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'City'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'ASN'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col span={24}>
-            <Divider type="horizontal" dashed />
-          </Col>
-          <Col span={24}>
-            <AntdParagraph strong>Session settings</AntdParagraph>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'Session type'}>
-              <Select placeholder={'Random'} />
-            </AntdFormItem>
-          </Col>
-          <Col xs={24} lg={12}>
-            <AntdFormItem label={'Duration'}>
-              <AntdInput suffix={'Mins'} placeholder={'0'} />
-            </AntdFormItem>
-          </Col>
-        </Row>
-      </AntdForm>
+      <Col span={24}>
+        <AntdFormItem label={t('account.items.sub-account.label')}>
+          <Row gutter={[24, 0]}>
+            <Col xs={24} lg={12}>
+              <AntdFormItem noStyle>
+                <Select
+                  placeholder={t('account.items.sub-account.placeholder')}
+                />
+              </AntdFormItem>
+            </Col>
+            <Col xs={24} lg={12}>
+              <Button icon={<RiAddLine size={14} />}>
+                {t('account.items.sub-account.extra.add')}
+              </Button>
+            </Col>
+          </Row>
+        </AntdFormItem>
+      </Col>
+      <Col span={24}>
+        <Divider type="horizontal" dashed />
+      </Col>
+      <Col span={24}>
+        <AntdParagraph strong>{t('proxy.title')}</AntdParagraph>
+      </Col>
+      <Col span={24}>
+        <AntdFormItem label={t('proxy.items.region.label')}>
+          <Row gutter={[24, 0]}>
+            <Col xs={24} lg={12}>
+              <AntdFormItem noStyle>
+                <Select placeholder={t('proxy.items.region.placeholder')} />
+              </AntdFormItem>
+            </Col>
+            <Col xs={24} lg={12}>
+              <Button type="link">{t('proxy.items.region.extra.code')}</Button>
+            </Col>
+          </Row>
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.host.label')}>
+          <Select placeholder={t('proxy.items.host.placeholder')} />
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.continent.label')}>
+          <Select placeholder={t('proxy.items.continent.placeholder')} />
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.state.label')}>
+          <Select placeholder={t('proxy.items.state.placeholder')} />
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.city.label')}>
+          <Select placeholder={t('proxy.items.city.placeholder')} />
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.username.label')}>
+          <AntdInput placeholder={t('proxy.items.username.placeholder')} />
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.password.label')}>
+          <AntdInput placeholder={t('proxy.items.password.placeholder')} />
+        </AntdFormItem>
+      </Col>
     </>
   );
 };
 
 const WhitelistPane = () => {
-  return <></>;
+  const t = useTranslations('app.pages.residential.setup.generator.form');
+  return (
+    <>
+      <Col span={24}>
+        <AntdParagraph strong>{t('proxy.title')}</AntdParagraph>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.endpoint-type.label')}>
+          <AntdRadioGroup defaultValue={'country'} block className="flex gap-4">
+            <AntdRadioButton
+              value="country"
+              className="before:hidden border rounded-(--ant-border-radius) after:block after:absolute after:top-1 after:right-1 after:border-[5px] after:rounded-xs after:border-transparent [&.ant-radio-button-wrapper-checked]:after:border-t-(--ant-color-primary) [&.ant-radio-button-wrapper-checked]:after:border-r-(--ant-color-primary)"
+            >
+              {t('proxy.items.endpoint-type.options.country')}
+            </AntdRadioButton>
+            <AntdRadioButton
+              value="api"
+              className="before:hidden border rounded-(--ant-border-radius) after:block after:absolute after:top-1 after:right-1 after:border-[5px] after:rounded-xs after:border-transparent [&.ant-radio-button-wrapper-checked]:after:border-t-(--ant-color-primary) [&.ant-radio-button-wrapper-checked]:after:border-r-(--ant-color-primary)"
+            >
+              {t('proxy.items.endpoint-type.options.api')}
+            </AntdRadioButton>
+          </AntdRadioGroup>
+        </AntdFormItem>
+      </Col>
+      <Col span={24}>
+        <AntdFormItem label={t('proxy.items.region.label')}>
+          <Row gutter={[24, 0]}>
+            <Col xs={24} lg={12}>
+              <AntdFormItem noStyle>
+                <Select placeholder={t('proxy.items.region.placeholder')} />
+              </AntdFormItem>
+            </Col>
+            <Col xs={24} lg={12}>
+              <Button type="link">{t('proxy.items.region.extra.code')}</Button>
+            </Col>
+          </Row>
+        </AntdFormItem>
+      </Col>
+      <Col xs={24} lg={12}>
+        <AntdFormItem label={t('proxy.items.number.label')}>
+          <InputNumber
+            style={{ width: '100%' }}
+            placeholder={t('proxy.items.number.placeholder')}
+          />
+        </AntdFormItem>
+      </Col>
+    </>
+  );
 };
 
 const Generator: React.FC = () => {
+  const t = useTranslations('app.pages.residential.setup.generator');
   const [mode, setMode] = useState('username-password');
   return (
     <Card
@@ -115,16 +149,39 @@ const Generator: React.FC = () => {
       tabList={[
         {
           key: 'username-password',
-          label: 'Username/Password',
+          label: t('tabs.pwd'),
         },
         {
           key: 'whitelist',
-          label: 'Whitelist',
+          label: t('tabs.whitelist'),
         },
       ]}
     >
-      {mode === 'username-password' && <AccountPane />}
-      {mode === 'whitelist' && <WhitelistPane />}
+      <AntdForm layout="vertical">
+        <Row gutter={[24, 0]}>
+          {mode === 'username-password' && <AccountPane />}
+          {mode === 'whitelist' && <WhitelistPane />}
+          <Col span={24}>
+            <Divider type="horizontal" dashed />
+          </Col>
+          <Col span={24}>
+            <AntdParagraph strong>{t('form.session.title')}</AntdParagraph>
+          </Col>
+          <Col xs={24} lg={12}>
+            <AntdFormItem label={t('form.session.items.type.label')}>
+              <Select placeholder={t('form.session.items.type.placeholder')} />
+            </AntdFormItem>
+          </Col>
+          <Col xs={24} lg={12}>
+            <AntdFormItem label={t('form.session.items.duration.label')}>
+              <AntdInput
+                suffix={t('form.session.items.duration.suffix')}
+                placeholder={t('form.session.items.duration.placeholder')}
+              />
+            </AntdFormItem>
+          </Col>
+        </Row>
+      </AntdForm>
     </Card>
   );
 };

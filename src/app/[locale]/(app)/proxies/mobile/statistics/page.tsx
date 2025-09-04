@@ -1,7 +1,15 @@
 'use client';
 import { AntdDateRangePicker, AntdForm, AntdFormItem } from '@/components/antd';
 import { RiDownloadLine, RiRefreshLine } from '@remixicon/react';
-import { Button, Card, Select, Space, Table } from 'antd';
+import {
+  Tooltip as AntdTooltip,
+  Button,
+  Card,
+  Select,
+  Space,
+  Table,
+} from 'antd';
+import { useTranslations } from 'next-intl';
 import { random } from 'radash';
 import {
   CartesianGrid,
@@ -14,6 +22,7 @@ import {
 } from 'recharts';
 
 export default function Page() {
+  const t = useTranslations('app.pages.mobile.statistics');
   const data = Array.from({ length: 30 }).map((_, i) => ({
     label: `2025-08-${i}`,
     value: random(0, 500),
@@ -29,22 +38,27 @@ export default function Page() {
                   <AntdDateRangePicker />
                 </AntdFormItem>
                 <AntdFormItem>
-                  <Select style={{ width: 220 }} placeholder="Users" />
+                  <Select
+                    style={{ width: 220 }}
+                    placeholder={t('filters.username.placeholder')}
+                  />
                 </AntdFormItem>
               </AntdForm>
             </div>
             <div>
               <Space size="middle">
-                <Button
-                  className="leading-none"
-                  icon={<RiRefreshLine size={18} />}
-                />
+                <AntdTooltip title={t('actions.refresh')}>
+                  <Button
+                    className="leading-none"
+                    icon={<RiRefreshLine size={18} />}
+                  />
+                </AntdTooltip>
                 <Button
                   type="primary"
                   className="leading-none"
                   icon={<RiDownloadLine size={18} />}
                 >
-                  Export
+                  {t('actions.export')}
                 </Button>
               </Space>
             </div>
@@ -90,18 +104,21 @@ export default function Page() {
           </div>
           <div>
             <Table
+              scroll={{
+                x: 1200,
+              }}
               columns={[
                 {
-                  title: 'Date',
+                  title: t('table.columns.date'),
                 },
                 {
-                  title: 'Target',
+                  title: t('table.columns.target'),
                 },
                 {
-                  title: 'Traffic',
+                  title: t('table.columns.traffic'),
                 },
                 {
-                  title: 'Request',
+                  title: t('table.columns.request'),
                 },
               ]}
             />

@@ -432,7 +432,7 @@
         "pricing": {
           "subscription": {
             "title": "订阅",
-            "tips": "500GB以上套餐节省60%？<link>联系我们</link>",
+            "tips": "500GB以上套餐可节省60%？<link>联系我们</link>",
             "filters": {
               "duration": {
                 "label": "时长",
@@ -481,6 +481,314 @@
             },
             "actions": {
               "submit": "立即下单"
+            }
+          }
+        },
+        "setup": {
+          "generator": {
+            "tabs": {
+              "pwd": "用户名/密码",
+              "whitelist": "白名单"
+            },
+            "form": {
+              "account": {
+                "items": {
+                  "sub-account": {
+                    "label": "选择账户",
+                    "placeholder": "选择",
+                    "extra": {
+                      "add": "添加子账户"
+                    }
+                  }
+                }
+              },
+              "proxy": {
+                "title": "代理生成器",
+                "items": {
+                  "region": {
+                    "label": "国家/地区",
+                    "placeholder": "随机",
+                    "extra": {
+                      "code": "查看国家代码"
+                    }
+                  },
+                  "host": {
+                    "label": "主机",
+                    "placeholder": "随机"
+                  },
+                  "continent": {
+                    "label": "大洲",
+                    "placeholder": "随机"
+                  },
+                  "state": {
+                    "label": "州/省",
+                    "placeholder": "随机"
+                  },
+                  "city": {
+                    "label": "城市",
+                    "placeholder": "随机"
+                  },
+                  "number": {
+                    "label": "数量",
+                    "placeholder": "0"
+                  },
+                  "endpoint-type": {
+                    "label": "终端类型",
+                    "options": {
+                      "country": "国家入口",
+                      "api": "API链接"
+                    }
+                  },
+                  "username": {
+                    "label": "用户名",
+                    "placeholder": "随机"
+                  },
+                  "password": {
+                    "label": "密码",
+                    "placeholder": "随机"
+                  }
+                }
+              },
+              "session": {
+                "title": "会话设置",
+                "items": {
+                  "type": {
+                    "label": "会话类型",
+                    "placeholder": "随机"
+                  },
+                  "duration": {
+                    "label": "时长",
+                    "placeholder": "随机",
+                    "suffix": "分钟"
+                  }
+                }
+              }
+            }
+          },
+          "result": {
+            "title": "结果",
+            "form": {
+              "format": {
+                "label": "输出格式",
+                "placeholder": "用户名:密码"
+              },
+              "quantity": {
+                "label": "数量",
+                "placeholder": "1"
+              },
+              "output": {
+                "label": "输出",
+                "placeholder": "请先订购住宅代理"
+              }
+            },
+            "actions": {
+              "generate": "生成",
+              "download": "下载"
+            }
+          }
+        },
+        "statistics": {
+          "filters": {
+            "username": {
+              "placeholder": "子账户"
+            }
+          },
+          "actions": {
+            "refresh": "刷新",
+            "export": "导出"
+          },
+          "table": {
+            "columns": {
+              "date": "日期",
+              "target": "目标",
+              "traffic": "流量",
+              "request": "请求"
+            }
+          }
+        }
+      },
+      "mobile": {
+        "title": "移动代理",
+        "menus": {
+          "pricing": "定价",
+          "setup": "设置",
+          "statistics": "统计",
+          "guide": "指南"
+        },
+        "pricing": {
+          "subscription": {
+            "title": "订阅",
+            "tips": "500GB以上套餐可节省60%？<link>联系我们</link>",
+            "filters": {
+              "duration": {
+                "label": "时长",
+                "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
+              }
+            },
+            "plan": {
+              "title": "套餐",
+              "item": {
+                "total": "总计："
+              }
+            }
+          },
+          "features": {
+            "title": "功能",
+            "items": [
+              "真实住宅IP",
+              "无限会话时长",
+              "Http/https/socks5协议",
+              "极快响应时间",
+              "按IP付费，不限流量",
+              "适用于eBay、PayPal、亚马逊账户等"
+            ]
+          },
+          "order": {
+            "title": "订单摘要",
+            "list": {
+              "empty": "请先选择一个套餐",
+              "features": [
+                "真实住宅IP",
+                "无限会话时长",
+                "Http/https/socks5协议",
+                "极快响应时间",
+                "按IP付费，不限流量",
+                "适用于eBay、PayPal、亚马逊账户等"
+              ]
+            },
+            "summary": {
+              "per": "每GB价格",
+              "duration": {
+                "label": "时长",
+                "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
+              },
+              "subtotal": "小计",
+              "total": "总计"
+            },
+            "actions": {
+              "submit": "立即下单"
+            }
+          }
+        },
+        "setup": {
+          "generator": {
+            "tabs": {
+              "pwd": "用户名/密码",
+              "whitelist": "白名单"
+            },
+            "form": {
+              "account": {
+                "items": {
+                  "sub-account": {
+                    "label": "选择账户",
+                    "placeholder": "选择",
+                    "extra": {
+                      "add": "添加子账户"
+                    }
+                  }
+                }
+              },
+              "proxy": {
+                "title": "代理生成器",
+                "items": {
+                  "region": {
+                    "label": "国家/地区",
+                    "placeholder": "随机",
+                    "extra": {
+                      "code": "查看国家代码"
+                    }
+                  },
+                  "host": {
+                    "label": "主机",
+                    "placeholder": "随机"
+                  },
+                  "continent": {
+                    "label": "大洲",
+                    "placeholder": "随机"
+                  },
+                  "state": {
+                    "label": "州/省",
+                    "placeholder": "随机"
+                  },
+                  "city": {
+                    "label": "城市",
+                    "placeholder": "随机"
+                  },
+                  "number": {
+                    "label": "数量",
+                    "placeholder": "0"
+                  },
+                  "endpoint-type": {
+                    "label": "终端类型",
+                    "options": {
+                      "country": "国家入口",
+                      "api": "API链接"
+                    }
+                  },
+                  "username": {
+                    "label": "用户名",
+                    "placeholder": "随机"
+                  },
+                  "password": {
+                    "label": "密码",
+                    "placeholder": "随机"
+                  }
+                }
+              },
+              "session": {
+                "title": "会话设置",
+                "items": {
+                  "type": {
+                    "label": "会话类型",
+                    "placeholder": "随机"
+                  },
+                  "duration": {
+                    "label": "时长",
+                    "placeholder": "随机",
+                    "suffix": "分钟"
+                  }
+                }
+              }
+            }
+          },
+          "result": {
+            "title": "结果",
+            "form": {
+              "format": {
+                "label": "输出格式",
+                "placeholder": "用户名:密码"
+              },
+              "quantity": {
+                "label": "数量",
+                "placeholder": "1"
+              },
+              "output": {
+                "label": "输出",
+                "placeholder": "请先订购住宅代理"
+              }
+            },
+            "actions": {
+              "generate": "生成",
+              "download": "下载"
+            }
+          }
+        },
+        "statistics": {
+          "filters": {
+            "username": {
+              "placeholder": "子账户"
+            }
+          },
+          "actions": {
+            "refresh": "刷新",
+            "export": "导出"
+          },
+          "table": {
+            "columns": {
+              "date": "日期",
+              "target": "目标",
+              "traffic": "流量",
+              "request": "请求"
             }
           }
         }

@@ -1,9 +1,15 @@
+'use client';
 import { AntdTitle } from '@/components/antd';
 import { RiCheckLine } from '@remixicon/react';
-import { Button, Card, Divider } from 'antd';
+import { Button, Card, Divider, Empty } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Order: React.FC = () => {
+  const t = useTranslations('app.pages.mobile.pricing.order');
+  const data = null;
+  const subtotal = 0;
+  const duration = 0;
   return (
     <div className="sticky bottom-0 xl:top-36 xl:bottom-auto">
       <Card
@@ -16,47 +22,54 @@ const Order: React.FC = () => {
           <div className="flex-none p-6">
             <div className="flex items-center justify-between gap-2">
               <AntdTitle level={5} className="m-0">
-                Order Summary
+                {t('title')}
               </AntdTitle>
             </div>
           </div>
           <div className="flex-auto px-6 overflow-auto">
-            <div className="border border-(--ant-color-primary) p-4 relative">
-              <div className="absolute right-1 top-1 border-[6px] border-(--ant-color-primary) border-b-transparent border-l-transparent"></div>
-              <h2 className="text-2xl font-bold mb-4">10GB</h2>
-              <ul>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">
-                    <RiCheckLine size={14} />
-                  </span>
-                  <span>100M+ residential IP</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">
-                    <RiCheckLine size={14} />
-                  </span>
-                  <span>99.7% success rate</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">
-                    <RiCheckLine size={14} />
-                  </span>
-                  <span>Rotating/Sticky sessions</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">
-                    <RiCheckLine size={14} />
-                  </span>
-                  <span>Unlimited Threads</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">
-                    <RiCheckLine size={14} />
-                  </span>
-                  <span>Supports HTTP(S)& SOCKS5</span>
-                </li>
-              </ul>
-            </div>
+            {data ? (
+              <div className="border border-(--ant-color-primary) p-4 relative">
+                <div className="absolute right-1 top-1 border-[6px] border-(--ant-color-primary) border-b-transparent border-l-transparent"></div>
+                <h2 className="text-2xl font-bold mb-4">10GB</h2>
+                <ul>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-500">
+                      <RiCheckLine size={14} />
+                    </span>
+                    <span>100M+ mobile IP</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-500">
+                      <RiCheckLine size={14} />
+                    </span>
+                    <span>99.7% success rate</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-500">
+                      <RiCheckLine size={14} />
+                    </span>
+                    <span>Rotating/Sticky sessions</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-500">
+                      <RiCheckLine size={14} />
+                    </span>
+                    <span>Unlimited Threads</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-500">
+                      <RiCheckLine size={14} />
+                    </span>
+                    <span>Supports HTTP(S)& SOCKS5</span>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                description={t('list.empty')}
+              />
+            )}
           </div>
           <div className="flex-none p-6 space-y-4">
             <div>
@@ -66,20 +79,34 @@ const Order: React.FC = () => {
               <ul className="space-y-1">
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">Price per GB</label>
+                    <label className="text-black/50">{t('summary.per')}</label>
                     <span className="font-medium">$3.50/GB</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">Duration</label>
-                    <span className="font-medium">30 Days</span>
+                    <label className="text-black/50">
+                      {t('summary.duration.label')}
+                    </label>
+                    <span className="font-medium">
+                      {t('summary.duration.unit', {
+                        number: duration,
+                      })}
+                    </span>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
-                    <label className="text-black/50">Subtotal</label>
-                    <span className="font-medium">$35.00</span>
+                    <label className="text-black/50">
+                      {t('summary.subtotal')}
+                    </label>
+                    <span className="font-medium">
+                      $
+                      {subtotal.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </span>
                   </div>
                 </li>
               </ul>
@@ -91,15 +118,23 @@ const Order: React.FC = () => {
               <ul className="space-y-1">
                 <li>
                   <div className="flex justify-between items-center">
-                    <label className="text-black/50">Total</label>
-                    <span className="font-bold text-2xl">$35.00</span>
+                    <label className="text-black/50">
+                      {t('summary.total')}
+                    </label>
+                    <span className="font-bold text-2xl">
+                      $
+                      {subtotal.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </span>
                   </div>
                 </li>
               </ul>
             </div>
             <div>
               <Button block type="primary">
-                Order Now
+                {t('actions.submit')}
               </Button>
             </div>
           </div>

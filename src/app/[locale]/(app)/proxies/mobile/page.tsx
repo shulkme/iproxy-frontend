@@ -4,7 +4,7 @@ import { getLocale } from 'next-intl/server';
 export default async function Page() {
   const locale = await getLocale();
   redirect({
-    href: '/proxies/datacenter/pricing',
+    href: '/proxies/mobile/pricing',
     locale,
   });
 }

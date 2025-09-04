@@ -1,16 +1,19 @@
+'use client';
 import Navbar from '@/app/[locale]/components/navbar';
 import { Title } from '@/providers/title';
 import { RiExternalLinkLine } from '@remixicon/react';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
+  const t = useTranslations('app.pages.mobile');
   return (
     <>
-      <Title title={'Mobile Proxies'} />
+      <Title title={t('title')} />
       <Navbar
         items={[
           {
-            label: 'Pricing',
+            label: t('menus.pricing'),
             key: 'proxies:mobile:pricing',
             meta: {
               href: '/proxies/mobile/pricing',
@@ -18,7 +21,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Setup',
+            label: t('menus.setup'),
             key: 'proxies:mobile:setup',
             meta: {
               href: '/proxies/mobile/setup',
@@ -26,7 +29,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Statistics',
+            label: t('menus.statistics'),
             key: 'proxies:mobile:statistics',
             meta: {
               href: '/proxies/mobile/statistics',
@@ -34,7 +37,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
-            label: 'Guide',
+            label: t('menus.guide'),
             key: 'proxies:mobile:guide',
             extra: <RiExternalLinkLine size={14} />,
             meta: {

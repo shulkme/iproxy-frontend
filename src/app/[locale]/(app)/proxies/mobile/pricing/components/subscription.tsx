@@ -9,9 +9,12 @@ import {
   AntdTitle,
 } from '@/components/antd';
 import { Card, Divider } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const PlanItem = () => {
+  const t = useTranslations('app.pages.mobile.pricing.subscription');
+
   return (
     <div className="border border-slate-100 rounded-xs cursor-pointer p-4 space-y-2 hover:border-(--ant-color-primary)">
       <h3 className="font-bold text-lg">10GB</h3>
@@ -20,7 +23,7 @@ const PlanItem = () => {
         <span>/GB</span>
       </p>
       <div>
-        <span className="text-black/50">Total:</span>
+        <span className="text-black/50">{t('plan.item.total')}</span>
         <span className="font-medium">$35.00</span>
       </div>
     </div>
@@ -28,18 +31,18 @@ const PlanItem = () => {
 };
 
 const Subscription: React.FC = () => {
+  const t = useTranslations('app.pages.mobile.pricing.subscription');
   const [form] = AntdForm.useForm();
   return (
     <Card>
       <div className="flex items-center justify-between gap-2 mb-6">
         <AntdTitle level={5} className="m-0">
-          Subscription
+          {t('title')}
         </AntdTitle>
         <AntdText>
-          Save 60% on 500GB+ Plans{' '}
-          <a className="underline" href="">
-            Contact us
-          </a>
+          {t.rich('tips', {
+            link: (chunks) => <a>{chunks}</a>,
+          })}
         </AntdText>
       </div>
 
@@ -51,26 +54,35 @@ const Subscription: React.FC = () => {
             span: 3,
           }}
           labelAlign="left"
+          initialValues={{
+            duration: 30,
+          }}
         >
-          <AntdFormItem name="duration" label="Duration" initialValue={30}>
+          <AntdFormItem name="duration" label={t('filters.duration.label')}>
             <AntdRadioGroup className="flex flex-wrap gap-4">
+              <AntdRadioButton
+                className="border rounded-xs before:hidden px-6"
+                value={7}
+              >
+                {t('filters.duration.unit', {
+                  number: 7,
+                })}
+              </AntdRadioButton>
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
                 value={30}
               >
-                30 Days
+                {t('filters.duration.unit', {
+                  number: 30,
+                })}
               </AntdRadioButton>
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
                 value={90}
               >
-                90 Days
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value={120}
-              >
-                120 Days
+                {t('filters.duration.unit', {
+                  number: 90,
+                })}
               </AntdRadioButton>
             </AntdRadioGroup>
           </AntdFormItem>
@@ -78,7 +90,7 @@ const Subscription: React.FC = () => {
       </div>
       <Divider type="horizontal" dashed />
       <div>
-        <AntdParagraph strong>Plans</AntdParagraph>
+        <AntdParagraph strong>{t('plan.title')}</AntdParagraph>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,_1fr))] gap-4">
           {Array.from({ length: 10 }).map((_, j) => (
             <PlanItem key={j} />
