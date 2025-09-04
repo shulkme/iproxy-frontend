@@ -5,13 +5,13 @@ import {
   RiExternalLinkLine,
   RiFileList3Line,
   RiGiftLine,
+  RiHomeGearLine,
   RiHomeLine,
   RiHomeOfficeLine,
   RiPinDistanceLine,
   RiQuestionLine,
   RiServerLine,
   RiServiceLine,
-  RiSettingsLine,
   RiSmartphoneLine,
   RiUser6Line,
   RiWalletLine,
@@ -112,7 +112,7 @@ const Sidebar: React.FC = () => {
                     {
                       label: t('menus.proxy-settings'),
                       key: 'proxies:settings',
-                      icon: <RiSettingsLine size={18} />,
+                      icon: <RiHomeGearLine size={18} />,
                       meta: {
                         href: '/proxies/settings/sub-account',
                         group: '/proxies/settings',
@@ -142,12 +142,12 @@ const Sidebar: React.FC = () => {
                   type: 'group',
                   children: [
                     {
-                      label: t('menus.my-account'),
-                      key: 'menu:settings',
+                      label: t('menus.account'),
+                      key: 'menu:account',
                       icon: <RiUser6Line size={18} />,
                       meta: {
-                        href: '/settings/my-account',
-                        group: '/settings',
+                        href: '/account/profile',
+                        group: '/account',
                       },
                     },
                     {

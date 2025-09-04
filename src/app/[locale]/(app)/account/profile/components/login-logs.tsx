@@ -10,6 +10,7 @@ import {
 } from '@remixicon/react';
 import { useAntdTable } from 'ahooks';
 import { Avatar, Card, Col, Row, Table } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const DeviceIcon: React.FC<{
@@ -39,6 +40,7 @@ const DeviceIcon: React.FC<{
 };
 
 const LoginLogs: React.FC = () => {
+  const t = useTranslations('app.pages.account.profile.login-record');
   const { tableProps } = useAntdTable(async ({ current, pageSize }, params) => {
     return await getLoginLogList({
       page: current,
@@ -53,7 +55,7 @@ const LoginLogs: React.FC = () => {
   return (
     <Card>
       <AntdTitle level={5} className="mb-6">
-        Login activity history
+        {t('title')}
       </AntdTitle>
       <Table<LoginLogRecord>
         rowKey="id"
@@ -62,7 +64,7 @@ const LoginLogs: React.FC = () => {
         }}
         columns={[
           {
-            title: 'Device',
+            title: t('columns.device'),
             render: (_, record) => {
               return (
                 <Row gutter={8} wrap={false}>
@@ -78,7 +80,7 @@ const LoginLogs: React.FC = () => {
             },
           },
           {
-            title: 'Location',
+            title: t('columns.location'),
             render: (_, record) => {
               return (
                 <>
@@ -90,11 +92,11 @@ const LoginLogs: React.FC = () => {
             },
           },
           {
-            title: 'Login IP',
+            title: t('columns.ip'),
             dataIndex: 'ip',
           },
           {
-            title: 'Login Time',
+            title: t('columns.time'),
             dataIndex: 'login_time',
           },
         ]}

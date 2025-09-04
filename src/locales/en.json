@@ -58,7 +58,7 @@
           "scarping": "Scarping",
           "serp-api": "Serp Api",
           "menu": "Menu",
-          "my-account": "My Account",
+          "account": "My Account",
           "wallet": "Wallet",
           "referral": "Referral",
           "help": "Help",
@@ -78,6 +78,9 @@
       }
     },
     "pages": {
+      "dashboard": {
+        "title": "Dashboard"
+      },
       "static-isp": {
         "title": "Static ISP Proxies",
         "menus": {
@@ -290,7 +293,102 @@
                 "placeholder": "Order Number"
               }
             },
-            "columns": {}
+            "columns": {
+              "order-number": "Order Number",
+              "payment-amount": "Payment Amount",
+              "payment-method": "Payment Method",
+              "status": "Status",
+              "denial-reason": "Denial Reason",
+              "payment-time": "Payment Time",
+              "account-balance": "Account Balance"
+            }
+          }
+        },
+        "billing": {
+          "table": {
+            "filters": {
+              "type": {
+                "placeholder": "Type"
+              },
+              "order-number": {
+                "placeholder": "Order Number"
+              }
+            },
+            "columns": {
+              "order-number": "Order Number",
+              "payment-amount": "Payment Amount",
+              "payment-method": "Payment Method",
+              "type": "Order Type",
+              "plan": "Plan",
+              "status": "Status",
+              "date": "Date",
+              "balance": "Balance"
+            }
+          }
+        }
+      },
+      "account": {
+        "title": "Account",
+        "menus": {
+          "profile": "Profile",
+          "subscription": "Subscription",
+          "notifications": "Notifications"
+        },
+        "profile": {
+          "detail": {
+            "title": "Account Detail",
+            "items": {
+              "username": {
+                "label": "Username"
+              },
+              "email": {
+                "label": "Email"
+              },
+              "registration-time": {
+                "label": "Registration Time"
+              },
+              "password": {
+                "label": "Password",
+                "change-password": "Change Password"
+              }
+            },
+            "modal": {
+              "title": "Change Password",
+              "actions": {
+                "yes": "Update",
+                "no": "Cancel"
+              },
+              "form": {
+                "old-password": {
+                  "label": "Old Password",
+                  "placeholder": "Old Password"
+                },
+                "new-password": {
+                  "label": "New Password",
+                  "placeholder": "New Password"
+                },
+                "confirm-password": {
+                  "label": "Confirm Password",
+                  "placeholder": "Confirm Password",
+                  "errors": {
+                    "match": "The confirmed password does not match the new password"
+                  }
+                }
+              },
+              "result": {
+                "success": "Success",
+                "error": "Change failed"
+              }
+            }
+          },
+          "login-record": {
+            "title": "Login activity history",
+            "columns": {
+              "device": "Device",
+              "location": "Location",
+              "ip": "Login IP",
+              "time": "Login Time"
+            }
           }
         }
       }

@@ -7,18 +7,16 @@ import { useTranslations } from 'next-intl';
 export default function Page() {
   const t = useTranslations('app.pages.datacenter.ip-list');
   return (
-    <>
+    <div className="p-8 space-y-6">
       <Alert
-        banner
+        showIcon
         type="info"
         message={t.rich('banner', {
           link: (chunks) => <a>{chunks}</a>,
         })}
       />
-      <div className="p-8 space-y-6">
-        <Statistics />
-        <Detail />
-      </div>
-    </>
+      <Statistics />
+      <Detail />
+    </div>
   );
 }

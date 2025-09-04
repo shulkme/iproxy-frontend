@@ -58,7 +58,7 @@
           "scarping": "抓取",
           "serp-api": "Serp Api",
           "menu": "菜单",
-          "my-account": "我的账户",
+          "account": "我的账户",
           "wallet": "钱包",
           "referral": "推荐",
           "help": "帮助",
@@ -287,10 +287,105 @@
           "table": {
             "filters": {
               "order-number": {
-                "placeholder": "Order Number"
+                "placeholder": "订单号"
               }
             },
-            "columns": {}
+            "columns": {
+              "order-number": "订单号",
+              "payment-amount": "支付金额",
+              "payment-method": "支付方式",
+              "status": "状态",
+              "denial-reason": "拒绝原因",
+              "payment-time": "支付时间",
+              "account-balance": "账户余额"
+            }
+          }
+        },
+        "billing": {
+          "table": {
+            "filters": {
+              "type": {
+                "placeholder": "类型"
+              },
+              "order-number": {
+                "placeholder": "订单号"
+              }
+            },
+            "columns": {
+              "order-number": "订单号",
+              "payment-amount": "支付金额",
+              "payment-method": "支付方式",
+              "type": "订单类型",
+              "plan": "套餐",
+              "status": "状态",
+              "date": "日期",
+              "balance": "余额"
+            }
+          }
+        }
+      },
+      "account": {
+        "title": "账户",
+        "menus": {
+          "profile": "个人资料",
+          "subscription": "订阅",
+          "notifications": "通知"
+        },
+        "profile": {
+          "detail": {
+            "title": "账户详情",
+            "items": {
+              "username": {
+                "label": "用户名"
+              },
+              "email": {
+                "label": "电子邮件"
+              },
+              "registration-time": {
+                "label": "注册时间"
+              },
+              "password": {
+                "label": "密码",
+                "change-password": "修改密码"
+              }
+            },
+            "modal": {
+              "title": "修改密码",
+              "actions": {
+                "yes": "更新",
+                "no": "取消"
+              },
+              "form": {
+                "old-password": {
+                  "label": "旧密码",
+                  "placeholder": "旧密码"
+                },
+                "new-password": {
+                  "label": "新密码",
+                  "placeholder": "新密码"
+                },
+                "confirm-password": {
+                  "label": "确认密码",
+                  "placeholder": "确认密码",
+                  "errors": {
+                    "match": "确认密码与新密码不匹配"
+                  }
+                }
+              },
+              "result": {
+                "success": "修改成功",
+                "error": "修改失败"
+              }
+            }
+          },
+          "login-record": {
+            "title": "登录活动记录",
+            "columns": {
+              "device": "设备",
+              "location": "位置",
+              "ip": "登录IP",
+              "time": "登录时间"
+            }
           }
         }
       }

@@ -11,8 +11,10 @@ import { RiSearchLine } from '@remixicon/react';
 import { useAntdTable } from 'ahooks';
 import { Card, FormProps, Table } from 'antd';
 import dayjs from 'dayjs';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.pages.wallet.transactions');
   const [form] = AntdForm.useForm();
 
   const { tableProps, search } = useAntdTable(
@@ -65,7 +67,7 @@ export default function Page() {
             <AntdFormItem name="order_id">
               <AntdInput
                 allowClear
-                placeholder="Order Number"
+                placeholder={t('table.filters.order-number.placeholder')}
                 suffix={<RiSearchLine size={16} />}
                 onPressEnter={submit}
                 onClear={submit}
@@ -76,25 +78,31 @@ export default function Page() {
 
         <Table<CreditRecord>
           rowKey="id"
+          scroll={{
+            x: 1200,
+          }}
           columns={[
             {
-              title: 'Order Number',
+              title: t('table.columns.order-number'),
             },
             {
-              title: 'Payment Amount',
+              title: t('table.columns.payment-amount'),
               dataIndex: 'points',
             },
             {
-              title: 'Payment Method',
+              title: t('table.columns.payment-method'),
             },
             {
-              title: 'Status',
+              title: t('table.columns.status'),
             },
             {
-              title: 'Extra',
+              title: t('table.columns.denial-reason'),
             },
             {
-              title: 'Type',
+              title: t('table.columns.payment-time'),
+            },
+            {
+              title: t('table.columns.account-balance'),
             },
           ]}
           {...tableProps}

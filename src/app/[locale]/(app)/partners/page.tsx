@@ -4,7 +4,7 @@ import { AntdTitle } from '@/components/antd';
 export default function Page() {
   return (
     <div className="max-w-[1600px] mx-auto p-8 space-y-8">
-      <div className="bg-blue-500/5 border border-slate-200 rounded-sm p-8 relative overflow-hidden">
+      <div className="bg-blue-500/5 border border-blue-100 rounded-sm p-8 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 h-full w-1/3 bg-linear-[190deg] from-blue-200/50 to-transparent to-90% -skew-x-45 translate-x-1/2"></div>
         <div className="space-y-2 relative z-10">
           <h2 className="text-2xl font-bold mb-6">Ecological Product Center</h2>

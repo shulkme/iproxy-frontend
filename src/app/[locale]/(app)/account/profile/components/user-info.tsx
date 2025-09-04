@@ -10,9 +10,11 @@ import { useIdentity } from '@/providers/identity';
 import { useRequest } from 'ahooks';
 import { App, Card, Descriptions, FormProps, Modal } from 'antd';
 import dayjs from 'dayjs';
+import { useTranslations } from 'next-intl';
 import React, { useState } from 'react';
 
 const UserInfo: React.FC = () => {
+  const t = useTranslations('app.pages.account.profile.detail');
   const { user, logout } = useIdentity();
   const [form] = AntdForm.useForm();
   const [open, setOpen] = useState(false);
@@ -21,12 +23,12 @@ const UserInfo: React.FC = () => {
   const { run: doSubmit, loading: submitting } = useRequest(changePassword, {
     manual: true,
     onSuccess: () => {
-      message.success('Success');
+      message.success(t('modal.result.success'));
       setOpen(false);
       logout();
     },
     onError: (e) => {
-      message.error(e.message || 'Change failed');
+      message.error(e.message || t('modal.result.error'));
     },
   });
 
@@ -38,7 +40,7 @@ const UserInfo: React.FC = () => {
     <>
       <Card>
         <AntdTitle level={5} className="mb-6">
-          Account Detail
+          {t('title')}
         </AntdTitle>
         <div>
           <Descriptions
@@ -56,21 +58,21 @@ const UserInfo: React.FC = () => {
             }}
             items={[
               {
-                label: 'Username',
+                label: t('items.username.label'),
                 children: user?.username || '--',
               },
               {
-                label: 'Email',
+                label: t('items.email.label'),
                 children: user?.email || '--',
               },
               {
-                label: 'Registration time',
+                label: t('items.registration-time.label'),
                 children: user?.created_time
                   ? dayjs(user.created_time).format('LLL')
                   : '--',
               },
               {
-                label: 'Password',
+                label: t('items.password.label'),
                 children: (
                   <div className="space-x-1">
                     <span>******</span>
@@ -78,7 +80,7 @@ const UserInfo: React.FC = () => {
                       className="text-sm font-normal"
                       onClick={() => setOpen(true)}
                     >
-                      Change Password
+                      {t('items.password.change-password')}
                     </a>
                   </div>
                 ),
@@ -90,10 +92,11 @@ const UserInfo: React.FC = () => {
 
       <Modal
         open={open}
-        title={'Change Password'}
+        title={t('modal.title')}
         onCancel={() => setOpen(false)}
         onOk={form.submit}
-        okText={'Update'}
+        okText={t('modal.actions.yes')}
+        cancelText={t('modal.actions.no')}
         afterClose={() => form.resetFields()}
         okButtonProps={{
           loading: submitting,
@@ -113,9 +116,9 @@ const UserInfo: React.FC = () => {
           <AntdFormItem
             name="old_password"
             messageVariables={{
-              label: 'Old Password',
+              label: t('modal.form.old-password.label'),
             }}
-            label="Old Password"
+            label={t('modal.form.old-password.label')}
             rules={[
               {
                 required: true,
@@ -128,14 +131,17 @@ const UserInfo: React.FC = () => {
               },
             ]}
           >
-            <AntdInputPassword size="large" placeholder={'Old Password'} />
+            <AntdInputPassword
+              size="large"
+              placeholder={t('modal.form.old-password.placeholder')}
+            />
           </AntdFormItem>
           <AntdFormItem
             name="new_password"
             messageVariables={{
-              label: 'New Password',
+              label: t('modal.form.new-password.label'),
             }}
-            label="New Password"
+            label={t('modal.form.new-password.label')}
             rules={[
               {
                 required: true,
@@ -148,14 +154,17 @@ const UserInfo: React.FC = () => {
               },
             ]}
           >
-            <AntdInputPassword size="large" placeholder={'New Password'} />
+            <AntdInputPassword
+              size="large"
+              placeholder={t('modal.form.new-password.placeholder')}
+            />
           </AntdFormItem>
           <AntdFormItem
             name="confirm_password"
             messageVariables={{
-              label: 'Confirm Password',
+              label: t('modal.form.confirm-password.label'),
             }}
-            label="Confirm Password"
+            label={t('modal.form.confirm-password.label')}
             rules={[
               {
                 required: true,
@@ -165,12 +174,17 @@ const UserInfo: React.FC = () => {
                   if (!value || getFieldValue('new_password') === value) {
                     return Promise.resolve();
                   }
-                  return Promise.reject(new Error('确认密码与新密码不一致'));
+                  return Promise.reject(
+                    new Error(t('modal.form.confirm-password.errors.match')),
+                  );
                 },
               }),
             ]}
           >
-            <AntdInputPassword size="large" placeholder={'Confirm Password'} />
+            <AntdInputPassword
+              size="large"
+              placeholder={t('modal.form.confirm-password.placeholder')}
+            />
           </AntdFormItem>
         </AntdForm>
       </Modal>

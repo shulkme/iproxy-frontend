@@ -258,7 +258,7 @@
         "title": "钱包",
         "menus": {
           "recharge": "余额充值",
-          "transactions": "交易记录",
+          "transactions": "充值记录",
           "billing": "账单明细"
         },
         "recharge": {
@@ -287,10 +287,40 @@
           "table": {
             "filters": {
               "order-number": {
-                "placeholder": "Order Number"
+                "placeholder": "订单号"
               }
             },
-            "columns": {}
+            "columns": {
+              "order-number": "订单号",
+              "payment-amount": "支付金额",
+              "payment-method": "支付方式",
+              "status": "状态",
+              "denial-reason": "拒绝原因",
+              "payment-time": "支付时间",
+              "account-balance": "账户余额"
+            }
+          }
+        },
+        "billing": {
+          "table": {
+            "filters": {
+              "type": {
+                "placeholder": "类型"
+              },
+              "order-number": {
+                "placeholder": "订单号"
+              }
+            },
+            "columns": {
+              "order-number": "订单号",
+              "payment-amount": "支付金额",
+              "payment-method": "支付方式",
+              "type": "订单类型",
+              "plan": "套餐",
+              "status": "状态",
+              "date": "日期",
+              "balance": "余额"
+            }
           }
         }
       }
