@@ -1,6 +1,6 @@
 'use client';
+import { getAllPackages } from '@/apis/packages';
 import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
-import { PackageRecord } from '@/apis/packages/types';
 import { getDurationPrice } from '@/app/[locale]/(app)/proxies/datacenter/mixins';
 import {
   CheckoutRecord,
@@ -123,37 +123,9 @@ const Region: React.FC = () => {
   const [form] = AntdForm.useForm();
   const { formData, setFormData } = useCheckout();
   const { data: packages, loading } = useRequest(async () => {
-    // return await getAllPackages({
-    //   type: PACKAGE_TYPE_ENUM.ISP,
-    // }).then((res) => res.data);
-    return [
-      {
-        id: '1',
-        continent: 'NA',
-        country: 'USA',
-        price_week: 3,
-        price_month: 5,
-        price_year: 60,
-        price_quarter: 15,
-        currency: 'USD',
-        status: 1,
-        sort: 0,
-        type: PACKAGE_TYPE_ENUM.ISP,
-      },
-      {
-        id: '2',
-        continent: 'AS',
-        country: 'HKN',
-        price_week: 3,
-        price_month: 5,
-        price_year: 60,
-        price_quarter: 15,
-        currency: 'USD',
-        status: 1,
-        sort: 0,
-        type: PACKAGE_TYPE_ENUM.ISP,
-      },
-    ] as PackageRecord[];
+    return await getAllPackages({
+      type: PACKAGE_TYPE_ENUM.IDC,
+    }).then((res) => res.data);
   });
 
   const duration = useMemo(() => {
@@ -170,14 +142,14 @@ const Region: React.FC = () => {
     return Object.entries(groups).map(([continentCode, packageItems]) => {
       const continent = continents.find((f) => f.code === continentCode);
       const title = continent
-        ? g(`continent.${continent.locale}`)
+        ? g(`continent.${continent.code}`)
         : continentCode;
       return {
         title,
         key: continentCode,
         items: (packageItems || []).map((pg) => {
-          const country = countries.find((f) => f.iso === pg.country);
-          const title = country ? g(`country.${country.locale}`) : pg.country;
+          const country = countries.find((f) => f.iso3 === pg.country);
+          const title = country ? g(`country.${country.iso2}`) : pg.country;
           return {
             title,
             flag: country?.iso2.toLowerCase(),
@@ -192,7 +164,7 @@ const Region: React.FC = () => {
     const items = Object.keys(group(packages || [], (f) => f.continent));
     return items.map((key) => {
       const continent = continents.find((f) => f.code === key);
-      const title = continent ? g(`continent.${continent.locale}`) : key;
+      const title = continent ? g(`continent.${continent.code}`) : key;
       return {
         label: title,
         value: key,

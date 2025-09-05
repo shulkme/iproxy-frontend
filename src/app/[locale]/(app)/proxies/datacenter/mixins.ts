@@ -24,16 +24,13 @@ export function getDurationPrice(record: PackageRecord, duration: number) {
   let price = 0;
   switch (duration) {
     case 7:
-      price = record.price_week;
+      price = record.days7;
       break;
     case 30:
-      price = record.price_month;
+      price = record.days30;
       break;
     case 90:
-      price = record.price_quarter;
-      break;
-    case 365:
-      price = record.price_year;
+      price = record.days90;
       break;
   }
 
