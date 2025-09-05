@@ -1,6 +1,8 @@
 'use client';
 import NavMenu from '@/app/[locale]/components/nav-menu';
 import { AntdSider } from '@/components/antd';
+import { Link } from '@/i18n/navigation';
+import Logo from '@/icons/logo';
 import {
   RiBarChart2Line,
   RiExternalLinkLine,
@@ -46,10 +48,13 @@ const Sidebar: React.FC = () => {
         className="fixed top-0 left-0 bottom-0 z-50"
       >
         <div className="h-full flex flex-col">
-          <div className="flex-none w-full h-16 flex items-center px-8">
-            <h1 className="text-2xl font-bold text-white">
-              {process.env.NEXT_PUBLIC_APP_NAME}
-            </h1>
+          <div className="flex-none w-full h-16 flex items-center px-6">
+            <Link className="flex gap-3 items-center" href="/dashboard">
+              <Logo width={24} height={24} />
+              <h1 className="text-xl font-bold text-white">
+                {process.env.NEXT_PUBLIC_APP_NAME}
+              </h1>
+            </Link>
           </div>
           <div className="flex-auto overflow-auto">
             <NavMenu
