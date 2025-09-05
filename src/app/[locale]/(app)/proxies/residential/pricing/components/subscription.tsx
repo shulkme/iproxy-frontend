@@ -33,6 +33,7 @@ const PlanItem = () => {
 const Subscription: React.FC = () => {
   const t = useTranslations('app.pages.residential.pricing.subscription');
   const [form] = AntdForm.useForm();
+
   return (
     <Card>
       <div className="flex items-center justify-between gap-2 mb-6">
@@ -62,26 +63,10 @@ const Subscription: React.FC = () => {
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
                 className="border rounded-xs before:hidden px-6"
-                value={7}
-              >
-                {t('filters.duration.unit', {
-                  number: 7,
-                })}
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
                 value={30}
               >
                 {t('filters.duration.unit', {
                   number: 30,
-                })}
-              </AntdRadioButton>
-              <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
-                value={90}
-              >
-                {t('filters.duration.unit', {
-                  number: 90,
                 })}
               </AntdRadioButton>
             </AntdRadioGroup>

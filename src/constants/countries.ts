@@ -267,6 +267,10 @@ const countries = [
     iso2: 'HK',
     iso3: 'HKN',
   },
+  {
+    iso2: 'HK',
+    iso3: 'HKG',
+  },
 ] as const;
 
 export default countries;
