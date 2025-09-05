@@ -26,12 +26,13 @@ export default function Page() {
 
   const searchParams = useSearchParams();
 
-  const redirect =
-    searchParams.get('redirect') || window.location.origin + '/dashboard';
+  const redirect = searchParams.get('redirect') || '/dashboard';
 
   const { run: getGoogleAuth, loading: googleLoading } = useRequest(
     async () => {
-      return await getGoogleAuthLink(redirect);
+      const redirect_url =
+        searchParams.get('redirect') || window.location.origin + '/dashboard';
+      return await getGoogleAuthLink(redirect_url);
     },
     {
       manual: true,
