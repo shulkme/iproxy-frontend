@@ -1,5 +1,5 @@
 import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
-import { PROXY_STATUS_ENUM } from '@/apis/proxy/enums';
+import { PROXY_ORDER_STATUS_ENUM, PROXY_STATUS_ENUM } from '@/apis/proxy/enums';
 
 export interface ProxyRecord {
   id: number;
@@ -48,14 +48,14 @@ export interface ProxyOrderRecord {
   balance_before_payment: number;
   balance_after_payment: number;
   coupon: string;
-  status: PROXY_STATUS_ENUM;
+  status: PROXY_ORDER_STATUS_ENUM;
   created_time: string;
   updated_time: string;
 }
 
 export interface ProxyOrderParams {
   package_type?: PACKAGE_TYPE_ENUM;
-  status?: PROXY_STATUS_ENUM;
+  status?: PROXY_ORDER_STATUS_ENUM;
   external_order_id?: string;
   page?: number;
   size?: number;

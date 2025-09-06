@@ -5,7 +5,7 @@ export enum PROXY_STATUS_ENUM {
   DELETED = 'deleted',
 }
 
-export enum PROXY_STATUS_ENUM {
+export enum PROXY_ORDER_STATUS_ENUM {
   SUCCESS = 'success',
   FAILED = 'fail',
   PENDING = 'pending',
