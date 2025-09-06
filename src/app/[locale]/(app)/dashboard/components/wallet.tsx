@@ -1,11 +1,13 @@
 'use client';
 import { AntdParagraph, AntdTitle } from '@/components/antd';
+import { useCredit } from '@/providers/credit';
 import { RiWalletLine } from '@remixicon/react';
 import { Avatar, Button, Card } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Wallet: React.FC = () => {
+  const { available } = useCredit();
   const t = useTranslations('app.pages.dashboard.wallet');
   return (
     <Card>
@@ -28,7 +30,7 @@ const Wallet: React.FC = () => {
           </AntdParagraph>
           <div className="flex justify-between items-center flex-wrap">
             <AntdTitle level={3} className="m-0">
-              $1,234
+              ${available.toLocaleString() || 0}
             </AntdTitle>
             <Button
               href="/wallet/recharge"

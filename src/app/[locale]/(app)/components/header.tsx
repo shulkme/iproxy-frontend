@@ -76,6 +76,9 @@ const AccountDropdown = () => {
       case 'wallet':
         router.push('/wallet/recharge');
         break;
+      case 'billing':
+        router.push('/wallet/billing');
+        break;
     }
   };
   return (
@@ -155,8 +158,8 @@ const NotificationDropdown = () => {
         </div>
       }
     >
-      <Button type="text" className="leading-none rounded-none h-full px-4">
-        <Badge dot>
+      <Button type="text" className="leading-none rounded-none h-full px-5">
+        <Badge dot={false}>
           <RiNotification3Line size={20} />
         </Badge>
       </Button>

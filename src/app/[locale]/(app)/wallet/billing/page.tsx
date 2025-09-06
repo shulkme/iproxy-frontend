@@ -90,6 +90,7 @@ export default function Page() {
           columns={[
             {
               title: t('table.columns.order-number'),
+              dataIndex: 'id',
             },
             {
               title: t('table.columns.payment-amount'),
@@ -109,6 +110,8 @@ export default function Page() {
             },
             {
               title: t('table.columns.date'),
+              dataIndex: 'created_time',
+              render: (value) => dayjs(value).format('LLL'),
             },
             {
               title: t('table.columns.balance'),
