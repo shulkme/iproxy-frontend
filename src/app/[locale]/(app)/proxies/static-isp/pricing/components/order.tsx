@@ -20,6 +20,7 @@ import {
   Empty,
   Modal,
   Result,
+  Select,
   Spin,
 } from 'antd';
 import { useTranslations } from 'next-intl';
@@ -142,7 +143,7 @@ const Order: React.FC = () => {
                 <Divider type="horizontal" className="m-0" />
               </div>
               <div>
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   <li>
                     <div className="flex justify-between">
                       <label className="text-black/50">
@@ -183,7 +184,40 @@ const Order: React.FC = () => {
                 <Divider type="horizontal" className="m-0" />
               </div>
               <div>
-                <ul className="space-y-1">
+                <ul className="space-y-2">
+                  <li>
+                    <div className="flex justify-between items-center">
+                      <label className="text-black/50">
+                        {t('summary.coupon.label')}
+                      </label>
+                      <div className="flex items-center gap-2">
+                        <Select
+                          allowClear
+                          showSearch
+                          size="small"
+                          popupMatchSelectWidth={200}
+                          placeholder={t('summary.coupon.placeholder')}
+                        />
+                        <Button size="small" color="primary" variant="outlined">
+                          {t('summary.coupon.extra')}
+                        </Button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="flex justify-between items-center">
+                      <label className="text-black/50">
+                        {t('summary.discount')}
+                      </label>
+                      <span className="font-medium text-orange-500">
+                        $
+                        {subtotal.toLocaleString('en-US', {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
+                      </span>
+                    </div>
+                  </li>
                   <li>
                     <div className="flex justify-between items-center">
                       <label className="text-black/50">

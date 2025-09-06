@@ -333,7 +333,13 @@
                 "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
               },
               "subtotal": "Subtotal",
-              "total": "Total"
+              "total": "Total",
+              "coupon": {
+                "label": "Coupon",
+                "placeholder": "Choose coupon",
+                "extra": "Apply"
+              },
+              "discount": "Discount"
             },
             "actions": {
               "reset": "Clear",
@@ -548,10 +554,27 @@
                 "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
               },
               "subtotal": "Subtotal",
-              "total": "Total"
+              "total": "Total",
+              "coupon": {
+                "label": "Coupon",
+                "placeholder": "Choose coupon",
+                "extra": "Apply"
+              },
+              "discount": "Discount"
             },
             "actions": {
               "submit": "Order Now"
+            },
+            "form": {
+              "result": {
+                "spin": "Creating order",
+                "success": {
+                  "title": "Success",
+                  "subtitle": "The order was created successfully and the traffic plan has been generated. Please go to the settings to extract the IPs.",
+                  "action": "Extract IP List"
+                },
+                "error": "Order creation failed"
+              }
             }
           }
         },
@@ -734,10 +757,27 @@
                 "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
               },
               "subtotal": "Subtotal",
-              "total": "Total"
+              "total": "Total",
+              "coupon": {
+                "label": "Coupon",
+                "placeholder": "Choose coupon",
+                "extra": "Apply"
+              },
+              "discount": "Discount"
             },
             "actions": {
               "submit": "Order Now"
+            },
+            "form": {
+              "result": {
+                "spin": "Creating order",
+                "success": {
+                  "title": "Success",
+                  "subtitle": "The order was created successfully and the traffic plan has been generated. Please go to the settings to extract the IPs.",
+                  "action": "Extract IP List"
+                },
+                "error": "Order creation failed"
+              }
             }
           }
         },

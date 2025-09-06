@@ -333,7 +333,13 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小计",
-              "total": "总计"
+              "total": "总计",
+              "coupon": {
+                "label": "优惠券",
+                "placeholder": "选择优惠券",
+                "extra": "使用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "reset": "清空",
@@ -548,10 +554,27 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小计",
-              "total": "总计"
+              "total": "总计",
+              "coupon": {
+                "label": "优惠券",
+                "placeholder": "选择优惠券",
+                "extra": "使用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "submit": "立即下单"
+            },
+            "form": {
+              "result": {
+                "spin": "创建订单中",
+                "success": {
+                  "title": "成功",
+                  "subtitle": "订单创建成功，流量套餐已生成。请前往设置提取IP。",
+                  "action": "提取IP列表"
+                },
+                "error": "订单创建失败"
+              }
             }
           }
         },
@@ -734,10 +757,27 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小计",
-              "total": "总计"
+              "total": "总计",
+              "coupon": {
+                "label": "优惠券",
+                "placeholder": "选择优惠券",
+                "extra": "使用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "submit": "立即下单"
+            },
+            "form": {
+              "result": {
+                "spin": "创建订单中",
+                "success": {
+                  "title": "成功",
+                  "subtitle": "订单创建成功，流量套餐已生成。请前往设置提取IP。",
+                  "action": "提取IP列表"
+                },
+                "error": "订单创建失败"
+              }
             }
           }
         },

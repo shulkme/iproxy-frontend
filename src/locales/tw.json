@@ -333,7 +333,13 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小計",
-              "total": "總計"
+              "total": "總計",
+              "coupon": {
+                "label": "優惠券",
+                "placeholder": "選擇優惠券",
+                "extra": "應用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "reset": "清空",
@@ -548,10 +554,27 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小計",
-              "total": "總計"
+              "total": "總計",
+              "coupon": {
+                "label": "優惠券",
+                "placeholder": "選擇優惠券",
+                "extra": "應用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "submit": "立即下單"
+            },
+            "form": {
+              "result": {
+                "spin": "建立訂單中",
+                "success": {
+                  "title": "成功",
+                  "subtitle": "訂單建立成功，流量套餐已生成。請前往設定提取IP。",
+                  "action": "提取IP列表"
+                },
+                "error": "訂單建立失敗"
+              }
             }
           }
         },
@@ -734,10 +757,27 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小計",
-              "total": "總計"
+              "total": "總計",
+              "coupon": {
+                "label": "優惠券",
+                "placeholder": "選擇優惠券",
+                "extra": "應用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "submit": "立即下單"
+            },
+            "form": {
+              "result": {
+                "spin": "建立訂單中",
+                "success": {
+                  "title": "成功",
+                  "subtitle": "訂單建立成功，流量套餐已生成。請前往設定提取IP。",
+                  "action": "提取IP列表"
+                },
+                "error": "訂單建立失敗"
+              }
             }
           }
         },
