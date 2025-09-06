@@ -31,7 +31,7 @@ export interface ProxyParams {
 
 export interface ProxyOrderData {
   package_type: PACKAGE_TYPE_ENUM;
-  package_id: number;
+  package_id?: number;
   days: number;
   quantity: number;
   coupon?: string;

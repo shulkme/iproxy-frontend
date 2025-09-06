@@ -338,6 +338,17 @@
             "actions": {
               "reset": "Clear",
               "submit": "Order Now"
+            },
+            "form": {
+              "result": {
+                "spin": "Creating order",
+                "success": {
+                  "title": "Success",
+                  "subtitle": "The order was created successfully and the IP is being generated. Please go to the IP list to view it.",
+                  "action": "View IP List"
+                },
+                "error": "Order creation failed"
+              }
             }
           }
         },
@@ -432,6 +443,17 @@
             "actions": {
               "reset": "Clear",
               "submit": "Order Now"
+            },
+            "form": {
+              "result": {
+                "spin": "Creating order",
+                "success": {
+                  "title": "Success",
+                  "subtitle": "The order was created successfully and the IP is being generated. Please go to the IP list to view it.",
+                  "action": "View IP List"
+                },
+                "error": "Order creation failed"
+              }
             }
           }
         },

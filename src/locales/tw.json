@@ -338,6 +338,17 @@
             "actions": {
               "reset": "清空",
               "submit": "立即下單"
+            },
+            "form": {
+              "result": {
+                "spin": "建立訂單中",
+                "success": {
+                  "title": "成功",
+                  "subtitle": "訂單建立成功，IP正在生成。請前往IP列表查看。",
+                  "action": "查看IP列表"
+                },
+                "error": "訂單建立失敗"
+              }
             }
           }
         },
@@ -432,6 +443,17 @@
             "actions": {
               "reset": "清空",
               "submit": "立即下單"
+            },
+            "form": {
+              "result": {
+                "spin": "建立訂單中",
+                "success": {
+                  "title": "成功",
+                  "subtitle": "訂單建立成功，IP正在生成。請前往IP列表查看。",
+                  "action": "查看IP列表"
+                },
+                "error": "訂單建立失敗"
+              }
             }
           }
         },
