@@ -63,7 +63,7 @@ const RegionItem: React.FC<{
   return (
     <div
       className={cn(
-        'border border-slate-100 rounded-xs cursor-pointer p-4 hover:border-(--ant-color-primary)',
+        'border border-slate-100 rounded-(--ant-border-radius) cursor-pointer p-4 hover:border-(--ant-color-primary)',
         hasSku(record.id.toString()) && 'border-(--ant-color-primary)',
       )}
     >
@@ -204,7 +204,7 @@ const Region: React.FC = () => {
           <AntdFormItem name="duration" label={t('filters.duration.label')}>
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value={7}
               >
                 {t('filters.duration.unit', {
@@ -212,7 +212,7 @@ const Region: React.FC = () => {
                 })}
               </AntdRadioButton>
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value={30}
               >
                 {t('filters.duration.unit', {
@@ -220,7 +220,7 @@ const Region: React.FC = () => {
                 })}
               </AntdRadioButton>
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value={90}
               >
                 {t('filters.duration.unit', {
@@ -232,7 +232,7 @@ const Region: React.FC = () => {
           <AntdFormItem name="continent" label={t('filters.continent.label')}>
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value="all"
               >
                 {t('filters.continent.default')}
@@ -240,7 +240,7 @@ const Region: React.FC = () => {
               {continentOptions.map((option) => (
                 <AntdRadioButton
                   key={option.value}
-                  className="border rounded-xs before:hidden px-6"
+                  className="border rounded-(--ant-border-radius) before:hidden px-6"
                   value={option.value}
                 >
                   {option.label}

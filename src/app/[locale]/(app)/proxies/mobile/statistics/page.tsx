@@ -12,9 +12,9 @@ import {
 import { useTranslations } from 'next-intl';
 import { random } from 'radash';
 import {
+  Area,
+  AreaChart,
   CartesianGrid,
-  Line,
-  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -65,18 +65,31 @@ export default function Page() {
           </div>
           <div className="w-full h-80">
             <ResponsiveContainer>
-              <LineChart
+              <AreaChart
                 accessibilityLayer={false}
                 data={data}
                 margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
               >
-                <Line
-                  // type="monotone"
-                  dataKey="value"
-                  stroke="var(--ant-color-primary)"
-                  strokeWidth={2}
-                  dot={false}
-                />
+                <defs>
+                  <linearGradient
+                    id="chart-gradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop
+                      offset="5%"
+                      stopColor="var(--ant-color-primary)"
+                      stopOpacity={0.3}
+                    />
+                    <stop
+                      offset="95%"
+                      stopColor="var(--ant-color-primary)"
+                      stopOpacity={0}
+                    />
+                  </linearGradient>
+                </defs>
                 <XAxis
                   dataKey="label"
                   tick={{
@@ -84,13 +97,17 @@ export default function Page() {
                     fontSize: 12,
                   }}
                   axisLine={false}
+                  tickMargin={10}
                 />
                 <YAxis
+                  // width={40}
                   axisLine={false}
+                  // mirror={true}
                   tick={{
                     strokeWidth: 1,
                     fontSize: 12,
                   }}
+                  tickMargin={20}
                 />
                 <CartesianGrid
                   horizontal={true}
@@ -98,8 +115,23 @@ export default function Page() {
                   strokeDasharray="5 5"
                   strokeWidth={1}
                 />
-                <Tooltip />
-              </LineChart>
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(255,255,255,.85)',
+                    border: 0,
+                    boxShadow: 'var(--ant-box-shadow)',
+                    backdropFilter: 'blur(2px)',
+                    borderRadius: 'var(--ant-border-radius-lg)',
+                  }}
+                />
+                <Area
+                  dataKey="value"
+                  stroke="var(--ant-color-primary)"
+                  strokeWidth={2}
+                  fillOpacity={1}
+                  fill="url(#chart-gradient)"
+                />
+              </AreaChart>
             </ResponsiveContainer>
           </div>
           <div>

@@ -16,7 +16,7 @@ const PlanItem = () => {
   const t = useTranslations('app.pages.mobile.pricing.subscription');
 
   return (
-    <div className="border border-slate-100 rounded-xs cursor-pointer p-4 space-y-2 hover:border-(--ant-color-primary)">
+    <div className="border border-slate-100 rounded-(--ant-border-radius) cursor-pointer p-4 space-y-2 hover:border-(--ant-color-primary)">
       <h3 className="font-bold text-lg">10GB</h3>
       <p className="font-medium">
         <span className="text-(--ant-color-primary)">$3.5</span>
@@ -61,7 +61,7 @@ const Subscription: React.FC = () => {
           <AntdFormItem name="duration" label={t('filters.duration.label')}>
             <AntdRadioGroup className="flex flex-wrap gap-4">
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value={7}
               >
                 {t('filters.duration.unit', {
@@ -69,7 +69,7 @@ const Subscription: React.FC = () => {
                 })}
               </AntdRadioButton>
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value={30}
               >
                 {t('filters.duration.unit', {
@@ -77,7 +77,7 @@ const Subscription: React.FC = () => {
                 })}
               </AntdRadioButton>
               <AntdRadioButton
-                className="border rounded-xs before:hidden px-6"
+                className="border rounded-(--ant-border-radius) before:hidden px-6"
                 value={90}
               >
                 {t('filters.duration.unit', {

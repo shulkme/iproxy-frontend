@@ -48,7 +48,7 @@ const Payment: React.FC = () => {
       >
         <AntdRadio
           value="credit"
-          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
+          className="border-[2px] rounded-(--ant-border-radius) border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
             <div className="font-bold">{t('methods.credit')}</div>
@@ -94,7 +94,7 @@ const Payment: React.FC = () => {
         <AntdRadio
           disabled
           value="crypto"
-          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
+          className="border-[2px] rounded-(--ant-border-radius) border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
             <div className="font-bold">{t('methods.crypto')}</div>
@@ -133,7 +133,7 @@ const Payment: React.FC = () => {
         <AntdRadio
           disabled
           value="local"
-          className="border-[2px] rounded-xs border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
+          className="border-[2px] rounded-(--ant-border-radius) border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
             <div className="font-bold">{t('methods.local')}</div>

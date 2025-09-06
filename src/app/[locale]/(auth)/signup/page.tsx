@@ -14,6 +14,7 @@ import { Title } from '@/providers/title';
 import { useRequest } from 'ahooks';
 import { Alert, Button, Checkbox, Divider, FormProps, Result } from 'antd';
 import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 export default function Page() {
@@ -22,10 +23,13 @@ export default function Page() {
   const [errMsg, setErrMsg] = useState<string>();
   const [showResult, setShowResult] = useState(false);
   const [email, setEmail] = useState<string>();
+  const searchParams = useSearchParams();
 
   const { run: getGoogleAuth, loading: googleLoading } = useRequest(
     async () => {
-      return await getGoogleAuthLink(window.location.href);
+      const redirect_url =
+        searchParams.get('redirect') || window.location.origin + '/dashboard';
+      return await getGoogleAuthLink(redirect_url);
     },
     {
       manual: true,

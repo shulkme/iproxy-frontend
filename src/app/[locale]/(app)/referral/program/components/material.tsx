@@ -2,6 +2,7 @@
 import {
   AntdForm,
   AntdFormItem,
+  AntdRadioButton,
   AntdRadioGroup,
   AntdTitle,
 } from '@/components/antd';
@@ -28,58 +29,70 @@ const Material: React.FC = () => {
               }}
             >
               <AntdFormItem name="size" label={t('form.size.label')}>
-                <AntdRadioGroup
-                  options={[
-                    {
-                      label: '160 x 600',
-                      value: '160_600',
-                    },
-                    {
-                      label: '468 x 60',
-                      value: '468_60',
-                    },
-                    {
-                      label: '630 x 330',
-                      value: '630_330',
-                    },
-                    {
-                      label: '728 x 90',
-                      value: '728_90',
-                    },
-                  ]}
-                />
+                <AntdRadioGroup className="flex flex-wrap gap-4">
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="160_600"
+                  >
+                    160 x 600
+                  </AntdRadioButton>
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="468_60"
+                  >
+                    468 x 60
+                  </AntdRadioButton>
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="630_330"
+                  >
+                    630 x 330
+                  </AntdRadioButton>
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="728_90"
+                  >
+                    728 x 90
+                  </AntdRadioButton>
+                </AntdRadioGroup>
               </AntdFormItem>
               <AntdFormItem name="variant" label={t('form.variant.label')}>
-                <AntdRadioGroup
-                  options={[
-                    {
-                      label: t('form.variant.options.brand'),
-                      value: 'brand',
-                    },
-                    {
-                      label: t('form.variant.options.residential'),
-                      value: 'residential',
-                    },
-                    {
-                      label: t('form.variant.options.ips'),
-                      value: 'ips',
-                    },
-                  ]}
-                />
+                <AntdRadioGroup className="flex flex-wrap gap-4">
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="brand"
+                  >
+                    {t('form.variant.options.brand')}
+                  </AntdRadioButton>
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="residential"
+                  >
+                    {t('form.variant.options.residential')}
+                  </AntdRadioButton>
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="ips"
+                  >
+                    {t('form.variant.options.ips')}
+                  </AntdRadioButton>
+                </AntdRadioGroup>
               </AntdFormItem>
               <AntdFormItem name="language" label={t('form.language.label')}>
-                <AntdRadioGroup
-                  options={[
-                    {
-                      label: t('form.language.options.html'),
-                      value: 'html',
-                    },
-                    {
-                      label: t('form.language.options.bbcode'),
-                      value: 'bbcode',
-                    },
-                  ]}
-                />
+                <AntdRadioGroup className="flex flex-wrap gap-4">
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="html"
+                  >
+                    {t('form.language.options.html')}
+                  </AntdRadioButton>
+                  <AntdRadioButton
+                    className="border rounded-(--ant-border-radius) before:hidden px-6"
+                    value="bbcode"
+                  >
+                    {t('form.language.options.bbcode')}
+                  </AntdRadioButton>
+                </AntdRadioGroup>
               </AntdFormItem>
 
               <AntdFormItem name="code" label={t('form.code.label')}>

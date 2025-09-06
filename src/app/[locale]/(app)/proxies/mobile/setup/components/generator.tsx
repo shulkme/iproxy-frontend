@@ -100,13 +100,13 @@ const WhitelistPane = () => {
           <AntdRadioGroup defaultValue={'country'} block className="flex gap-4">
             <AntdRadioButton
               value="country"
-              className="before:hidden border rounded-(--ant-border-radius) after:block after:absolute after:top-1 after:right-1 after:border-[5px] after:rounded-xs after:border-transparent [&.ant-radio-button-wrapper-checked]:after:border-t-(--ant-color-primary) [&.ant-radio-button-wrapper-checked]:after:border-r-(--ant-color-primary)"
+              className="before:hidden border rounded-(--ant-border-radius) after:block after:absolute after:top-1 after:right-1 after:border-[5px] after:rounded-(--ant-border-radius) after:border-transparent [&.ant-radio-button-wrapper-checked]:after:border-t-(--ant-color-primary) [&.ant-radio-button-wrapper-checked]:after:border-r-(--ant-color-primary)"
             >
               {t('proxy.items.endpoint-type.options.country')}
             </AntdRadioButton>
             <AntdRadioButton
               value="api"
-              className="before:hidden border rounded-(--ant-border-radius) after:block after:absolute after:top-1 after:right-1 after:border-[5px] after:rounded-xs after:border-transparent [&.ant-radio-button-wrapper-checked]:after:border-t-(--ant-color-primary) [&.ant-radio-button-wrapper-checked]:after:border-r-(--ant-color-primary)"
+              className="before:hidden border rounded-(--ant-border-radius) after:block after:absolute after:top-1 after:right-1 after:border-[5px] after:rounded-(--ant-border-radius) after:border-transparent [&.ant-radio-button-wrapper-checked]:after:border-t-(--ant-color-primary) [&.ant-radio-button-wrapper-checked]:after:border-r-(--ant-color-primary)"
             >
               {t('proxy.items.endpoint-type.options.api')}
             </AntdRadioButton>
