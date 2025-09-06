@@ -97,6 +97,14 @@ const Order: React.FC = () => {
     router.push('/proxies/datacenter/ip-list');
   };
 
+  const handleSubmit = () => {
+    if (items.length > 0) {
+      doSubmit();
+    } else {
+      message.warning(t('form.result.warning'));
+    }
+  };
+
   return (
     <>
       <div className="sticky bottom-0 xl:top-36 xl:bottom-auto">
@@ -209,13 +217,7 @@ const Order: React.FC = () => {
                       <label className="text-black/50">
                         {t('summary.discount')}
                       </label>
-                      <span className="font-medium text-orange-500">
-                        $
-                        {subtotal.toLocaleString('en-US', {
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })}
-                      </span>
+                      <span className="font-medium text-orange-500">$0.00</span>
                     </div>
                   </li>
                   <li>
@@ -239,7 +241,7 @@ const Order: React.FC = () => {
                   loading={submitting}
                   block
                   type="primary"
-                  onClick={doSubmit}
+                  onClick={handleSubmit}
                 >
                   {t('actions.submit')}
                 </Button>
@@ -252,16 +254,16 @@ const Order: React.FC = () => {
         spinning={submitting}
         size="large"
         fullscreen
-        tip={'Create order'}
+        tip={t('form.result.spin')}
       />
       <Modal open={resOpen} onCancel={() => setResOpen(false)} footer={null}>
         <Result
           status="success"
-          title={'Success'}
-          subTitle={'订单创建成功，IP正在创建，请到IP列表查看。'}
+          title={t('form.result.success.title')}
+          subTitle={t('form.result.success.subtitle')}
           extra={[
             <Button key="view" type="primary" onClick={onOrderView}>
-              查看IP列表
+              {t('form.result.success.action')}
             </Button>,
           ]}
         />

@@ -8,7 +8,7 @@ import {
   AntdText,
   AntdTitle,
 } from '@/components/antd';
-import { Card, Divider } from 'antd';
+import { Card, Divider, Empty } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
@@ -91,10 +91,8 @@ const Subscription: React.FC = () => {
       <Divider type="horizontal" dashed />
       <div>
         <AntdParagraph strong>{t('plan.title')}</AntdParagraph>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,_1fr))] gap-4">
-          {Array.from({ length: 10 }).map((_, j) => (
-            <PlanItem key={j} />
-          ))}
+        <div className="">
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         </div>
       </div>
     </Card>

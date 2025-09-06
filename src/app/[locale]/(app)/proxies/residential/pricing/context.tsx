@@ -1,85 +1,49 @@
 'use client';
+import { getAllPackages } from '@/apis/packages';
+import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
 import { PackageRecord } from '@/apis/packages/types';
-import { useMap } from 'ahooks';
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
+import { useRequest, useResetState } from 'ahooks';
+import React, { createContext, useContext, useMemo } from 'react';
 
-export interface CheckoutRecord extends PackageRecord {
-  total_price: number;
-}
-
-export interface SkuRecord {
-  product: CheckoutRecord;
-  count: number;
+interface FormData {
+  duration: number;
+  packageId?: PackageRecord['id'];
 }
 
 const CheckoutContext = createContext<{
-  skus: Map<string, SkuRecord>;
-  setSku: (key: string, val: SkuRecord) => void;
-  initSkus: (map: Map<string, SkuRecord>) => void;
-  removeSku: (key: string) => void;
-  resetSku: () => void;
-  hasSku: (key: string) => boolean;
-  getSku: (key: string) => SkuRecord | undefined;
-  totalCount: number;
-  formData?: Record<string, unknown>;
-  setFormData: (formData: Record<string, unknown>) => void;
+  packages?: PackageRecord[];
+  loading?: boolean;
+  formData?: FormData;
+  setFormData: (formData: FormData) => void;
+  currentPackage?: PackageRecord;
 } | null>(null);
 
 const CheckoutProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [
-    _skus,
-    {
-      set: setSku,
-      remove: removeSku,
-      reset: resetSku,
-      get: getSku,
-      setAll: initSkus,
-    },
-  ] = useMap<string, SkuRecord>([]);
-
-  const [formData, setFormData] = useState<Record<string, unknown>>({
+  const [formData, setFormData] = useResetState<FormData>({
     duration: 30,
-    continent: 'all',
+    packageId: undefined,
+  });
+  const { data: packages, loading } = useRequest(async () => {
+    return await getAllPackages({
+      type: PACKAGE_TYPE_ENUM.RESIDENTIAL,
+    }).then((res) => res.data);
   });
 
-  const skus = useMemo(() => {
-    return new Map(Array.from(_skus).filter((f) => f[1].count > 0));
-  }, [_skus]);
-
-  const totalCount = useMemo(() => {
-    return Array.from(skus.values()).reduce((sum, next) => {
-      return sum + next.count;
-    }, 0);
-  }, [skus]);
-
-  const hasSku = useCallback(
-    (key: string) => {
-      return Array.from(skus.keys()).find((f) => f === key) !== undefined;
-    },
-    [skus],
-  );
+  const currentPackage = useMemo(() => {
+    if (!formData?.packageId || !packages) return;
+    return packages.find((f) => f.id === formData.packageId);
+  }, [packages, formData]);
 
   return (
     <CheckoutContext.Provider
       value={{
-        skus,
-        setSku,
-        removeSku,
-        resetSku,
-        initSkus,
-        getSku,
-        hasSku,
-        totalCount,
+        packages,
+        loading,
         formData,
         setFormData,
+        currentPackage,
       }}
     >
       {children}

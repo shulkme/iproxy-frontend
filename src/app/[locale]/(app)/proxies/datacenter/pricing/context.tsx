@@ -19,6 +19,11 @@ export interface SkuRecord {
   count: number;
 }
 
+interface FormData {
+  duration: number;
+  continent: string;
+}
+
 const CheckoutContext = createContext<{
   skus: Map<string, SkuRecord>;
   setSku: (key: string, val: SkuRecord) => void;
@@ -28,8 +33,8 @@ const CheckoutContext = createContext<{
   hasSku: (key: string) => boolean;
   getSku: (key: string) => SkuRecord | undefined;
   totalCount: number;
-  formData?: Record<string, unknown>;
-  setFormData: (formData: Record<string, unknown>) => void;
+  formData?: FormData;
+  setFormData: (formData: FormData) => void;
 } | null>(null);
 
 const CheckoutProvider: React.FC<{
@@ -46,7 +51,7 @@ const CheckoutProvider: React.FC<{
     },
   ] = useMap<string, SkuRecord>([]);
 
-  const [formData, setFormData] = useState<Record<string, unknown>>({
+  const [formData, setFormData] = useState<FormData>({
     duration: 30,
     continent: 'all',
   });

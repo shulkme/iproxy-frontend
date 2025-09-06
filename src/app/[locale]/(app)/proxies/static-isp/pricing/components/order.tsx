@@ -97,6 +97,14 @@ const Order: React.FC = () => {
     router.push('/proxies/static-isp/ip-list');
   };
 
+  const handleSubmit = () => {
+    if (items.length > 0) {
+      doSubmit();
+    } else {
+      message.warning(t('form.result.warning'));
+    }
+  };
+
   return (
     <>
       <div className="sticky bottom-0 xl:top-36 xl:bottom-auto">
@@ -209,13 +217,7 @@ const Order: React.FC = () => {
                       <label className="text-black/50">
                         {t('summary.discount')}
                       </label>
-                      <span className="font-medium text-orange-500">
-                        $
-                        {subtotal.toLocaleString('en-US', {
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })}
-                      </span>
+                      <span className="font-medium text-orange-500">$0.00</span>
                     </div>
                   </li>
                   <li>
@@ -239,7 +241,7 @@ const Order: React.FC = () => {
                   loading={submitting}
                   block
                   type="primary"
-                  onClick={doSubmit}
+                  onClick={handleSubmit}
                 >
                   {t('actions.submit')}
                 </Button>

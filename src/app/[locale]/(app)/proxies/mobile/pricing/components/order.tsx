@@ -9,7 +9,7 @@ const Order: React.FC = () => {
   const t = useTranslations('app.pages.mobile.pricing.order');
   const data = null;
   const subtotal = 0;
-  const duration = 0;
+  const duration = 30;
   return (
     <div className="sticky bottom-0 xl:top-36 xl:bottom-auto">
       <Card
@@ -80,7 +80,7 @@ const Order: React.FC = () => {
                 <li>
                   <div className="flex justify-between">
                     <label className="text-black/50">{t('summary.per')}</label>
-                    <span className="font-medium">$3.50/GB</span>
+                    <span className="font-medium">$0/GB</span>
                   </div>
                 </li>
                 <li>
@@ -141,13 +141,7 @@ const Order: React.FC = () => {
                     <label className="text-black/50">
                       {t('summary.discount')}
                     </label>
-                    <span className="font-medium text-orange-500">
-                      $
-                      {subtotal.toLocaleString('en-US', {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </span>
+                    <span className="font-medium text-orange-500">$0.00</span>
                   </div>
                 </li>
                 <li>
@@ -167,7 +161,7 @@ const Order: React.FC = () => {
               </ul>
             </div>
             <div>
-              <Button block type="primary">
+              <Button disabled block type="primary">
                 {t('actions.submit')}
               </Button>
             </div>

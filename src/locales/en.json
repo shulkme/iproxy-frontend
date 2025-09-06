@@ -353,7 +353,8 @@
                   "subtitle": "The order was created successfully and the IP is being generated. Please go to the IP list to view it.",
                   "action": "View IP List"
                 },
-                "error": "Order creation failed"
+                "error": "Order creation failed",
+                "warning": "Please select a country/region first"
               }
             }
           }
@@ -458,7 +459,8 @@
                   "subtitle": "The order was created successfully and the IP is being generated. Please go to the IP list to view it.",
                   "action": "View IP List"
                 },
-                "error": "Order creation failed"
+                "error": "Order creation failed",
+                "warning": "Please select a country/region first"
               }
             }
           }
@@ -573,7 +575,8 @@
                   "subtitle": "The order was created successfully and the traffic plan has been generated. Please go to the settings to extract the IPs.",
                   "action": "Extract IP List"
                 },
-                "error": "Order creation failed"
+                "error": "Order creation failed",
+                "warning": "Please select a traffic plan first"
               }
             }
           }
@@ -776,7 +779,8 @@
                   "subtitle": "The order was created successfully and the traffic plan has been generated. Please go to the settings to extract the IPs.",
                   "action": "Extract IP List"
                 },
-                "error": "Order creation failed"
+                "error": "Order creation failed",
+                "warning": "Please select a traffic plan first"
               }
             }
           }
