@@ -421,7 +421,13 @@
                 "unit": "{number, plural, =0 {} =1 {1 Day} other {# Days}}"
               },
               "subtotal": "Subtotal",
-              "total": "Total"
+              "total": "Total",
+              "coupon": {
+                "label": "Coupon",
+                "placeholder": "Choose coupon",
+                "extra": "Apply"
+              },
+              "discount": "Discount"
             },
             "actions": {
               "reset": "Clear",
@@ -956,6 +962,7 @@
         "title": "Account",
         "menus": {
           "profile": "Profile",
+          "coupons": "Coupons",
           "subscription": "Subscription",
           "notifications": "Notifications"
         },
@@ -1013,6 +1020,30 @@
               "location": "Location",
               "ip": "Login IP",
               "time": "Login Time"
+            }
+          }
+        },
+        "coupons": {
+          "table": {
+            "filters": {
+              "status": {
+                "options": {
+                  "unused": "Unused",
+                  "used": "Used",
+                  "expired": "Expired"
+                }
+              },
+              "name": {
+                "placeholder": "Search coupon"
+              }
+            },
+            "columns": {
+              "name": "Coupon Name",
+              "code": "Coupon Code",
+              "type": "Type",
+              "value": "Value",
+              "usage-threshold": "Usage Threshold",
+              "expires": "Expires"
             }
           }
         },

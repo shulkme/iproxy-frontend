@@ -421,7 +421,13 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小計",
-              "total": "總計"
+              "total": "總計",
+              "coupon": {
+                "label": "優惠券",
+                "placeholder": "選擇優惠券",
+                "extra": "應用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "reset": "清空",
@@ -956,6 +962,7 @@
         "title": "帳戶",
         "menus": {
           "profile": "個人資料",
+          "coupons": "優惠券",
           "subscription": "訂閱",
           "notifications": "通知"
         },
@@ -1013,6 +1020,30 @@
               "location": "位置",
               "ip": "登入IP",
               "time": "登入時間"
+            }
+          }
+        },
+        "coupons": {
+          "table": {
+            "filters": {
+              "status": {
+                "options": {
+                  "unused": "未使用",
+                  "used": "已使用",
+                  "expired": "已過期"
+                }
+              },
+              "name": {
+                "placeholder": "搜尋優惠券"
+              }
+            },
+            "columns": {
+              "name": "優惠券名稱",
+              "code": "優惠券代碼",
+              "type": "類型",
+              "value": "價值",
+              "usage-threshold": "使用門檻",
+              "expires": "有效期至"
             }
           }
         },

@@ -46,6 +46,9 @@ const config: ThemeConfig = {
       controlHeight: 32,
       controlHeightLG: 40,
     },
+    Segmented: {
+      trackPadding: 4,
+    },
   },
 };
 

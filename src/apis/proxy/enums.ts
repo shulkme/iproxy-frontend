@@ -4,3 +4,12 @@ export enum PROXY_STATUS_ENUM {
   EXPIRED = 'expired',
   DELETED = 'deleted',
 }
+
+export enum PROXY_STATUS_ENUM {
+  SUCCESS = 'success',
+  FAILED = 'fail',
+  PENDING = 'pending',
+  CANCELLED = 'cancelled',
+  EXPIRED = 'expired',
+  REFUNDED = 'refunded',
+}

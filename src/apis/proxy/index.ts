@@ -1,4 +1,10 @@
-import { ProxyOrderData, ProxyParams, ProxyRecord } from '@/apis/proxy/types';
+import {
+  ProxyOrderData,
+  ProxyOrderParams,
+  ProxyOrderRecord,
+  ProxyParams,
+  ProxyRecord,
+} from '@/apis/proxy/types';
 import request from '@/apis/request';
 import { HttpResponse, PageResult } from '@/apis/types';
 
@@ -32,4 +38,16 @@ export async function updateProxyNotes(
   data: Pick<ProxyRecord, 'notes'>,
 ) {
   return await request.put(`/sys/proxy/${pk}/notes`, data);
+}
+
+/**
+ * 获取代理订单列表
+ * @param params
+ */
+export async function getProxyOrderList(
+  params?: ProxyOrderParams,
+): Promise<HttpResponse<PageResult<ProxyOrderRecord>>> {
+  return await request.get('/sys/proxy/order', {
+    params,
+  });
 }

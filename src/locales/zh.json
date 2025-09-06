@@ -421,7 +421,13 @@
                 "unit": "{number, plural, =0 {} =1 {1天} other {#天}}"
               },
               "subtotal": "小计",
-              "total": "总计"
+              "total": "总计",
+              "coupon": {
+                "label": "优惠券",
+                "placeholder": "选择优惠券",
+                "extra": "使用"
+              },
+              "discount": "折扣"
             },
             "actions": {
               "reset": "清空",
@@ -956,6 +962,7 @@
         "title": "账户",
         "menus": {
           "profile": "个人资料",
+          "coupons": "优惠券",
           "subscription": "订阅",
           "notifications": "通知"
         },
@@ -1013,6 +1020,30 @@
               "location": "位置",
               "ip": "登录IP",
               "time": "登录时间"
+            }
+          }
+        },
+        "coupons": {
+          "table": {
+            "filters": {
+              "status": {
+                "options": {
+                  "unused": "未使用",
+                  "used": "已使用",
+                  "expired": "已过期"
+                }
+              },
+              "name": {
+                "placeholder": "搜索优惠券"
+              }
+            },
+            "columns": {
+              "name": "优惠券名称",
+              "code": "优惠券代码",
+              "type": "类型",
+              "value": "价值",
+              "usage-threshold": "使用门槛",
+              "expires": "有效期至"
             }
           }
         },

@@ -37,3 +37,26 @@ export interface ProxyOrderData {
   coupon?: string;
   client_total_usd: number;
 }
+
+export interface ProxyOrderRecord {
+  id: number;
+  user_id: number;
+  package_id: number;
+  package_type: PACKAGE_TYPE_ENUM;
+  payment_usd: number;
+  payment_method: string;
+  balance_before_payment: number;
+  balance_after_payment: number;
+  coupon: string;
+  status: PROXY_STATUS_ENUM;
+  created_time: string;
+  updated_time: string;
+}
+
+export interface ProxyOrderParams {
+  package_type?: PACKAGE_TYPE_ENUM;
+  status?: PROXY_STATUS_ENUM;
+  external_order_id?: string;
+  page?: number;
+  size?: number;
+}

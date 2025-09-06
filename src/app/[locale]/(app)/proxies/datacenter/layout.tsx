@@ -28,14 +28,6 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
               group: '/proxies/datacenter/ip-list',
             },
           },
-          // {
-          //   label: t('menus.statistics'),
-          //   key: 'proxies:datacenter:statistics',
-          //   meta: {
-          //     href: '/proxies/datacenter/statistics',
-          //     group: '/proxies/datacenter/statistics',
-          //   },
-          // },
           {
             label: t('menus.guide'),
             key: 'proxies:datacenter:guide',

@@ -28,14 +28,6 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
               group: '/proxies/static-isp/ip-list',
             },
           },
-          // {
-          //   label: t('menus.statistics'),
-          //   key: 'proxies:static-isp:statistics',
-          //   meta: {
-          //     href: '/proxies/static-isp/statistics',
-          //     group: '/proxies/static-isp/statistics',
-          //   },
-          // },
           {
             label: t('menus.guide'),
             key: 'proxies:static-isp:guide',

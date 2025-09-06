@@ -1,6 +1,6 @@
 'use client';
-import { getCreditRecordList } from '@/apis/credit';
-import { CreditRecord } from '@/apis/credit/types';
+import { getProxyOrderList } from '@/apis/proxy';
+import { ProxyOrderRecord } from '@/apis/proxy/types';
 import {
   AntdDateRangePicker,
   AntdForm,
@@ -28,7 +28,7 @@ export default function Page() {
         ? dayjs(dataRange[1]).format('YYYY-MM-DD')
         : undefined;
 
-      return await getCreditRecordList({
+      return await getProxyOrderList({
         page: current,
         size: pageSize,
         start_at,
@@ -49,7 +49,7 @@ export default function Page() {
   const { submit } = search;
 
   const onFormValuesChange: FormProps['onValuesChange'] = (changedValues) => {
-    if (!Object.keys(changedValues).includes('order_id')) submit();
+    if (!Object.keys(changedValues).includes('external_order_id')) submit();
   };
 
   return (
@@ -70,7 +70,7 @@ export default function Page() {
             <AntdFormItem name="dataRange">
               <AntdDateRangePicker />
             </AntdFormItem>
-            <AntdFormItem name="order_id">
+            <AntdFormItem name="external_order_id">
               <AntdInput
                 allowClear
                 placeholder={t('table.filters.order-number.placeholder')}
@@ -82,7 +82,7 @@ export default function Page() {
           </AntdForm>
         </div>
 
-        <Table<CreditRecord>
+        <Table<ProxyOrderRecord>
           rowKey="id"
           scroll={{
             x: 1200,
@@ -94,10 +94,11 @@ export default function Page() {
             },
             {
               title: t('table.columns.payment-amount'),
-              dataIndex: 'points',
+              dataIndex: 'payment_usd',
             },
             {
               title: t('table.columns.payment-method'),
+              dataIndex: 'payment_method',
             },
             {
               title: t('table.columns.type'),
@@ -107,6 +108,7 @@ export default function Page() {
             },
             {
               title: t('table.columns.status'),
+              dataIndex: 'status',
             },
             {
               title: t('table.columns.date'),
@@ -115,6 +117,7 @@ export default function Page() {
             },
             {
               title: t('table.columns.balance'),
+              dataIndex: 'balance_after_payment',
             },
           ]}
           {...tableProps}

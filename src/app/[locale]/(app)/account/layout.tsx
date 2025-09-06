@@ -20,6 +20,14 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             },
           },
           {
+            label: t('menus.coupons'),
+            key: 'account:coupons',
+            meta: {
+              href: '/account/coupons',
+              group: '/account/coupons',
+            },
+          },
+          {
             label: t('menus.subscription'),
             key: 'account:subscription',
             meta: {
