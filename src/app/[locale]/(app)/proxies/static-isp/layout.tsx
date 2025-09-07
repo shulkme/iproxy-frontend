@@ -33,7 +33,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             key: 'proxies:static-isp:guide',
             extra: <RiExternalLinkLine size={14} />,
             meta: {
-              href: 'https://www.baidu.com',
+              href: process.env.NEXT_PUBLIC_DOC_URL + '/proxies/isp-proxies',
               target: '_blank',
             },
           },

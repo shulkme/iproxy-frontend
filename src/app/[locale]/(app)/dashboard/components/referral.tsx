@@ -37,7 +37,7 @@ const Referral: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold">$0</div>
           <div>
-            <Link href="/">{t('extract')}</Link>
+            <Link href="/referral/program">{t('extract')}</Link>
           </div>
         </div>
       </div>

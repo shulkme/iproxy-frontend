@@ -189,7 +189,7 @@ const Inner = () => {
                       icon: <RiFileList3Line size={18} />,
                       extra: <RiExternalLinkLine size={14} />,
                       meta: {
-                        href: 'https://documentation',
+                        href: process.env.NEXT_PUBLIC_DOC_URL,
                         target: '_blank',
                       },
                     },
@@ -199,7 +199,7 @@ const Inner = () => {
                       icon: <RiQuestionLine size={18} />,
                       extra: <RiExternalLinkLine size={14} />,
                       meta: {
-                        href: 'https://xxxx',
+                        href: `${process.env.NEXT_PUBLIC_DOC_URL}/faq`,
                         target: '_blank',
                       },
                     },

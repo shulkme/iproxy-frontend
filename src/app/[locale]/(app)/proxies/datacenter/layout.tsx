@@ -33,7 +33,8 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             key: 'proxies:datacenter:guide',
             extra: <RiExternalLinkLine size={14} />,
             meta: {
-              href: 'https://www.baidu.com',
+              href:
+                process.env.NEXT_PUBLIC_DOC_URL + '/proxies/datacenter-proxies',
               target: '_blank',
             },
           },

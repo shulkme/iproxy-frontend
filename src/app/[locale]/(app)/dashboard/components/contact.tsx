@@ -129,7 +129,11 @@ const Contact: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link href="/" className="flex items-center justify-between">
+          <Link
+            href={process.env.NEXT_PUBLIC_DOC_URL!}
+            target="_blank"
+            className="flex items-center justify-between"
+          >
             <div className="flex-auto flex items-center gap-2">
               <Avatar
                 size={32}
@@ -147,7 +151,11 @@ const Contact: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link href="/" className="flex items-center justify-between">
+          <Link
+            href={`${process.env.NEXT_PUBLIC_DOC_URL}/faq`}
+            target="_blank"
+            className="flex items-center justify-between"
+          >
             <div className="flex-auto flex items-center gap-2">
               <Avatar
                 size={32}

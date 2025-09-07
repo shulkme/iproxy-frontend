@@ -1,4 +1,5 @@
 'use client';
+import { useDashboard } from '@/app/[locale]/(app)/dashboard/context';
 import { AntdRadioGroup, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import { Card } from 'antd';
@@ -18,6 +19,7 @@ import {
 const Traffic: React.FC = () => {
   const t = useTranslations('app.pages.dashboard.traffic');
   const [duration, setDuration] = useState(7);
+  const { currentTab } = useDashboard();
 
   const data = useMemo(() => {
     return Array.from({ length: duration })
@@ -27,6 +29,22 @@ const Traffic: React.FC = () => {
       }))
       .reverse();
   }, [duration]);
+
+  const detailUrl = useMemo(() => {
+    switch (currentTab) {
+      case 'isp':
+        return '/proxies/static-isp/statistics';
+      case 'datacenter':
+        return '/proxies/datacenter/statistics';
+      case 'residential':
+        return '/proxies/residential/statistics';
+      case 'mobile':
+        return '/proxies/mobile/statistics';
+      default:
+        return '#';
+    }
+  }, [currentTab]);
+
   return (
     <Card>
       <div className="flex items-center justify-between gap-4 mb-4">
@@ -34,7 +52,7 @@ const Traffic: React.FC = () => {
           {t('title')}
         </AntdTitle>
         <div>
-          <Link href="/">{t('detail')}</Link>
+          <Link href={detailUrl}>{t('detail')}</Link>
         </div>
       </div>
       <div className="mb-8">
