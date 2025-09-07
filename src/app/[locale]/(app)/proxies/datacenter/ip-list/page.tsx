@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 export default function Page() {
   const t = useTranslations('app.pages.datacenter.ip-list');
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-4 lg:p-8 space-y-6">
       <Alert
         showIcon
         type="info"

@@ -5,7 +5,7 @@ import { Col, Row } from 'antd';
 
 export default function Page() {
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       <RechargeProvider>
         <Row gutter={[24, 24]}>
           <Col xs={24} sm={24} lg={24} xl={14}>

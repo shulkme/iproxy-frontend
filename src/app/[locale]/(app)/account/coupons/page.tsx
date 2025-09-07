@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 export default function Page() {
   const t = useTranslations('app.pages.account.coupons');
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       <Card>
         <div className="mb-6">
           <AntdForm layout="inline">

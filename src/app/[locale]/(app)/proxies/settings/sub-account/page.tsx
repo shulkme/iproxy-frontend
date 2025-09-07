@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 export default function Page() {
   const t = useTranslations('app.pages.proxy-setting.sub-account');
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       <Card>
         <div className="flex items-center justify-between gap-2 mb-6">
           <div>

@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl';
 export default function Page() {
   const t = useTranslations('app.pages.account.notifications');
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       <Card>
         <AntdParagraph strong>{t('tips')}</AntdParagraph>
         <ConfigProvider

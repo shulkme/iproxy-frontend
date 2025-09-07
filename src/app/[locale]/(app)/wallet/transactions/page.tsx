@@ -53,7 +53,7 @@ export default function Page() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       <Card>
         <div className="mb-6">
           <AntdForm

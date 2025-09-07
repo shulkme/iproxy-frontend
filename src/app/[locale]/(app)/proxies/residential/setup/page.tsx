@@ -4,7 +4,7 @@ import { Col, Row } from 'antd';
 
 export default function Page() {
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       <Row gutter={[24, 24]}>
         <Col xs={24} sm={24} md={24} lg={24} xl={14} xxl={16}>
           <div className="space-y-8">
