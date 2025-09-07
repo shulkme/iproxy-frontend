@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             <RiLinksLine size={16} />
             <span className="font-medium">{t('link')}</span>
             <AntdLink copyable>
-              https://www.example.com/signup?inviteCode=ABCDEF
+              {process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=ABCDEF
             </AntdLink>
           </div>
         </div>

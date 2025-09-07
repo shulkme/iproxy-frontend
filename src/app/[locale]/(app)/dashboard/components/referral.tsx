@@ -53,7 +53,7 @@ const Referral: React.FC = () => {
         <div>
           <AntdInput
             prefix={<span className="text-black/50">{t('link')}</span>}
-            value="https://www.example.com/inviteCode=xxxxxx"
+            value={`${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=xxxxxx`}
             suffix={<RiFileCopyLine size={16} />}
           />
         </div>
