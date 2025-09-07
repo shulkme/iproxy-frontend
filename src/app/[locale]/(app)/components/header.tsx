@@ -1,5 +1,5 @@
 'use client';
-import { AntdHeader } from '@/components/antd';
+import { AntdHeader, AntdText } from '@/components/antd';
 import { languages, Locale } from '@/i18n/config';
 import { Link, useRouter } from '@/i18n/navigation';
 import { useCredit } from '@/providers/credit';
@@ -115,7 +115,11 @@ const AccountDropdown = () => {
       }}
       popupRender={(menu) => (
         <div className="bg-white rounded-sm shadow-lg min-w-64">
-          <div className="p-4 font-bold">{user?.email}</div>
+          <div className="p-4">
+            <AntdText strong copyable>
+              {user?.email}
+            </AntdText>
+          </div>
           <Divider type="horizontal" className="m-0" />
           {React.cloneElement(
             menu as React.ReactElement<{

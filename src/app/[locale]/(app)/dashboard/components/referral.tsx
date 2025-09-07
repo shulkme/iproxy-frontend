@@ -1,8 +1,8 @@
 'use client';
-import { AntdInput, AntdTitle } from '@/components/antd';
+import { AntdInput, AntdText, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
-import { RiFileCopyLine, RiGiftLine } from '@remixicon/react';
-import { Avatar, Card, Divider } from 'antd';
+import { RiGiftLine } from '@remixicon/react';
+import { Avatar, Card, ConfigProvider, Divider } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
@@ -47,14 +47,46 @@ const Referral: React.FC = () => {
           <AntdInput
             prefix={<span className="text-black/50">{t('code')}</span>}
             value="xxxxxx"
-            suffix={<RiFileCopyLine size={16} />}
+            suffix={
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Typography: {
+                      colorLink: 'rgba(0,0,0,0.5)',
+                    },
+                  },
+                }}
+              >
+                <AntdText
+                  copyable={{
+                    text: 'xxxx',
+                  }}
+                />
+              </ConfigProvider>
+            }
           />
         </div>
         <div>
           <AntdInput
             prefix={<span className="text-black/50">{t('link')}</span>}
             value={`${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=xxxxxx`}
-            suffix={<RiFileCopyLine size={16} />}
+            suffix={
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Typography: {
+                      colorLink: 'rgba(0,0,0,0.5)',
+                    },
+                  },
+                }}
+              >
+                <AntdText
+                  copyable={{
+                    text: `${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=xxxxxx`,
+                  }}
+                />
+              </ConfigProvider>
+            }
           />
         </div>
       </div>

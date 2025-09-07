@@ -1,18 +1,17 @@
 'use client';
-import { AntdParagraph, AntdTitle } from '@/components/antd';
+import { AntdParagraph, AntdText, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import { useChatbot } from '@/providers/chatbot';
 import {
   RiChatSmile2Line,
   RiExternalLinkLine,
-  RiFileCopyLine,
   RiFileList3Line,
   RiMailLine,
   RiQuestionLine,
   RiServiceLine,
   RiTelegram2Line,
 } from '@remixicon/react';
-import { Avatar, Button, Card, Divider } from 'antd';
+import { Avatar, Button, Card, ConfigProvider, Divider } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
@@ -57,7 +56,21 @@ const Contact: React.FC = () => {
               </span>
             </div>
             <div className="flex-none text-black/50">
-              <RiFileCopyLine size={16} />
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Typography: {
+                      colorLink: 'rgba(0,0,0,0.5)',
+                    },
+                  },
+                }}
+              >
+                <AntdText
+                  copyable={{
+                    text: process.env.NEXT_PUBLIC_SUPPORT_EMAIL,
+                  }}
+                />
+              </ConfigProvider>
             </div>
           </Link>
         </li>
@@ -79,7 +92,21 @@ const Contact: React.FC = () => {
               </span>
             </div>
             <div className="flex-none text-black/50">
-              <RiFileCopyLine size={16} />
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Typography: {
+                      colorLink: 'rgba(0,0,0,0.5)',
+                    },
+                  },
+                }}
+              >
+                <AntdText
+                  copyable={{
+                    text: process.env.NEXT_PUBLIC_SUPPORT_TELEGRAM,
+                  }}
+                />
+              </ConfigProvider>
             </div>
           </Link>
         </li>
