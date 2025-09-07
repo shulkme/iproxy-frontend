@@ -1,4 +1,4 @@
-import ChatbotProvider from '@/providers/chatbot';
+import { ChatbotProvider } from '@/providers/chatbot';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
