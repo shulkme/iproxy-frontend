@@ -67,7 +67,7 @@ const Tabs: React.FC = () => {
           title={t('isp.title')}
           value="isp"
           desc={t.rich('isp.desc', {
-            strong: () => <span className="text-black font-medium">$0.15</span>,
+            strong: () => <span className="text-black font-medium">$0.22</span>,
           })}
         />
         <RadioTab
@@ -75,7 +75,7 @@ const Tabs: React.FC = () => {
           title={t('datacenter.title')}
           value="datacenter"
           desc={t.rich('datacenter.desc', {
-            strong: () => <span className="text-black font-medium">$0.15</span>,
+            strong: () => <span className="text-black font-medium">$0.11</span>,
           })}
         />
         <RadioTab
@@ -83,7 +83,7 @@ const Tabs: React.FC = () => {
           title={t('residential.title')}
           value="residential"
           desc={t.rich('residential.desc', {
-            strong: () => <span className="text-black font-medium">$0.15</span>,
+            strong: () => <span className="text-black font-medium">$1.5</span>,
           })}
         />
         <RadioTab
@@ -91,7 +91,7 @@ const Tabs: React.FC = () => {
           title={t('mobile.title')}
           value="mobile"
           desc={t.rich('mobile.desc', {
-            strong: () => <span className="text-black font-medium">$0.15</span>,
+            strong: () => <span className="text-black font-medium">$1.7</span>,
           })}
         />
       </AntdRadioGroup>

@@ -81,7 +81,7 @@ const IspPane = () => {
             <div className="flex items-center gap-4">
               <Link
                 className="text-black hover:text-(--ant-color-link)"
-                href="/"
+                href="/proxies/static-isp/ip-list"
               >
                 {t('links.renewal')}
               </Link>
@@ -97,14 +97,16 @@ const IspPane = () => {
               </Link>
             </div>
             <div>
-              <Button
-                className="px-8"
-                size="large"
-                color="primary"
-                variant="outlined"
-              >
-                {t('actions.using')}
-              </Button>
+              <Link href="/proxies/static-isp/ip-list">
+                <Button
+                  className="px-8"
+                  size="large"
+                  color="primary"
+                  variant="outlined"
+                >
+                  {t('actions.using')}
+                </Button>
+              </Link>
             </div>
           </div>
         </Col>
@@ -118,7 +120,7 @@ const IspPane = () => {
                 <div className="text-white/75 mb-2">{t('cover.title')}</div>
                 <div className="font-bold align-baseline">
                   {t.rich('cover.price', {
-                    price: () => <span className="text-2xl">$0.55</span>,
+                    price: () => <span className="text-2xl">$0.22</span>,
                   })}
                 </div>
               </div>
@@ -133,14 +135,16 @@ const IspPane = () => {
                 </ul>
               </div>
               <div>
-                <Button
-                  size="large"
-                  icon={<RiShoppingCart2Line size={18} />}
-                  block
-                  type="primary"
-                >
-                  {t('cover.buy')}
-                </Button>
+                <Link href="/proxies/static-isp/pricing">
+                  <Button
+                    size="large"
+                    icon={<RiShoppingCart2Line size={18} />}
+                    block
+                    type="primary"
+                  >
+                    {t('cover.buy')}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -215,7 +219,7 @@ const DatacenterPane = () => {
             <div className="flex items-center gap-4">
               <Link
                 className="text-black hover:text-(--ant-color-link)"
-                href="/"
+                href="/proxies/datacenter/ip-list"
               >
                 {t('links.renewal')}
               </Link>
@@ -231,14 +235,16 @@ const DatacenterPane = () => {
               </Link>
             </div>
             <div>
-              <Button
-                className="px-8"
-                size="large"
-                color="primary"
-                variant="outlined"
-              >
-                {t('actions.using')}
-              </Button>
+              <Link href="/proxies/datacenter/ip-list">
+                <Button
+                  className="px-8"
+                  size="large"
+                  color="primary"
+                  variant="outlined"
+                >
+                  {t('actions.using')}
+                </Button>
+              </Link>
             </div>
           </div>
         </Col>
@@ -252,7 +258,7 @@ const DatacenterPane = () => {
                 <div className="text-white/75 mb-2">{t('cover.title')}</div>
                 <div className="font-bold align-baseline">
                   {t.rich('cover.price', {
-                    price: () => <span className="text-2xl">$0.55</span>,
+                    price: () => <span className="text-2xl">$0.11</span>,
                   })}
                 </div>
               </div>
@@ -267,14 +273,16 @@ const DatacenterPane = () => {
                 </ul>
               </div>
               <div>
-                <Button
-                  size="large"
-                  icon={<RiShoppingCart2Line size={18} />}
-                  block
-                  type="primary"
-                >
-                  {t('cover.buy')}
-                </Button>
+                <Link href="/proxies/datacenter/pricing">
+                  <Button
+                    size="large"
+                    icon={<RiShoppingCart2Line size={18} />}
+                    block
+                    type="primary"
+                  >
+                    {t('cover.buy')}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -327,7 +335,7 @@ const ResidentialPane = () => {
             <div className="flex items-center gap-4">
               <Link
                 className="text-black hover:text-(--ant-color-link)"
-                href="/"
+                href="/proxies/residential/setup"
               >
                 {t('links.renewal')}
               </Link>
@@ -343,14 +351,16 @@ const ResidentialPane = () => {
               </Link>
             </div>
             <div>
-              <Button
-                className="px-8"
-                size="large"
-                color="primary"
-                variant="outlined"
-              >
-                {t('actions.using')}
-              </Button>
+              <Link href="/proxies/residential/setup">
+                <Button
+                  className="px-8"
+                  size="large"
+                  color="primary"
+                  variant="outlined"
+                >
+                  {t('actions.using')}
+                </Button>
+              </Link>
             </div>
           </div>
         </Col>
@@ -364,7 +374,7 @@ const ResidentialPane = () => {
                 <div className="text-white/75 mb-2">{t('cover.title')}</div>
                 <div className="font-bold align-baseline">
                   {t.rich('cover.price', {
-                    price: () => <span className="text-2xl">$0.55</span>,
+                    price: () => <span className="text-2xl">$1.5</span>,
                   })}
                 </div>
               </div>
@@ -379,14 +389,16 @@ const ResidentialPane = () => {
                 </ul>
               </div>
               <div>
-                <Button
-                  size="large"
-                  icon={<RiShoppingCart2Line size={18} />}
-                  block
-                  type="primary"
-                >
-                  {t('cover.buy')}
-                </Button>
+                <Link href="/proxies/residential/pricing">
+                  <Button
+                    size="large"
+                    icon={<RiShoppingCart2Line size={18} />}
+                    block
+                    type="primary"
+                  >
+                    {t('cover.buy')}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -439,7 +451,7 @@ const MobilePane = () => {
             <div className="flex items-center gap-4">
               <Link
                 className="text-black hover:text-(--ant-color-link)"
-                href="/"
+                href="/proxies/mobile/setup"
               >
                 {t('links.renewal')}
               </Link>
@@ -455,14 +467,16 @@ const MobilePane = () => {
               </Link>
             </div>
             <div>
-              <Button
-                className="px-8"
-                size="large"
-                color="primary"
-                variant="outlined"
-              >
-                {t('actions.using')}
-              </Button>
+              <Link href="/proxies/mobile/setup">
+                <Button
+                  className="px-8"
+                  size="large"
+                  color="primary"
+                  variant="outlined"
+                >
+                  {t('actions.using')}
+                </Button>
+              </Link>
             </div>
           </div>
         </Col>
@@ -476,7 +490,7 @@ const MobilePane = () => {
                 <div className="text-white/75 mb-2">{t('cover.title')}</div>
                 <div className="font-bold align-baseline">
                   {t.rich('cover.price', {
-                    price: () => <span className="text-2xl">$0.55</span>,
+                    price: () => <span className="text-2xl">$1.7</span>,
                   })}
                 </div>
               </div>
@@ -491,14 +505,16 @@ const MobilePane = () => {
                 </ul>
               </div>
               <div>
-                <Button
-                  size="large"
-                  icon={<RiShoppingCart2Line size={18} />}
-                  block
-                  type="primary"
-                >
-                  {t('cover.buy')}
-                </Button>
+                <Link href="/proxies/mobile/pricing">
+                  <Button
+                    size="large"
+                    icon={<RiShoppingCart2Line size={18} />}
+                    block
+                    type="primary"
+                  >
+                    {t('cover.buy')}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

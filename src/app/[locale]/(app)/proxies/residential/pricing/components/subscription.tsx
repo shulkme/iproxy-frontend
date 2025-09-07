@@ -10,6 +10,7 @@ import {
   AntdText,
   AntdTitle,
 } from '@/components/antd';
+import { useChatbot } from '@/providers/chatbot';
 import { Card, Divider, FormProps } from 'antd';
 import { useTranslations } from 'next-intl';
 import React, { useMemo } from 'react';
@@ -45,6 +46,7 @@ const PlanItem: React.FC<{
 const Subscription: React.FC = () => {
   const t = useTranslations('app.pages.residential.pricing.subscription');
   const [form] = AntdForm.useForm();
+  const { openChatbot } = useChatbot();
   const { formData, packages, loading, setFormData } = useCheckout();
 
   const renderItems = useMemo(() => {
@@ -67,7 +69,7 @@ const Subscription: React.FC = () => {
         </AntdTitle>
         <AntdText>
           {t.rich('tips', {
-            link: (chunks) => <a>{chunks}</a>,
+            link: (chunks) => <a onClick={openChatbot}>{chunks}</a>,
           })}
         </AntdText>
       </div>

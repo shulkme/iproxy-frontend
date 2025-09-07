@@ -18,6 +18,7 @@ import {
 import InputNumber from '@/components/antd/input-number';
 import continents from '@/constants/continents';
 import countries from '@/constants/countries';
+import { useChatbot } from '@/providers/chatbot';
 import { cn } from '@/utils/classname';
 import { useRequest } from 'ahooks';
 import {
@@ -120,6 +121,7 @@ const RegionItem: React.FC<{
 const Region: React.FC = () => {
   const t = useTranslations('app.pages.static-isp.pricing.region');
   const g = useTranslations('global');
+  const { openChatbot } = useChatbot();
   const [form] = AntdForm.useForm();
   const { formData, setFormData } = useCheckout();
   const { data: packages, loading } = useRequest(async () => {
@@ -184,7 +186,7 @@ const Region: React.FC = () => {
         </AntdTitle>
         <AntdText>
           {t.rich('tips', {
-            link: (chunks) => <a>{chunks}</a>,
+            link: (chunks) => <a onClick={openChatbot}>{chunks}</a>,
           })}
         </AntdText>
       </div>

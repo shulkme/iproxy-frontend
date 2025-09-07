@@ -134,11 +134,11 @@
           },
           "residential": {
             "title": "Residential Proxies",
-            "desc": "Form <strong></strong> / IP / Day"
+            "desc": "Form <strong></strong> / GB"
           },
           "mobile": {
             "title": "Mobile Proxies",
-            "desc": "Form <strong></strong> / IP / Day"
+            "desc": "Form <strong></strong> / GB"
           }
         },
         "wallet": {
@@ -511,7 +511,7 @@
         "pricing": {
           "subscription": {
             "title": "Subscription",
-            "tips": "Save 60% on 500GB+ Plans? <link>Contact us</link>",
+            "tips": "Need a more favorable package? <link>Contact us</link>",
             "filters": {
               "duration": {
                 "label": "Duration",
@@ -715,7 +715,7 @@
         "pricing": {
           "subscription": {
             "title": "Subscription",
-            "tips": "Save 60% on 500GB+ Plans? <link>Contact us</link>",
+            "tips": "Need a more favorable package? <link>Contact us</link>",
             "filters": {
               "duration": {
                 "label": "Duration",

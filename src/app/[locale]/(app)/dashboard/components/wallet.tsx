@@ -1,5 +1,6 @@
 'use client';
 import { AntdParagraph, AntdTitle } from '@/components/antd';
+import { Link } from '@/i18n/navigation';
 import { useCredit } from '@/providers/credit';
 import { RiWalletLine } from '@remixicon/react';
 import { Avatar, Button, Card } from 'antd';
@@ -32,14 +33,11 @@ const Wallet: React.FC = () => {
             <AntdTitle level={3} className="m-0">
               ${available.toLocaleString() || 0}
             </AntdTitle>
-            <Button
-              href="/wallet/recharge"
-              shape="round"
-              size="small"
-              type="primary"
-            >
-              {t('recharge')}
-            </Button>
+            <Link href="/wallet/recharge">
+              <Button shape="round" size="small" type="primary">
+                {t('recharge')}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

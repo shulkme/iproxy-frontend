@@ -134,11 +134,11 @@
           },
           "residential": {
             "title": "动态住宅代理",
-            "desc": "起价 <strong></strong> / IP / 天"
+            "desc": "起价 <strong></strong> / GB"
           },
           "mobile": {
             "title": "移动代理",
-            "desc": "起价 <strong></strong> / IP / 天"
+            "desc": "起价 <strong></strong> / GB"
           }
         },
         "wallet": {
@@ -511,7 +511,7 @@
         "pricing": {
           "subscription": {
             "title": "订阅",
-            "tips": "500GB以上套餐可节省60%？<link>联系我们</link>",
+            "tips": "需要更优惠的套餐方案？<link>联系我们</link>",
             "filters": {
               "duration": {
                 "label": "时长",
@@ -715,7 +715,7 @@
         "pricing": {
           "subscription": {
             "title": "订阅",
-            "tips": "500GB以上套餐可节省60%？<link>联系我们</link>",
+            "tips": "需要更优惠的套餐方案？<link>联系我们</link>",
             "filters": {
               "duration": {
                 "label": "时长",

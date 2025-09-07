@@ -1,7 +1,7 @@
 'use client';
 import { AntdHeader } from '@/components/antd';
 import { languages, Locale } from '@/i18n/config';
-import { useRouter } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { useCredit } from '@/providers/credit';
 import { useIdentity } from '@/providers/identity';
 import { useLanguage } from '@/providers/language';
@@ -181,15 +181,17 @@ const Header: React.FC = () => {
           <div className="flex h-full items-center">
             <NotificationDropdown />
             <div className="border-r w-0 h-full border-slate-100" />
-            <Button
-              href={'/wallet/recharge'}
-              loading={loading}
-              type="text"
-              className="leading-none font-bold rounded-none h-full px-4"
-              icon={<RiWalletLine size={20} />}
-            >
-              $ {available.toLocaleString()}
-            </Button>
+            <Link className="block h-full" href="/wallet/recharge">
+              <Button
+                loading={loading}
+                type="text"
+                className="leading-none font-bold rounded-none h-full px-4"
+                icon={<RiWalletLine size={20} />}
+              >
+                $ {available.toLocaleString()}
+              </Button>
+            </Link>
+
             <div className="border-r w-0 h-full border-slate-100" />
             <LanguageSelector />
             <div className="border-r border-slate-100 h-full" />

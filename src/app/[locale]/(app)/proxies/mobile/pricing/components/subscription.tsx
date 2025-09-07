@@ -8,31 +8,15 @@ import {
   AntdText,
   AntdTitle,
 } from '@/components/antd';
+import { useChatbot } from '@/providers/chatbot';
 import { Card, Divider, Empty } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
-const PlanItem = () => {
-  const t = useTranslations('app.pages.mobile.pricing.subscription');
-
-  return (
-    <div className="border border-slate-100 rounded-(--ant-border-radius) cursor-pointer p-4 space-y-2 hover:border-(--ant-color-primary)">
-      <h3 className="font-bold text-lg">10GB</h3>
-      <p className="font-medium">
-        <span className="text-(--ant-color-primary)">$3.5</span>
-        <span>/GB</span>
-      </p>
-      <div>
-        <span className="text-black/50">{t('plan.item.total')}</span>
-        <span className="font-medium">$35.00</span>
-      </div>
-    </div>
-  );
-};
-
 const Subscription: React.FC = () => {
   const t = useTranslations('app.pages.mobile.pricing.subscription');
   const [form] = AntdForm.useForm();
+  const { openChatbot } = useChatbot();
   return (
     <Card>
       <div className="flex items-center justify-between gap-2 mb-6">
@@ -41,7 +25,7 @@ const Subscription: React.FC = () => {
         </AntdTitle>
         <AntdText>
           {t.rich('tips', {
-            link: (chunks) => <a>{chunks}</a>,
+            link: (chunks) => <a onClick={openChatbot}>{chunks}</a>,
           })}
         </AntdText>
       </div>
