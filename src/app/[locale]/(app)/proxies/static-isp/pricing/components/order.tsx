@@ -71,10 +71,17 @@ const Order: React.FC = () => {
 
   const { run: doSubmit, loading: submitting } = useRequest(
     async () => {
+      const packages = items.map((pg) => {
+        return {
+          package_id: pg[1].product.id,
+          package_type: PACKAGE_TYPE_ENUM.ISP,
+          days: duration,
+          quantity: pg[1].count,
+        };
+      });
       const data: ProxyOrderData = {
-        package_type: PACKAGE_TYPE_ENUM.ISP,
-        days: duration,
-        quantity: totalCount,
+        packages,
+        // coupon: null,
         client_total_usd: subtotal,
       };
       return await createProxyOrder(data);

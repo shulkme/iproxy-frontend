@@ -1,5 +1,6 @@
 'use client';
 import { checkoutByStripe } from '@/apis/checkout';
+import { PAYMENT_METHOD_ENUM } from '@/apis/checkout/enums';
 import { useRecharge } from '@/app/[locale]/(app)/wallet/recharge/context';
 import { AntdRadio, AntdRadioGroup, AntdTitle } from '@/components/antd';
 import { useRequest } from 'ahooks';
@@ -10,12 +11,13 @@ import React from 'react';
 
 const Payment: React.FC = () => {
   const t = useTranslations('app.pages.wallet.recharge.payment');
+  const g = useTranslations('global.checkout');
   const { amount, payment } = useRecharge();
 
   const { run: doSubmit, loading: submitting } = useRequest(
     async () => {
       switch (payment) {
-        case 'credit':
+        case PAYMENT_METHOD_ENUM.CREDIT:
           return await checkoutByStripe({
             mode: 'payment',
             amount: amount * 100,
@@ -42,16 +44,16 @@ const Payment: React.FC = () => {
         {t('title')}
       </AntdTitle>
       <AntdRadioGroup
-        defaultValue={'credit'}
+        defaultValue={PAYMENT_METHOD_ENUM.CREDIT}
         block
         className="flex flex-col gap-4"
       >
         <AntdRadio
-          value="credit"
+          value={PAYMENT_METHOD_ENUM.CREDIT}
           className="border-[2px] rounded-(--ant-border-radius) border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
-            <div className="font-bold">{t('methods.credit')}</div>
+            <div className="font-bold">{g('payment.credit')}</div>
             <div className="flex items-center gap-1">
               <Image
                 src="/images/Visa.png"
@@ -93,11 +95,11 @@ const Payment: React.FC = () => {
         </AntdRadio>
         <AntdRadio
           disabled
-          value="crypto"
+          value={PAYMENT_METHOD_ENUM.CRYPTO}
           className="border-[2px] rounded-(--ant-border-radius) border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
-            <div className="font-bold">{t('methods.crypto')}</div>
+            <div className="font-bold">{g('payment.crypto')}</div>
             <div className="flex items-center gap-1">
               <Image
                 src="/images/BTC.png"
@@ -132,11 +134,11 @@ const Payment: React.FC = () => {
         </AntdRadio>
         <AntdRadio
           disabled
-          value="local"
+          value={PAYMENT_METHOD_ENUM.LOCAL}
           className="border-[2px] rounded-(--ant-border-radius) border-slate-100 justify-start [&_.ant-radio-label]:flex-auto [&.ant-radio-wrapper-checked]:border-(--ant-color-primary) p-4 m-0"
         >
           <div className="flex justify-between items-center gap-2">
-            <div className="font-bold">{t('methods.local')}</div>
+            <div className="font-bold">{g('payment.local')}</div>
             <div className="flex items-center gap-1">
               <Image
                 src="/images/WeChatPayHK.png"

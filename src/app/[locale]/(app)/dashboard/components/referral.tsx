@@ -1,12 +1,14 @@
 'use client';
 import { AntdInput, AntdText, AntdTitle } from '@/components/antd';
 import { Link } from '@/i18n/navigation';
+import { useIdentity } from '@/providers/identity';
 import { RiGiftLine } from '@remixicon/react';
 import { Avatar, Card, ConfigProvider, Divider } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Referral: React.FC = () => {
+  const { user } = useIdentity();
   const t = useTranslations('app.pages.dashboard.referral');
   return (
     <Card
@@ -46,7 +48,7 @@ const Referral: React.FC = () => {
         <div>
           <AntdInput
             prefix={<span className="text-black/50">{t('code')}</span>}
-            value="xxxxxx"
+            value={user?.invitation_code}
             suffix={
               <ConfigProvider
                 theme={{
@@ -59,7 +61,7 @@ const Referral: React.FC = () => {
               >
                 <AntdText
                   copyable={{
-                    text: 'xxxx',
+                    text: user?.invitation_code,
                   }}
                 />
               </ConfigProvider>
@@ -69,7 +71,7 @@ const Referral: React.FC = () => {
         <div>
           <AntdInput
             prefix={<span className="text-black/50">{t('link')}</span>}
-            value={`${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=xxxxxx`}
+            value={`${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=${user?.invitation_code || ''}`}
             suffix={
               <ConfigProvider
                 theme={{
@@ -82,7 +84,7 @@ const Referral: React.FC = () => {
               >
                 <AntdText
                   copyable={{
-                    text: `${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=xxxxxx`,
+                    text: `${process.env.NEXT_PUBLIC_BASE_URL}/signup?inviteCode=${user?.invitation_code || ''}`,
                   }}
                 />
               </ConfigProvider>

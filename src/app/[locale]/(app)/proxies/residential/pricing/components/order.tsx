@@ -39,10 +39,17 @@ const Order: React.FC = () => {
 
   const { run: doSubmit, loading: submitting } = useRequest(
     async () => {
+      if (!currentPackage) throw new Error();
       const data: ProxyOrderData = {
-        package_type: PACKAGE_TYPE_ENUM.IDC,
-        days: duration,
-        quantity: 1,
+        packages: [
+          {
+            package_id: currentPackage.id,
+            package_type: PACKAGE_TYPE_ENUM.ISP,
+            days: duration,
+            quantity: 1,
+          },
+        ],
+        // coupon: null,
         client_total_usd: totalPrice,
       };
       return await createProxyOrder(data);

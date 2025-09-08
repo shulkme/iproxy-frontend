@@ -89,6 +89,9 @@ export default function Page() {
             {
               title: t('table.columns.payment-amount'),
               dataIndex: 'points',
+              render: (value) => {
+                return '$' + value.toLocaleString();
+              },
             },
             {
               title: t('table.columns.payment-method'),
@@ -102,7 +105,7 @@ export default function Page() {
             {
               title: t('table.columns.payment-time'),
               dataIndex: 'created_time',
-              render: (value) => dayjs(value).format('LLL'),
+              render: (value) => dayjs(value).format('YYYY-MM-DD HH:mm:ss'),
             },
             {
               title: t('table.columns.account-balance'),

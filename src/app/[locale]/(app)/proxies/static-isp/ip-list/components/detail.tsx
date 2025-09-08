@@ -3,12 +3,22 @@ import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
 import { getProxyList } from '@/apis/proxy';
 import { ProxyRecord } from '@/apis/proxy/types';
 import { statusDirt } from '@/app/[locale]/(app)/proxies/static-isp/mixins';
-import { AntdForm, AntdFormItem, AntdInput } from '@/components/antd';
+import { AntdForm, AntdFormItem, AntdInput, AntdText } from '@/components/antd';
+import countries from '@/constants/countries';
 import { RiSearchLine } from '@remixicon/react';
 import { useAntdTable } from 'ahooks';
-import { Button, Card, FormProps, Select, Space, Table } from 'antd';
+import {
+  Avatar,
+  Button,
+  Card,
+  FormProps,
+  Select,
+  Space,
+  Switch,
+  Table,
+} from 'antd';
 import { useTranslations } from 'next-intl';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 const Detail: React.FC = () => {
   const [form] = AntdForm.useForm();
@@ -23,6 +33,11 @@ const Detail: React.FC = () => {
       })),
     [g],
   );
+
+  const generateFlag = useCallback((country: string) => {
+    const key = countries.find((f) => f.iso3 === country)?.iso2?.toLowerCase();
+    return `https://flagicons.lipis.dev/flags/1x1/${key || 'xx'}.svg`;
+  }, []);
 
   const { tableProps, refresh, search } = useAntdTable(
     async ({ current, pageSize }, params) => {
@@ -69,6 +84,7 @@ const Detail: React.FC = () => {
             </AntdFormItem>
             <AntdFormItem name="status">
               <Select
+                allowClear
                 options={statusOptions}
                 placeholder={t('filters.status.placeholder')}
                 style={{ width: 220 }}
@@ -91,43 +107,75 @@ const Detail: React.FC = () => {
             {
               title: t('columns.ip'),
               fixed: 'left',
+              dataIndex: 'ip',
               width: 200,
+              render: (value, record) => {
+                return (
+                  <div className="flex gap-2 items-center">
+                    <div className="flex-none leading-none">
+                      <Avatar
+                        size={24}
+                        shape="circle"
+                        src={generateFlag(record.country)}
+                      />
+                    </div>
+                    <div className="flex-auto">
+                      <AntdText strong copyable>
+                        {value}
+                      </AntdText>
+                    </div>
+                  </div>
+                );
+              },
             },
             {
               title: t('columns.port'),
-              width: 200,
+              dataIndex: 'port',
+              render: (value) => {
+                return (
+                  <div className="text-xs text-black/50">
+                    <div>
+                      HTTP/S:{' '}
+                      <span className="font-medium text-black">{value}</span>
+                    </div>
+                    <div>
+                      SOCKS5:{' '}
+                      <span className="font-medium text-black">{value}</span>
+                    </div>
+                  </div>
+                );
+              },
             },
             {
               title: t('columns.username'),
-              width: 200,
+              dataIndex: 'username',
             },
             {
               title: t('columns.password'),
-              width: 200,
-            },
-            {
-              title: t('columns.region'),
-              width: 200,
+              dataIndex: 'password',
             },
             {
               title: t('columns.time-left'),
-              width: 200,
             },
             {
               title: t('columns.expire-time'),
-              width: 200,
+              dataIndex: 'expire_at',
             },
             {
               title: t('columns.status'),
-              width: 200,
+              dataIndex: 'status',
             },
             {
               title: t('columns.remark'),
-              width: 200,
+              dataIndex: 'notes',
             },
             {
-              title: t('columns.operate'),
-              width: 200,
+              title: t('columns.renewal'),
+              width: 160,
+              align: 'center',
+              render: () => {
+                return <Switch />;
+              },
             },
           ]}
           scroll={{

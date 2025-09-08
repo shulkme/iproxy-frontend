@@ -9,13 +9,16 @@ const Statistics: React.FC = () => {
     <Card>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={24} md={12} lg={12} xl={6}>
-          <Statistic title={t('remaining')} value={1234} />
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6}>
-          <Statistic title={t('extractable')} value={1234} />
+          <Statistic title={t('available')} value={1234} />
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={6}>
           <Statistic title={t('expiring')} value={1234} />
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={12} xl={6}>
+          <Statistic title={t('renewal')} value={1234} />
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={12} xl={6}>
+          <Statistic title={t('expired')} value={1234} />
         </Col>
       </Row>
     </Card>

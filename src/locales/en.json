@@ -80,10 +80,33 @@
     },
     "ip": {
       "status": {
-        "active": "Active",
-        "inactive": "Inactive",
+        "available": "Available",
+        "expiring": "Expiring soon",
         "expired": "Expired",
-        "deleted": "Deleted"
+        "auto_renew": "Auto renewal"
+      }
+    },
+    "proxy": {
+      "status": {
+        "isp": "Static ISP Proxies",
+        "idc": "Datacenter Proxies",
+        "residential": "Residential Proxies",
+        "mobile": "Mobile Proxies"
+      }
+    },
+    "checkout": {
+      "payment": {
+        "credit": "Credit Card",
+        "crypto": "Crypto Currency",
+        "local": "Local payments"
+      },
+      "status": {
+        "success": "Success",
+        "fail": "Failed",
+        "pending": "Pending",
+        "cancelled": "Cancelled",
+        "expired": "Expired",
+        "refunded": "Refunded"
       }
     }
   },
@@ -362,9 +385,10 @@
         "ip-list": {
           "banner": "In order not to affect your use, please renew before the IP expires, cannot renew after expiration. You can also top up your wallet for auto-renewal. <link>Learn more</link>",
           "statistics": {
-            "remaining": "Remaining IPs",
-            "extractable": "Extractable IPs",
-            "expiring": "Expiring Soon"
+            "available": "Available",
+            "renewal": "Auto renewal",
+            "expired": "Expired",
+            "expiring": "Expiring soon"
           },
           "table": {
             "filters": {
@@ -389,7 +413,8 @@
               "expire-time": "Expire Time",
               "status": "Status",
               "remark": "Remark",
-              "operate": "Operate"
+              "operate": "Operate",
+              "renewal": "Auto renewal"
             }
           }
         }
@@ -468,9 +493,10 @@
         "ip-list": {
           "banner": "In order not to affect your use, please renew before the IP expires, cannot renew after expiration. You can also top up your wallet for auto-renewal. <link>Learn more</link>",
           "statistics": {
-            "remaining": "Remaining IPs",
-            "extractable": "Extractable IPs",
-            "expiring": "Expiring Soon"
+            "available": "Available",
+            "renewal": "Auto renewal",
+            "expired": "Expired",
+            "expiring": "Expiring soon"
           },
           "table": {
             "filters": {
@@ -495,7 +521,8 @@
               "expire-time": "Expire Time",
               "status": "Status",
               "remark": "Remark",
-              "operate": "Operate"
+              "operate": "Operate",
+              "renewal": "Auto renewal"
             }
           }
         }
@@ -974,11 +1001,6 @@
           },
           "payment": {
             "title": "Payment Method",
-            "methods": {
-              "credit": "Credit Card",
-              "crypto": "Crypto Currency",
-              "local": "Local payments"
-            },
             "total": "Total:",
             "submit": "Continue to Pay"
           }

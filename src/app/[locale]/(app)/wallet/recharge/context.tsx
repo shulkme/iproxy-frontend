@@ -1,4 +1,5 @@
 'use client';
+import { PAYMENT_METHOD_ENUM } from '@/apis/checkout/enums';
 import { useCredit } from '@/providers/credit';
 import { App } from 'antd';
 import React, { createContext, useContext, useEffect, useState } from 'react';
@@ -6,15 +7,17 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const RechargeContext = createContext<{
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
-  payment: string;
-  setPayment: (payment: string) => void;
+  payment: PAYMENT_METHOD_ENUM;
+  setPayment: (payment: PAYMENT_METHOD_ENUM) => void;
 } | null>(null);
 
 const RechargeProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const [amount, setAmount] = useState(10);
-  const [payment, setPayment] = useState('credit');
+  const [payment, setPayment] = useState<PAYMENT_METHOD_ENUM>(
+    PAYMENT_METHOD_ENUM.CREDIT,
+  );
   const { message } = App.useApp();
   const { refresh } = useCredit();
 

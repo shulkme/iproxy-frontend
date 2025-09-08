@@ -80,10 +80,33 @@
     },
     "ip": {
       "status": {
-        "active": "活跃",
-        "inactive": "不活跃",
+        "available": "可用的",
+        "expiring": "即将过期",
         "expired": "已过期",
-        "deleted": "已删除"
+        "auto_renew": "自动续费"
+      }
+    },
+    "proxy": {
+      "status": {
+        "isp": "静态住宅代理",
+        "idc": "数据中心代理",
+        "residential": "动态住宅代理",
+        "mobile": "移动代理"
+      }
+    },
+    "checkout": {
+      "payment": {
+        "credit": "信用卡",
+        "crypto": "加密货币",
+        "local": "本地支付"
+      },
+      "status": {
+        "success": "成功",
+        "fail": "失败",
+        "pending": "待处理",
+        "cancelled": "已取消",
+        "expired": "已过期",
+        "refunded": "已退款"
       }
     }
   },
@@ -362,8 +385,9 @@
         "ip-list": {
           "banner": "为不影响您的使用，请在IP到期前续费，到期后无法续费。您也可以通过钱包充值进行自动续费。<link>了解更多</link>",
           "statistics": {
-            "remaining": "剩余IP",
-            "extractable": "可提取IP",
+            "available": "可用的",
+            "renewal": "自动续费",
+            "expired": "已过期",
             "expiring": "即将过期"
           },
           "table": {
@@ -389,7 +413,8 @@
               "expire-time": "到期时间",
               "status": "状态",
               "remark": "备注",
-              "operate": "操作"
+              "operate": "操作",
+              "renewal": "自动续费"
             }
           }
         }
@@ -468,8 +493,9 @@
         "ip-list": {
           "banner": "为不影响您的使用，请在IP到期前续费，到期后无法续费。您也可以通过钱包充值进行自动续费。<link>了解更多</link>",
           "statistics": {
-            "remaining": "剩余IP",
-            "extractable": "可提取IP",
+            "available": "可用的",
+            "renewal": "自动续费",
+            "expired": "已过期",
             "expiring": "即将过期"
           },
           "table": {
@@ -495,7 +521,8 @@
               "expire-time": "到期时间",
               "status": "状态",
               "remark": "备注",
-              "operate": "操作"
+              "operate": "操作",
+              "renewal": "自动续费"
             }
           }
         }
@@ -974,11 +1001,6 @@
           },
           "payment": {
             "title": "支付方式",
-            "methods": {
-              "credit": "信用卡",
-              "crypto": "加密货币",
-              "local": "本地支付"
-            },
             "total": "总计：",
             "submit": "立即支付"
           }

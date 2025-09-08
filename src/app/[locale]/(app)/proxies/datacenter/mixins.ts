@@ -3,20 +3,20 @@ import { PROXY_STATUS_ENUM } from '@/apis/proxy/enums';
 
 export const statusDirt = [
   {
-    locale: 'active',
-    value: PROXY_STATUS_ENUM.ACTIVE,
+    locale: 'available',
+    value: PROXY_STATUS_ENUM.AVAILABLE,
   },
   {
-    locale: 'inactive',
-    value: PROXY_STATUS_ENUM.INACTIVE,
+    locale: 'expiring',
+    value: PROXY_STATUS_ENUM.EXPIRING,
+  },
+  {
+    locale: 'auto_renew',
+    value: PROXY_STATUS_ENUM.AUTO_RENEW,
   },
   {
     locale: 'expired',
     value: PROXY_STATUS_ENUM.EXPIRED,
-  },
-  {
-    locale: 'deleted',
-    value: PROXY_STATUS_ENUM.DELETED,
   },
 ] as const;
 

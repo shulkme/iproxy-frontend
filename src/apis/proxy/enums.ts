@@ -1,15 +1,6 @@
 export enum PROXY_STATUS_ENUM {
-  ACTIVE = 'active',
-  INACTIVE = 'inactive',
+  AVAILABLE = 'available',
+  EXPIRING = 'expiring_soon',
   EXPIRED = 'expired',
-  DELETED = 'deleted',
-}
-
-export enum PROXY_ORDER_STATUS_ENUM {
-  SUCCESS = 'success',
-  FAILED = 'fail',
-  PENDING = 'pending',
-  CANCELLED = 'cancelled',
-  EXPIRED = 'expired',
-  REFUNDED = 'refunded',
+  AUTO_RENEW = 'auto_renew',
 }

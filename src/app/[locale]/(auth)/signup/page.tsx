@@ -24,6 +24,7 @@ export default function Page() {
   const [showResult, setShowResult] = useState(false);
   const [email, setEmail] = useState<string>();
   const searchParams = useSearchParams();
+  const invitationCode = searchParams.get('inviteCode');
 
   const { run: getGoogleAuth, loading: googleLoading } = useRequest(
     async () => {
@@ -164,11 +165,12 @@ export default function Page() {
               />
             </AntdFormItem>
             <AntdFormItem
-              name="code"
+              name="invitation_code"
               messageVariables={{
                 label: t('form.referral.label'),
               }}
               label={t('form.referral.label')}
+              initialValue={invitationCode}
             >
               <AntdInput
                 size="large"
@@ -213,11 +215,7 @@ export default function Page() {
             <AntdFormItem>
               <div className="text-center">
                 {t.rich('login', {
-                  link: (chunks) => (
-                    <>
-                      <Link href="/login">{chunks}</Link>
-                    </>
-                  ),
+                  link: (chunks) => <Link href="/login">{chunks}</Link>,
                 })}
               </div>
             </AntdFormItem>
