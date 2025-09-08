@@ -44,8 +44,8 @@ const Inner = () => {
         <div className="h-full flex flex-col">
           <div className="flex-none w-full h-16 flex items-center px-6">
             <Link className="flex gap-3 items-center" href="/dashboard">
-              <Logo width={24} height={24} />
-              <h1 className="text-xl font-bold text-white">
+              <Logo width={32} height={32} />
+              <h1 className="text-xl font-bold text-white leading-none">
                 {process.env.NEXT_PUBLIC_APP_NAME}
               </h1>
             </Link>
