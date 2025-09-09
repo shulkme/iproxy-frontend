@@ -1,9 +1,11 @@
+import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
 import {
   ProxyOrderData,
   ProxyOrderParams,
   ProxyOrderRecord,
   ProxyParams,
   ProxyRecord,
+  ProxyStatistics,
 } from '@/apis/proxy/types';
 import request from '@/apis/request';
 import { HttpResponse, PageResult } from '@/apis/types';
@@ -49,5 +51,19 @@ export async function getProxyOrderList(
 ): Promise<HttpResponse<PageResult<ProxyOrderRecord>>> {
   return await request.get('/sys/proxy/order', {
     params,
+  });
+}
+
+/**
+ * 获取代理统计信息
+ * @param package_type
+ */
+export async function getProxyStatistics(
+  package_type: PACKAGE_TYPE_ENUM,
+): Promise<HttpResponse<ProxyStatistics>> {
+  return await request.get('/sys/proxy/statistics', {
+    params: {
+      package_type,
+    },
   });
 }

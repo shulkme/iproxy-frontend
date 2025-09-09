@@ -1,5 +1,10 @@
+import { redirect } from '@/i18n/navigation';
+import { getLocale } from 'next-intl/server';
+
 export default async function Home() {
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-8"></div>
-  );
+  const locale = await getLocale();
+  redirect({
+    href: '/dashboard',
+    locale,
+  });
 }

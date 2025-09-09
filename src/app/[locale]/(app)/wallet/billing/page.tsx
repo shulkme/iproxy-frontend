@@ -7,7 +7,7 @@ import {
   orderStatusDirt,
   paymentMethodDirt,
   proxyTypeDirt,
-} from '@/app/[locale]/(app)/wallet/billing/mixins';
+} from '@/app/[locale]/(app)/wallet/mixins';
 import {
   AntdDateRangePicker,
   AntdForm,

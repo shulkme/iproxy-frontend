@@ -63,3 +63,12 @@ export interface ProxyOrderParams {
   page?: number;
   size?: number;
 }
+
+export interface ProxyStatistics {
+  package_type: PACKAGE_TYPE_ENUM;
+  available: number;
+  expiring_soon: number;
+  auto_renew: number;
+  expired: number;
+  total: number;
+}

@@ -1,6 +1,12 @@
 'use client';
+import { PACKAGE_TYPE_ENUM } from '@/apis/packages/enums';
+import { getProxyStatistics } from '@/apis/proxy';
 import { useDashboard } from '@/app/[locale]/(app)/dashboard/context';
-import { AntdParagraph, AntdTitle } from '@/components/antd';
+import {
+  AntdParagraph,
+  AntdSkeletonButton,
+  AntdTitle,
+} from '@/components/antd';
 import { Link } from '@/i18n/navigation';
 import {
   RiArrowRightUpLine,
@@ -12,12 +18,19 @@ import {
   RiShieldCheckLine,
   RiShoppingCart2Line,
 } from '@remixicon/react';
+import { useRequest } from 'ahooks';
 import { Avatar, Button, Card, Col, Divider, Row } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const IspPane = () => {
   const t = useTranslations('app.pages.dashboard.statistic.isp');
+  const { data, loading } = useRequest(async () => {
+    return await getProxyStatistics(PACKAGE_TYPE_ENUM.ISP).then(
+      (res) => res.data,
+    );
+  });
+
   return (
     <Card>
       <Row gutter={[32, 32]}>
@@ -38,7 +51,13 @@ const IspPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.available')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.available || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
               <Col sm={6}>
@@ -49,7 +68,13 @@ const IspPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.expiring')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.expiring_soon || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
               <Col sm={6}>
@@ -60,7 +85,13 @@ const IspPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.renewal')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.auto_renew || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
               <Col sm={6}>
@@ -71,7 +102,13 @@ const IspPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.expired')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.expired || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
             </Row>
@@ -156,6 +193,11 @@ const IspPane = () => {
 
 const DatacenterPane = () => {
   const t = useTranslations('app.pages.dashboard.statistic.datacenter');
+  const { data, loading } = useRequest(async () => {
+    return await getProxyStatistics(PACKAGE_TYPE_ENUM.IDC).then(
+      (res) => res.data,
+    );
+  });
   return (
     <Card>
       <Row gutter={[32, 32]}>
@@ -176,7 +218,13 @@ const DatacenterPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.available')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.available || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
               <Col sm={6}>
@@ -187,7 +235,13 @@ const DatacenterPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.expiring')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.expiring_soon || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
               <Col sm={6}>
@@ -198,7 +252,13 @@ const DatacenterPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.renewal')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.auto_renew || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
               <Col sm={6}>
@@ -209,7 +269,13 @@ const DatacenterPane = () => {
                   <h3 className="font-medium text-black/65">
                     {t('statistics.expired')}
                   </h3>
-                  <div className="text-2xl font-bold">0 IPs</div>
+                  {loading ? (
+                    <AntdSkeletonButton active size="small" />
+                  ) : (
+                    <div className="text-2xl font-bold">
+                      {data?.expired || 0} IPs
+                    </div>
+                  )}
                 </div>
               </Col>
             </Row>
