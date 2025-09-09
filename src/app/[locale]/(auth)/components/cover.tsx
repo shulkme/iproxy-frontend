@@ -18,7 +18,7 @@ const Cover: React.FC = () => {
             href="/"
           >
             <span className="text-(--ant-color-primary)">
-              <Logo width={20} height={20} />
+              <Logo width={24} height={24} />
             </span>
             <span>{process.env.NEXT_PUBLIC_APP_NAME}</span>
           </Link>
