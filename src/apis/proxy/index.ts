@@ -36,10 +36,22 @@ export async function createProxyOrder(data: ProxyOrderData) {
  * @param data
  */
 export async function updateProxyNotes(
-  pk: string,
+  pk: string | number,
   data: Pick<ProxyRecord, 'notes'>,
 ) {
   return await request.put(`/sys/proxy/${pk}/notes`, data);
+}
+
+/**
+ * 设置代理自动续费状态
+ * @param pks
+ * @param auto_renew
+ */
+export async function setProxyAutoRenew(pks: number[], auto_renew: boolean) {
+  return await request.put('/sys/proxy/auto-renew', {
+    pks,
+    auto_renew,
+  });
 }
 
 /**

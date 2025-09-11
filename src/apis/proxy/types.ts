@@ -20,6 +20,7 @@ export interface ProxyRecord {
   region: string;
   created_time: string;
   updated_time: string;
+  auto_renew: boolean;
 }
 
 export interface ProxyParams {

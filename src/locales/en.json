@@ -114,6 +114,10 @@
         "expired": "Expired",
         "refunded": "Refunded"
       }
+    },
+    "response": {
+      "success": "Success",
+      "error": "Error"
     }
   },
   "app": {
@@ -422,6 +426,15 @@
               "operate": "Operate",
               "renewal": "Auto renewal"
             }
+          },
+          "note": {
+            "title": "Note",
+            "form": {
+              "note": {
+                "label": "Note",
+                "placeholder": "Enter your note"
+              }
+            }
           }
         }
       },
@@ -529,6 +542,15 @@
               "remark": "Remark",
               "operate": "Operate",
               "renewal": "Auto renewal"
+            }
+          },
+          "note": {
+            "title": "Note",
+            "form": {
+              "note": {
+                "label": "Note",
+                "placeholder": "Enter your note"
+              }
             }
           }
         }

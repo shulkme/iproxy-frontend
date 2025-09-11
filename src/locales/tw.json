@@ -114,6 +114,10 @@
         "expired": "已過期",
         "refunded": "已退款"
       }
+    },
+    "response": {
+      "success": "成功",
+      "error": "失敗"
     }
   },
   "app": {
@@ -422,6 +426,15 @@
               "operate": "操作",
               "renewal": "自動續費"
             }
+          },
+          "note": {
+            "title": "備註",
+            "form": {
+              "note": {
+                "label": "備註",
+                "placeholder": "輸入您的備註"
+              }
+            }
           }
         }
       },
@@ -529,6 +542,15 @@
               "remark": "備註",
               "operate": "操作",
               "renewal": "自動續費"
+            }
+          },
+          "note": {
+            "title": "備註",
+            "form": {
+              "note": {
+                "label": "備註",
+                "placeholder": "輸入您的備註"
+              }
             }
           }
         }
