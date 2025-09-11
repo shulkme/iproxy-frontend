@@ -1,7 +1,8 @@
 export enum PAYMENT_METHOD_ENUM {
-  CREDIT = 'credit',
-  CRYPTO = 'crypto',
+  CREDIT = 'credit_card',
+  CRYPTO = 'crypto_currency',
   LOCAL = 'local',
+  BALANCE = 'balance',
 }
 
 export enum ORDER_STATUS_ENUM {

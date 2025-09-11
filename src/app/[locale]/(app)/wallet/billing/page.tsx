@@ -74,6 +74,34 @@ export default function Page() {
     [orderStatusOptions],
   );
 
+  const orderPlanLabelFilter = useCallback(
+    (meta: ProxyOrderRecord['summary_meta']) => {
+      switch (meta.type) {
+        case PACKAGE_TYPE_ENUM.ISP:
+        case PACKAGE_TYPE_ENUM.IDC:
+          return [
+            g('unit.ip', {
+              number: meta.value,
+            }),
+            g('unit.day', {
+              number: meta.duration,
+            }),
+          ].join(' / ');
+        case PACKAGE_TYPE_ENUM.RESIDENTIAL:
+        case PACKAGE_TYPE_ENUM.MOBILE:
+          return [
+            g('unit.gb', {
+              number: meta.value,
+            }),
+            g('unit.day', {
+              number: meta.duration,
+            }),
+          ].join(' / ');
+      }
+    },
+    [g],
+  );
+
   const { tableProps, search } = useAntdTable(
     async ({ current, pageSize }, params) => {
       const { dataRange, ...rest } = params;
@@ -174,6 +202,10 @@ export default function Page() {
             },
             {
               title: t('table.columns.plan'),
+              dataIndex: 'summary_meta',
+              render: (value) => {
+                return orderPlanLabelFilter(value);
+              },
             },
             {
               title: t('table.columns.status'),

@@ -1,5 +1,10 @@
 {
   "global": {
+    "unit": {
+      "ip": "{number, plural, =0 {0 IP} =1 {1 IP} other {# IPs}}",
+      "day": "{number} 天",
+      "gb": "{number} GB"
+    },
     "country": {
       "AF": "阿富汗",
       "AR": "阿根廷",
@@ -98,7 +103,8 @@
       "payment": {
         "credit": "信用卡",
         "crypto": "加密貨幣",
-        "local": "本地支付"
+        "local": "本地支付",
+        "balance": "餘額"
       },
       "status": {
         "success": "成功",

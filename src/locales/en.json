@@ -1,5 +1,10 @@
 {
   "global": {
+    "unit": {
+      "ip": "{number, plural, =0 {0 IP} =1 {1 IP} other {# IPs}}",
+      "day": "{number, plural, =0 {0 IP} =1 {1 Day} other {# Days}}",
+      "gb": "{number} GB"
+    },
     "country": {
       "AF": "Afghanistan",
       "AR": "Argentina",
@@ -98,7 +103,8 @@
       "payment": {
         "credit": "Credit Card",
         "crypto": "Crypto Currency",
-        "local": "Local payments"
+        "local": "Local payments",
+        "balance": "Balance"
       },
       "status": {
         "success": "Success",

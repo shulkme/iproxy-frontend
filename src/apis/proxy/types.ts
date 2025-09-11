@@ -7,7 +7,8 @@ export interface ProxyRecord {
   order_id: string;
   package_type: PACKAGE_TYPE_ENUM;
   ip: string;
-  port: number;
+  port_http: number;
+  port_socks: number;
   username: string;
   password: string;
   country: string;
@@ -44,7 +45,7 @@ export interface ProxyOrderData {
 export interface ProxyOrderRecord {
   id: number;
   user_id: number;
-  package_id: number;
+  package_ids: number[];
   package_type: PACKAGE_TYPE_ENUM;
   payment_usd: number;
   payment_method: PAYMENT_METHOD_ENUM;
@@ -54,6 +55,13 @@ export interface ProxyOrderRecord {
   status: ORDER_STATUS_ENUM;
   created_time: string;
   updated_time: string;
+  summary: string;
+  summary_meta: {
+    duration: number;
+    mode: string;
+    type: PACKAGE_TYPE_ENUM;
+    value: number;
+  };
 }
 
 export interface ProxyOrderParams {

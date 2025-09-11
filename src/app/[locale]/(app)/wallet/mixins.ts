@@ -33,6 +33,10 @@ export const paymentMethodDirt = [
     locale: 'local',
     value: PAYMENT_METHOD_ENUM.LOCAL,
   },
+  {
+    locale: 'balance',
+    value: PAYMENT_METHOD_ENUM.BALANCE,
+  },
 ] as const;
 
 export const orderStatusDirt = [
