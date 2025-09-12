@@ -17,7 +17,9 @@ export default function Page() {
             <p className="text-black/50">{t('hero.desc')}</p>
             <p className="text-black/50">
               <span>{t('hero.contact')}</span>
-              <a>support@xxx.com</a>
+              <a href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>
+                {process.env.NEXT_PUBLIC_SUPPORT_EMAIL}
+              </a>
             </p>
           </div>
         </div>
@@ -27,52 +29,34 @@ export default function Page() {
           </AntdTitle>
           <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,_1fr))]">
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
+              title="AdsPower"
+              link="https://www.adspower.net/share/IuA8f4"
+              guide="https://help.adspower.net/"
+              cover={'/images/partner_adspower.png'}
             />
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/Genlogin-1.png'
-              }
+              title="BitBrowser"
+              link="https://www.bitbrowser.net/"
+              guide="https://doc.bitbrowser.net/"
+              cover={'/images/partner_bitbrowser.png'}
             />
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/DICloak.png'
-              }
+              title="DICloak"
+              link="https://dicloak.com/download?rc=n3j4Ch99"
+              guide="https://help.dicloak.com/zh/"
+              cover={'/images/partner_dicloak.png'}
             />
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/EasyBr.png'
-              }
+              title="IxBrowser"
+              link="https://www.ixbrowser.com/code/YJ4Y"
+              guide="https://ixbrowser.com/guide?id=32"
+              cover={'/images/partner_ixbrowser.png'}
             />
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/ClonBrowser.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/BitBrowser.png'
-              }
+              title="Vision"
+              link="https://browser.vision/r/94ff9533-62c1-4cb9-998e-0af6dbc81df6"
+              guide="https://docs.browser.vision/"
+              cover={'/images/partner_vision.png'}
             />
           </div>
         </div>
@@ -82,169 +66,25 @@ export default function Page() {
           </AntdTitle>
           <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,_1fr))]">
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
+              title="DuoPlus"
+              link="https://www.duoplus.cn/share/85gBe7"
+              guide="https://help.duoplus.net/"
+              cover={'/images/partner_duoplus.png'}
             />
             <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-          </div>
-        </div>
-        <div>
-          <AntdTitle level={4} className="mb-4">
-            {t('groups.automation')}
-          </AntdTitle>
-          <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,_1fr))]">
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-          </div>
-        </div>
-        <div>
-          <AntdTitle level={4} className="mb-4">
-            {t('groups.other')}
-          </AntdTitle>
-          <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,_1fr))]">
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
-            />
-            <ListCard
-              title=""
-              link=""
-              guide=""
-              cover={
-                'https://wordpress.thordata.com/wp-content/uploads/2025/07/AdsPower.png'
-              }
+              title="MoreLogin"
+              link="https://www.morelogin.com/?from=AArDlOoIIeZF"
+              guide="https://support.morelogin.com/"
+              cover={'/images/partner_morelogin.png'}
             />
           </div>
         </div>
         <div>
           <div className="text-center py-4 text-black/50">
             <span>{t('hero.contact')}</span>
-            <a>support@xxx.com</a>
+            <a href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>
+              {process.env.NEXT_PUBLIC_SUPPORT_EMAIL}
+            </a>
           </div>
         </div>
       </div>

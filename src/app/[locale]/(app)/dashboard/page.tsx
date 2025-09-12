@@ -3,6 +3,7 @@ import Contact from '@/app/[locale]/(app)/dashboard/components/contact';
 import Referral from '@/app/[locale]/(app)/dashboard/components/referral';
 import Statistic from '@/app/[locale]/(app)/dashboard/components/statistic';
 import Tabs from '@/app/[locale]/(app)/dashboard/components/tabs';
+import Tips from '@/app/[locale]/(app)/dashboard/components/tips';
 import Traffic from '@/app/[locale]/(app)/dashboard/components/traffic';
 import Wallet from '@/app/[locale]/(app)/dashboard/components/wallet';
 import { DashboardProvider } from '@/app/[locale]/(app)/dashboard/context';
@@ -15,6 +16,7 @@ export default function Page() {
   return (
     <DashboardProvider>
       <Title title={t('title')} />
+      <Tips />
       <div className="max-w-[1600px] mx-auto p-4 lg:p-8">
         <Row gutter={[24, 24]}>
           <Col xs={24} sm={24} md={24} lg={24} xl={16} xxl={18}>

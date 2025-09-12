@@ -9,7 +9,7 @@ const ListCard: React.FC<{
   title: string;
   guide: string;
   link: string;
-}> = ({ cover }) => {
+}> = ({ cover, link, title, guide }) => {
   const t = useTranslations('app.pages.partners.actions');
   return (
     <ConfigProvider
@@ -29,18 +29,29 @@ const ListCard: React.FC<{
         classNames={{
           cover: 'p-[1px]',
         }}
-        cover={<img alt="" src={cover} />}
+        cover={<img alt={title} src={cover} />}
         actions={[
           <Button
+            className="flex items-center text-inherit"
+            target="_blank"
+            href={link}
+            icon={<RiGlobalLine size={14} />}
+            type="text"
+            block
+            key="web"
+          >
+            {t('view')}
+          </Button>,
+          <Button
+            className="flex items-center text-inherit"
+            target="_blank"
+            href={guide}
             icon={<RiBookOpenLine size={14} />}
             type="text"
             block
             key="docs"
           >
             {t('guide')}
-          </Button>,
-          <Button icon={<RiGlobalLine size={14} />} type="text" block key="web">
-            {t('view')}
           </Button>,
         ]}
       ></Card>

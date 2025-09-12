@@ -192,10 +192,24 @@ export default function Page() {
                 <div className="space-x-2">
                   {t.rich('form.agree.label', {
                     term: (chunks) => {
-                      return <Link href={'#'}>{chunks}</Link>;
+                      return (
+                        <Link
+                          target="_blank"
+                          href="https://doc.v2proxy.com/policy/service-agreement"
+                        >
+                          {chunks}
+                        </Link>
+                      );
                     },
                     policy: (chunks) => {
-                      return <Link href={'#'}>{chunks}</Link>;
+                      return (
+                        <Link
+                          target="_blank"
+                          href="https://doc.v2proxy.com/policy/privacy-policy"
+                        >
+                          {chunks}
+                        </Link>
+                      );
                     },
                   })}
                 </div>
