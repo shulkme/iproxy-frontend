@@ -10,13 +10,15 @@ const config: ThemeConfig = {
     controlHeightSM: 32,
     controlHeight: 40,
     controlHeightLG: 48,
-    borderRadiusXS: 4,
-    borderRadiusSM: 4,
-    borderRadius: 4,
-    borderRadiusLG: 4,
-    colorPrimary: '#0062ff',
+    borderRadiusXS: 2,
+    borderRadiusSM: 2,
+    borderRadius: 2,
+    borderRadiusLG: 2,
+    colorPrimary: '#1062ff',
+    colorLink: '#1062ff',
     colorBorderSecondary: '#e2e8f0',
     colorBorder: '#e2e8f0',
+    colorBgLayout: '#f5f5f7',
   },
   components: {
     Layout: {
@@ -50,6 +52,9 @@ const config: ThemeConfig = {
     },
     Segmented: {
       trackPadding: 4,
+    },
+    Card: {
+      colorBorderSecondary: 'transparent',
     },
   },
 };
