@@ -10,11 +10,11 @@ const Cover: React.FC = () => {
   const t = useTranslations('auth.global');
   return (
     <>
-      <Image fill src="/images/sso.jpg" alt="" className="object-cover" />
-      <div className="relative flex flex-col z-10 p-10 h-full">
+      <Image fill src="/images/sso.png" alt="" className="object-cover" />
+      <div className="relative flex flex-col z-10 p-10 h-full bg-primary-900/70">
         <div className="flex-none">
           <Link
-            className="inline-flex items-center gap-2 text-xl font-bold text-black leading-none"
+            className="inline-flex items-center gap-2 text-xl font-bold text-white leading-none"
             href="/"
           >
             <span className="text-(--ant-color-primary)">
@@ -23,7 +23,7 @@ const Cover: React.FC = () => {
             <span>{process.env.NEXT_PUBLIC_APP_NAME}</span>
           </Link>
         </div>
-        <div className="pt-[30%] flex-auto">
+        <div className="pt-[30%] flex-auto text-white/80">
           <h1 className="text-4xl font-medium mb-8 whitespace-pre-line">
             {t('slogan')}
           </h1>
@@ -38,7 +38,7 @@ const Cover: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div className="flex-none">
+        <div className="flex-none text-white/80">
           <p className="">{t('footer')}</p>
         </div>
       </div>
